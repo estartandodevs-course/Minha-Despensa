@@ -1,5 +1,5 @@
 import React from 'react'
-import './card.css'
+import './card.scss'
 
 export function Card(props){
     const titulo = props.title

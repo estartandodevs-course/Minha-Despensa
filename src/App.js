@@ -1,6 +1,7 @@
 import  './App.css';
 import { HomePage } from './pages/home'
-export default props => {
+
+export function App(props){
 
   return (
       <div className="container" >
