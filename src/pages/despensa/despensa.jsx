@@ -4,7 +4,7 @@ export function MinhaDespensa() {
   return(
     <>
     <h1>despensa</h1>
-    <Link to="/">IR PARA</Link>
+    <Link to="/form">IR PARA form</Link>
     </>
   )
 }

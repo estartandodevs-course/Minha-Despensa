@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export function HomePage(){
     return (
         <>
-        <Link to="/despensa">
+        <Link to="/despensavazia">
          <Card  title="Despensa" text="Confira todos os itens disponíveis na sua despensa ou adicione novos!" qnt="Quantidade de itens:" />
         </Link>
            
