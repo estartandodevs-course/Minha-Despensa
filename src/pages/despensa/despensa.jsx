@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 export function MinhaDespensa() {
   return(
     <>
-    <h1>despensa</h1>
-    <Link to="/form">IR PARA form</Link>
+      <div className="container">
+          <div className="mock">
+            <h1>despensa</h1>
+            <Link to="/form">IR PARA form</Link>
+          </div>  
+      </div>    
     </>
   )
 }
