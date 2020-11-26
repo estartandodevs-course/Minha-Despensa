@@ -1,19 +1,25 @@
 import './App.css';
-import {Button} from './components/Button/Button';
 import { HomePage } from './pages/home'
+import { MinhaDespensa } from './pages/despensa/despensa'
 
-export function App(props){
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
+export function App(){
   return (
-    <div className="App">
-      <Button value="Vamos lá!"/>
-    
-      <div className="container" >
-        <div className="mock">
-          <HomePage/>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/despensa">
+          <MinhaDespensa />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
