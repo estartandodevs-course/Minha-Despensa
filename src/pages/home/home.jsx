@@ -2,8 +2,6 @@ import React from 'react'
 import {Card} from '../../components/card/index'
 import { Link } from "react-router-dom";
 
-
-
 export function HomePage(){
     return (
         <>
