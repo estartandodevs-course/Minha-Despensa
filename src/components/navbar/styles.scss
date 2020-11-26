@@ -1,0 +1,16 @@
+.nav {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 360px;
+  height: 60px;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+
+h1 {
+  padding: 15px;
+}
