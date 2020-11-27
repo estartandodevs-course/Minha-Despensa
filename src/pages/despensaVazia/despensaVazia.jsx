@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import { EmptyList } from '../../components/emptyList/emptyList';
+import { EmptyList } from '../../components/emptyList/emptyList.jsx';
 
 
 export function DespensaVazia() {
