@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+$font-button: 'Quicksand', sans-serif;
+
+.container-emptyList {
+  max-width: 360px;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2F2F2;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px -2px 4px #D1AB9D;
+
+  p{
+    margin-bottom: 42px;
+    font-size: 14px;
+    font-family: $font-button;
+    font-weight: 700;
+    color: #A72422;
+  }
+  h2{
+    margin-bottom: 28px;
+    font-size: 18px;
+    font-family: $font-button;
+    font-weight: 700;
+    color: #C48B76;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+.container-imgs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comeBack-img{
+  width: 12px;
+  position: relative;
+  bottom: 100px;
+  right: 50px;
+}
+.imgEmptyList-img{
+  width: 200px;
+  margin-bottom: 30px;
+}

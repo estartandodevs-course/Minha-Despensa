@@ -1,15 +1,20 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom'
+
+import { EmptyList } from '../../components/empty-list/empty-list';
+
 
 export function DespensaVazia() {
   return (
     <>
       <div className="container">
         <div className="mock">
-          <h1>despendaVazia</h1>
+          <EmptyList
+          description="Ops! A sua despensa está vazia."
+          subTitle="Que tal adicionar itens agora?"
+          />
           <Link to="/despensa">
-            <p>ir para despensa</p>
+            
           </Link>
         </div>  
       </div>    
