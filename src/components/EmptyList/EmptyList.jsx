@@ -1,18 +1,21 @@
 import React from 'react';
-import {Button} from '../Button/Button';
-import  ImgEmptyList  from '../../assets/img/ImgEmptyList.svg'
+import { Button } from '../Button/Button';
+import { Link } from 'react-router-dom'
 
-import './EmptyList.scss'
+
+import './emptyList.scss'
 
 export function EmptyList(props) {
-  const { alt, desc, subTitle} = props
+  const { src, alt, desc, subTitle } = props
 
   return (
     <div className="container-emptyList">
-      <img src={ImgEmptyList} alt={alt}/>
+      <img src={src} alt={alt} />
       <p>{desc}</p>
       <h2>{subTitle}</h2>
-      <Button value="Vamos lá!"/>
+      <Link to="/despensa">
+        <Button value="Vamos lá!" />
+      </Link>
     </div>
   )
 }

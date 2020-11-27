@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 $font-button: 'Quicksand', sans-serif;
 
@@ -20,15 +20,17 @@ $font-button: 'Quicksand', sans-serif;
     margin-bottom: 42px;
     font-size: 14px;
     font-family: $font-button;
+    font-weight: 700;
     color: #A72422;
   }
   h2{
     margin-bottom: 28px;
     font-size: 18px;
     font-family: $font-button;
+    font-weight: 700;
     color: #C48B76;
   }
-  button{
-    margin-bottom: 40px;
+  a{
+    text-decoration: none;
   }
 }

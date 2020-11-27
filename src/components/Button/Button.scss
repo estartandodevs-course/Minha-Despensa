@@ -1,16 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
 
 $background-button: #437056;
-$font-button: 'Quicksand', sans-serif;
+$font-button: "Quicksand", sans-serif;
 $radius-button: 10px;
 
-.button {
+.button-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 250px;
   height: 40px;
 
   font-size: 14px;
   font-family: $font-button;
-  color: #F2F2F2;
+  font-weight: 700;
+  color: #f2f2f2;
 
   border: none;
   border-radius: $radius-button;
