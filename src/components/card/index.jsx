@@ -20,7 +20,7 @@ export function Card(props){
             <h1 className="title" >{titulo}</h1>
              <p className="text">{texto}</p>
             <p className="qnt" >{qntde}:</p> 
-            <img className="abso" src={source}/>
+            <img className="abso" src={source} alt="Legumes"/>
         </button>
     </>
     )
