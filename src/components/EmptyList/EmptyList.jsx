@@ -3,16 +3,26 @@ import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom'
 
 
+import ImgEmptyList from '../../assets/icons/ImgEmptyList.svg'
+import ComeBack from '../../assets/icons/comeBack-icon.svg'
+
 import './emptyList.scss'
 
 export function EmptyList(props) {
-  const { src, alt, desc, subTitle } = props
+  const { description, subTitle } = props
 
   return (
     <div className="container-emptyList">
-      <img src={src} alt={alt} />
-      <p>{desc}</p>
+      <div className="container-imgs">
+        <Link to="/">
+          <img className="comeBack-img" src={ComeBack} alt="" />
+        </Link>
+        <img className="imgEmptyList-img" src={ImgEmptyList} alt="" />
+      </div>
+
+      <p>{description}</p>
       <h2>{subTitle}</h2>
+
       <Link to="/despensa">
         <Button value="Vamos lá!" />
       </Link>
