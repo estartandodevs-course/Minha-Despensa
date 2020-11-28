@@ -17,10 +17,10 @@ export function DespensaVazia() {
           <Link to="/despensa">
 
           </Link>
-          
         </div>  
+        <Navbar />
       </div>   
-      <Navbar /> 
+       
     </>
   )
 }

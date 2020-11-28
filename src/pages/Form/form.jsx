@@ -12,8 +12,8 @@ export function FormItens() {
             <p>voltar para home</p>
           </Link>
         </div>
+        <Navbar />
       </div>
-      <Navbar />
     </>
   )
 }
