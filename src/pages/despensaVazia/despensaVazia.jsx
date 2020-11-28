@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router-dom'
 
+import { SearchBar } from '../../components/search-bar/search-bar.jsx'
+
 export function DespensaVazia() {
   return (
     <>
@@ -11,8 +13,14 @@ export function DespensaVazia() {
           <Link to="/despensa">
             <p>ir para despensa</p>
           </Link>
-        </div>  
-      </div>    
+
+          <SearchBar
+            type="text"
+            name="nome"
+            placeholder="O que você procura?"
+          />
+        </div>
+      </div>
     </>
   )
 }
