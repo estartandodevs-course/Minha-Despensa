@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card} from '../../components/card/index'
 import { Link } from "react-router-dom";
+import { Navbar } from '../../components/navbar/navbar';
 
 export function HomePage(){
     return (
@@ -10,6 +11,7 @@ export function HomePage(){
               <Link to="/despensavazia">
                 <Card  title="Despensa" text="Confira todos os itens disponíveis na sua despensa ou adicione novos!" qnt="Quantidade de itens:" />
               </Link>
+              <Navbar />
             </div>
           </div>
         </>
