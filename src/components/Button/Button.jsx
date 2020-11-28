@@ -5,6 +5,6 @@ export function Button(props) {
   const {value, onClick} = props
 
   return (
-  <button className="button" onClick={onClick}>{value}</button>
+  <button className="button-empty" onClick={onClick}>{value}</button>
   )
 }
