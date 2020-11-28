@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import { EmptyList } from '../../components/empty-list/empty-list';
+import { Navbar } from '../../components/navbar/navbar';
 
 
 export function DespensaVazia() {
@@ -14,10 +15,12 @@ export function DespensaVazia() {
           subTitle="Que tal adicionar itens agora?"
           />
           <Link to="/despensa">
-            
+
           </Link>
         </div>  
-      </div>    
+        <Navbar />
+      </div>   
+       
     </>
   )
 }

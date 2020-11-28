@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { Navbar } from '../../components/navbar/navbar';
 
 export function FormItens() {
   return (
@@ -11,6 +12,7 @@ export function FormItens() {
             <p>voltar para home</p>
           </Link>
         </div>
+        <Navbar />
       </div>
     </>
   )

@@ -12,6 +12,7 @@ import {
 
 export function App(){
   return (
+    <>
     <Router>
       <Switch>
         <Route path="/despensavazia">
@@ -28,6 +29,7 @@ export function App(){
         </Route>
       </Switch>
     </Router>
+    </>
   );
 }
 
