@@ -18,9 +18,9 @@ export function HomePage(){
               <Card  title="Lista de Compra" qnt="Quantidade de itens:" src={carrinho} color="rgba(209, 203, 189, 0.85" >
                   Lembre-se de atualizar sua lista antes de fazer as compras!
                 </Card>
+                <Navbar />
             </div>
           </div>
-          <Navbar />
         </>
     )
 }
