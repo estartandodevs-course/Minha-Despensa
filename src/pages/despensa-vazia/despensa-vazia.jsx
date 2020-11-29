@@ -15,7 +15,6 @@ export function DespensaVazia() {
           subTitle="Que tal adicionar itens agora?"
           />
           <Link to="/despensa">
-
           </Link>
         </div>  
         <Navbar />
