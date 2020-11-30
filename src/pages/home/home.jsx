@@ -1,15 +1,20 @@
 import React from 'react'
-import {Card} from '../../components/card/index'
 import { Link } from "react-router-dom";
+import {Card} from '../../components/card/index'
 import { Navbar } from '../../components/navbar/navbar';
+
 import despensa from '../../assets/img/img-legumes.svg'
 import carrinho from '../../assets/img/img-carrinho.svg'
+import { Logo } from '../../components/header/logo/logo';
 
 export function HomePage(){    
     return (
         <>
           <div className="container">
             <div className="mock">
+            <div className="container-header">
+              <Logo/>
+            </div>
               <Link to="/despensavazia">
                 <Card  title="Despensa" qnt="Quantidade de itens:" src={despensa} color="rgba(131, 163, 144, 0.85)">
                   Confira todos os itens disponíveis na sua despensa ou adicione novos!
