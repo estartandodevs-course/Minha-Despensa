@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '../button/Button';
 import { Link } from 'react-router-dom'
 
 
@@ -7,6 +6,7 @@ import ImgEmptyList from '../../assets/icons/ImgEmptyList.svg'
 import ComeBack from '../../assets/icons/comeBack-icon.svg'
 
 import './empty-list.scss'
+import { Button } from '../button/Button.jsx';
 
 export function EmptyList(props) {
   const { description, subTitle } = props
