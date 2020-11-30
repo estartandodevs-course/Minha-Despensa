@@ -4,13 +4,15 @@ import { Item } from '../../components/item/item';
 import { Navbar } from '../../components/navbar/navbar';
 
 export function MinhaDespensa() {
+  const itens=[{src: "https://www.clubeextra.com.br/img/uploads/1/246/596246.png", alt: "arroz", name: "Arroz", qnt:2, stateItem: "Aberto", date:"30/11/2020"},{src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png", alt: "feijão", name: "Feijão", qnt:5, stateItem: "Fechado", date:"30/11/2021"}]
+    
   return(
     <>
       <div className="container">
           <div className="mock">
             <h1>despensa</h1>
-            <Item src={"https://a-static.mlcdn.com.br/1500x1500/feijao-vermelho-meu-biju-500g/armazemtiojoao/5919/2d6872586f368875657814edc53d2c65.jpg"} alt={"feijão"} name={"Feijão"} qnt={2} stateItem={"fechado"} date={"22/02/2020"}/>
-            <Item src={"https://a-static.mlcdn.com.br/1500x1500/feijao-vermelho-meu-biju-500g/armazemtiojoao/5919/2d6872586f368875657814edc53d2c65.jpg"} alt={"feijão"} name={"Feijão"} qnt={2} stateItem={"fechado"} date={"22/02/2020"}/>
+            {itens.map((item)=>{
+            return <Item src={item.src} alt={item.alt} name={item.name} qnt={item.qnt} stateItem={item.stateItem} date={item.date}/>})}
             <Navbar />
           </div>  
           

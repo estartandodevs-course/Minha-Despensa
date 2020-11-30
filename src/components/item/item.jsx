@@ -5,7 +5,7 @@ import greenMarket from "../../assets/icons/green-market.svg"
 import"./item.scss"
 export function Item(props) {
     const {src, alt, name, qnt, stateItem, date} = props
-
+    
     return(
         <div className="card-item-container">
             <div class="image-container">
