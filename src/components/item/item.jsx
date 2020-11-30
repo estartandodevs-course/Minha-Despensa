@@ -17,11 +17,11 @@ export function Item(props) {
             <div className="item-section">
                 <h1 className="item-name">{name}</h1>
                 <div className="flag-text">
-                <Icon src={greenFlag}/>
+                <Icon className="icon" src={greenFlag}/>
                 <p className="text-item">{stateItem}</p>
                 </div>
                 <div className="flag-text">
-                <Icon src={calendarIcon}/>
+                <Icon className="icon" src={calendarIcon}/>
                 <p className="text-item">{date}</p>
                 <Icon src={greenMarket}/>
                 </div>
