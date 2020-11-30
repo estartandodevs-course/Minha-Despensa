@@ -15,7 +15,7 @@ export function EmptyList(props) {
     <div className="container-emptyList">
       <div className="container-imgs">
         <Link to="/">
-          <img className="comeBack-img" src={ComeBack} alt="" />
+          <img className="comeBack-img" src={ComeBack} alt="seta" />
         </Link>
         <img className="imgEmptyList-img" src={ImgEmptyList} alt="" />
       </div>
