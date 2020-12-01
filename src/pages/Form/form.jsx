@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { Navbar } from '../../components/navbar/navbar';
+import { Header } from '../../components/header/header'
+import { Navbar } from '../../components/navbar/navbar'
 
 export function FormItens() {
   return (
     <>
-      <h1>FORMULARIO</h1>
+    <Header text="Inserir item na despensa"/> 
       <Link to="/">
         <p>voltar para home</p>
       </Link>
