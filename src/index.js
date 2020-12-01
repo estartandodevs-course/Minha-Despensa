@@ -7,7 +7,11 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div className="container">
+      <div className="mock">
+        <App />
+      </div>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

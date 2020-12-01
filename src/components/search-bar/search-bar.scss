@@ -1,0 +1,36 @@
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c48b76;
+
+  margin-left: 24px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    height: 40px;
+
+    font-size: 14px;
+    color: #d1ab9d;
+
+    padding: 0 40px;
+    margin: 0 16px;
+
+    border-radius: 10px;
+    border: 1px solid #c48b76;
+
+    outline: none;
+  }
+  ::placeholder {
+    color: #d1ab9d;
+  }
+  .search-img {
+    width: 24px;
+    position: absolute;
+    margin-left: 25px;
+  }
+}
