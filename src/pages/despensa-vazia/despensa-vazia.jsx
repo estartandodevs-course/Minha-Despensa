@@ -5,8 +5,7 @@ import { EmptyList } from '../../components/empty-list/empty-list';
 import { SearchBar } from '../../components/search-bar/search-bar'
 import { Navbar } from '../../components/navbar/navbar';
 
-import { Title } from '../../components/header/title/title';
-import { Arrow } from '../../components/header/arrow/arrow';
+
 import { Header } from '../../components/header/header';
 
 
