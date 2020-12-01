@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { itens } from "../../_mocks/mocks.jsx"
 import { Item } from '../../components/item/item';
 import { Navbar } from '../../components/navbar/navbar';
