@@ -1,7 +1,7 @@
 import "./icon-navbar.scss"
 
 export function Icon(props){
-    const {src, onClick, alt} = props
+    const {src, onClick, alt, className} = props
     
-    return <img className="icon" src={src} alt={alt} onClick={onClick}/>
+    return <img className={className} src={src} alt={alt} onClick={onClick}/>
 }
