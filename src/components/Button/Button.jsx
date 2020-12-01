@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.scss'
 
-export function Button(props) {
+export default function Button(props) {
   const {value, onClick} = props
 
   return (
