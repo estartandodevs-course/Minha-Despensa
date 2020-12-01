@@ -5,15 +5,11 @@ import { Navbar } from '../../components/navbar/navbar';
 export function FormItens() {
   return (
     <>
-      <div className="container">
-        <div className="mock">
-          <h1>FORMULARIO</h1>
-          <Link to="/">
-            <p>voltar para home</p>
-          </Link>
-        </div>
-        <Navbar />
-      </div>
+      <h1>FORMULARIO</h1>
+      <Link to="/">
+        <p>voltar para home</p>
+      </Link>
+      <Navbar />
     </>
   )
 }
