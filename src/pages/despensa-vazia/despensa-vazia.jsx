@@ -7,6 +7,7 @@ import { Navbar } from '../../components/navbar/navbar';
 
 import { Title } from '../../components/header/title/title';
 import { Arrow } from '../../components/header/arrow/arrow';
+import { Header } from '../../components/header/header';
 
 
 export function DespensaVazia() {
@@ -15,10 +16,7 @@ export function DespensaVazia() {
       <div className="container">
         <div className="mock">
 
-            <div className="container-header">
-              <Arrow/>
-              <Title text="Despensa"/>
-            </div>
+            <Header text="Despensa"/>
             
             
           <EmptyList
