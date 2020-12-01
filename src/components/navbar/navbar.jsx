@@ -12,16 +12,16 @@ export function Navbar(){
         <>
         <div className="nav">
             <Link to="/">
-                <Icon src={HomeIcon} alt={"iconeHome"}/>    
+                <Icon className="icon" src={HomeIcon} alt={"iconeHome"}/>    
             </Link>
             <Link to="/form">   
-                <Icon src={AddIcon} alt={"iconeAdd"}/> 
+                <Icon className="icon" src={AddIcon} alt={"iconeAdd"}/> 
             </Link>
             <Link to="/despensavazia">   
-                <Icon src={NotificationIcon} alt={"iconeNotification"}/> 
+                <Icon className="icon" src={NotificationIcon} alt={"iconeNotification"}/> 
             </Link>
             <Link to="/">    
-                <Icon src={ProfileIcon} alt={"iconeProfile"}/>
+                <Icon className="icon" src={ProfileIcon} alt={"iconeProfile"}/>
             </Link>
         </div>
         </>
