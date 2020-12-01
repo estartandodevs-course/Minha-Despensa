@@ -20,3 +20,11 @@ export function Header(props) {
     </div>
   )
 }
+
+export function HeaderLogo() {
+  return(
+    <div className="container-header">
+      <Logo/>
+    </div>
+  )
+}
