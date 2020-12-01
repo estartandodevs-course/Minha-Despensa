@@ -13,6 +13,7 @@ import { Header } from '../../components/header/header';
 export function DespensaVazia() {
   return (
     <>
+    <Header text="Despensa"/>
       <SearchBar/>
       <EmptyList
         description="Ops! A sua despensa está vazia."

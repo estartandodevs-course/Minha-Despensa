@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react'
-import React, {useState} from 'react'
+import React from 'react'
 import ImgLogo from '../../../assets/img/img-logo.svg'
+import './logo.scss'
 export function Logo() {
   
     return (
