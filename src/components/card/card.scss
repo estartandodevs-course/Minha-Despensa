@@ -22,8 +22,9 @@ button,
   border-style: none;
 }
 .abso{
-  opacity: 10%;
+  opacity: 15%;
   position: absolute;
+  padding: 0;
 }
 
 .title {
@@ -43,6 +44,7 @@ button,
   line-height: 17px;
 }
 .qnt {
+  box-sizing: border-box;
   margin: 8px 0 24px 20px;
 
   font-style: normal;
@@ -50,7 +52,13 @@ button,
   font-size: 14px;
   line-height: 17px;
 }
+.arrow{
+  position: relative;
+  left: 280px;
+  bottom: 30px;
+
+  padding: 0;
+}
 a{
   text-decoration: none;
-
 }

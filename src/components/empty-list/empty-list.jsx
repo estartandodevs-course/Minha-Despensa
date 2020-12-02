@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button } from '../button/Button';
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button }  from "../Button/Button"
 
 
 import ImgEmptyList from '../../assets/icons/ImgEmptyList.svg'
 import ComeBack from '../../assets/icons/comeBack-icon.svg'
-
 import './empty-list.scss'
+
 
 export function EmptyList(props) {
   const { description, subTitle } = props
@@ -15,7 +15,7 @@ export function EmptyList(props) {
     <div className="container-emptyList">
       <div className="container-imgs">
         <Link to="/">
-          <img className="comeBack-img" src={ComeBack} alt="" />
+          <img className="comeBack-img" src={ComeBack} alt="seta" />
         </Link>
         <img className="imgEmptyList-img" src={ImgEmptyList} alt="" />
       </div>
