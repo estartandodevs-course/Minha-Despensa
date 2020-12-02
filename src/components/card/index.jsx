@@ -2,27 +2,16 @@ import React from 'react'
 
 import './card.scss'
 
-export function Card(props){
-    //const {titulo, children, qntde, source} = props
-
-    const titulo = props.title
-    const texto = props.children
-    const qntde = props.qnt
-    const source = props.src
-    
-    
-
+export function Card(props) {
+    const { title, text, qnt, src, color } = props
     return (
-    <> 
-        {/*<img src={carrinho} />*/}
 
-        <button style={{backgroundColor: props.color}}>
-            <h1 className="title" >{titulo}</h1>
-             <p className="text">{texto}</p>
-            <p className="qnt" >{qntde}:</p> 
-            <img className="abso" src={source} alt="Legumes"/>
-        </button>
-    </>
+        <div className="container-card" style={{ backgroundColor:color }}>
+            <h1>{title}</h1>
+            <p className="text">{text}</p>
+            <p className="qnt" >{qnt}:</p>
+            <img className="abso" src={src} alt="Legumes" />
+        </div>
     )
 }
 
