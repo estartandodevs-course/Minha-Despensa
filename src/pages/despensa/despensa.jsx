@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-export function MinhaDespensa() {
+import { Header } from '../../components/header/header';
+import { itens } from "../../_mocks/mocks.jsx"
+import { Item } from '../../components/item/item';
+import { Navbar } from '../../components/navbar/navbar';
+
+export function MinhaDespensa() {    
   return(
     <>
-      <div className="container">
-          <div className="mock">
-            <h1>despensa</h1>
-            <Link to="/form">IR PARA form</Link>
-          </div>  
-      </div>    
+      <Header text="Despensa"/> 
+      {itens.map((item)=>{
+       return <Item src={item.src} alt={item.alt} name={item.name} qnt={item.qnt} stateItem={item.stateItem} date={item.date}/>})}
+       <Navbar />
     </>
   )
 }

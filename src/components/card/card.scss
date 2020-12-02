@@ -30,6 +30,7 @@
   width: 320px;
   opacity: 10%;
   position: absolute;
+  padding: 0;
 }
 
 .text {
@@ -40,6 +41,7 @@
   line-height: 17px;
 }
 .qnt {
+  box-sizing: border-box;
   margin: 8px 0 24px 20px;
 
   font-style: normal;

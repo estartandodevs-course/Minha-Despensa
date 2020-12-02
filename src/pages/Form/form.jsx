@@ -1,17 +1,16 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { Header } from '../../components/header/header'
+import { Navbar } from '../../components/navbar/navbar'
 
 export function FormItens() {
   return (
     <>
-      <div className="container">
-        <div className="mock">
-          <h1>FORMULARIO</h1>
-          <Link to="/">
-            <p>voltar para home</p>
-          </Link>
-        </div>
-      </div>
+    <Header text="Inserir item na despensa"/> 
+      <Link to="/">
+        <p>voltar para home</p>
+      </Link>
+      <Navbar />
     </>
   )
 }
