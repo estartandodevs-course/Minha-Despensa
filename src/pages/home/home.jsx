@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import { Card } from '../../components/card/index'
+import { Link } from "react-router-dom";
 import { Navbar } from '../../components/navbar/navbar';
 
 
@@ -13,13 +13,24 @@ export function HomePage() {
     <>
       <Header/>
       <Link to="/despensavazia">
-        <Card title="Despensa" qnt="Quantidade de itens:" src={despensa} color="rgba(131, 163, 144)">
-          Confira todos os itens disponíveis na sua despensa ou adicione novos!
+            <Card
+              title="Despensa"
+              qnt="Quantidade de itens:"
+              src={despensa}
+              color="#83A390"
+              text="Confira todos os itens disponíveis na sua despensa ou adicione novos!"
+            >
             </Card>
-      </Link>
-      <Card title="Lista de Compra" qnt="Quantidade de itens:" src={carrinho} color="rgba(209, 203, 189" >
-        Lembre-se de atualizar sua lista antes de fazer as compras!
-          </Card>
+            </Link>
+
+            <Card
+              title="Lista de Compra"
+              qnt="Quantidade de itens:"
+              src={carrinho}
+              color="#D1CBBD"
+              text="Lembre-se de atualizar sua lista antes de fazer as compras!"
+            >
+            </Card>
       <Navbar />
     </>
   )

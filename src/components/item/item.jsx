@@ -5,12 +5,20 @@ import greenMarket from "../../assets/icons/green-market.svg"
 import"./item.scss"
 export function Item(props) {
     const {src, alt, name, qnt, stateItem, date} = props
-    
+    function qntItem(){
+        if (qnt===0){
+            return {backgroundColor: "#A72422"}
+        }else if(qnt > 0 && qnt < 3){
+            return {backgroundColor:"#ED6807"}
+        }else{
+            return {backgroundColor: "#437056"}
+        }
+    }
     return(
         <div className="card-item-container">
             <div class="image-container">
                 <img className="item-image" src={src} alt={alt}/>
-                <div className="qnt-box">
+                <div style={qntItem()} className="qnt-box">
                 <p>{qnt}</p>
                 </div>
             </div>
