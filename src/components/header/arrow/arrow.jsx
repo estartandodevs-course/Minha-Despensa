@@ -6,7 +6,7 @@ import './arrow.scss'
 export function Arrow() {
   let visible = useLocation()
   return (
-   (visible.pathname != "/") && <img className="header-arrow" src={arrow} alt="Seta"/>
+   (visible.pathname !== "/") && <img className="header-arrow" src={arrow} alt="Seta"/>
   )
 }
 
