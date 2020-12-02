@@ -1,5 +1,4 @@
 import React from 'react'
-import arrow from '../../assets/icons/arrow.svg'
 
 import './card.scss'
 
