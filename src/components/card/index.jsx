@@ -1,4 +1,5 @@
 import React from 'react'
+import imgArrow from '../../assets/icons/arrow.svg'
 
 import './card.scss'
 
@@ -11,6 +12,7 @@ export function Card(props) {
             <p className="text">{text}</p>
             <p className="qnt" >{qnt}:</p>
             <img className="abso" src={src} alt="Legumes" />
+            <img className="arrow-card" src={imgArrow} alt="seta"/>
         </div>
     )
 }
