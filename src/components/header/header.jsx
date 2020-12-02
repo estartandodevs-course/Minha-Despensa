@@ -15,16 +15,9 @@ export function Header(props) {
       <Link to="/">
         <Arrow />
       </Link>
+      <Logo/>
       <Title text={text} />
       <Menu />
-    </div>
-  )
-}
-
-export function HeaderLogo() {
-  return(
-    <div className="container-header">
-      <Logo/>
     </div>
   )
 }

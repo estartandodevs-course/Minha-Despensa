@@ -2,16 +2,16 @@ import React from 'react'
 import { Card } from '../../components/card/index'
 import { Link } from "react-router-dom";
 import { Navbar } from '../../components/navbar/navbar';
-import { HeaderLogo } from '../../components/header/header';
 
 
 import despensa from '../../assets/img/img-legumes.svg'
 import carrinho from '../../assets/img/img-carrinho.svg'
+import { Header } from '../../components/header/header';
 
 export function HomePage() {
   return (
     <>
-      <HeaderLogo />
+      <Header/>
       <Link to="/despensavazia">
             <Card
               title="Despensa"
