@@ -4,7 +4,7 @@ import imgArrow from '../../assets/icons/arrow.svg'
 import './card.scss'
 
 export function Card(props) {
-    const { title, text, qnt, src, color, icon } = props
+    const { title, text, qnt, src, color } = props
     return (
 
         <div className="container-card" style={{ backgroundColor:color }}>
