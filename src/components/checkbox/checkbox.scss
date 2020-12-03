@@ -1,11 +1,17 @@
+.checkbox-title{
+  font-size: 14px;
+  font-weight: 500;
+  color: #c48b76;
+  margin-top: 12px;
+  margin-left: 15px;
+}
 .radio {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  border: 1px solid #868686;
-  box-sizing: border-box;
-  border-radius: 8px;
+  max-width: 150px;
+  margin-bottom: 10px;
+  color:#868686;
 }
 .input-fechado,
 .input-aberto,
@@ -19,13 +25,16 @@
   padding: 10px;
   text-align: center;
   border-radius: 8px;
+  border: 1px solid #868686
 }
 .input-fechado:checked + .label-fechado {
-  background: chocolate;
+  border:none;
+  color:#F2F2F2;
+  background: #C48B76;
 }
 .input-aberto:checked + .label-aberto {
-  background: violet;
+  color:#F2F2F2;
+  border:none;
+  background: #83A390;
 }
-.input-acabou:checked + .label-acabou {
-  background: firebrick;
-}
+ 
