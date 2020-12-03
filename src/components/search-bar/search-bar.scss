@@ -2,13 +2,14 @@ h2 {
   font-size: 14px;
   font-weight: 600;
   color: #c48b76;
-
+  margin-top: 12px;
   margin-left: 24px;
 }
 
 .search-container {
   display: flex;
   align-items: center;
+  position: relative;
 
   input {
     width: 100%;
@@ -19,6 +20,7 @@ h2 {
 
     padding: 0 40px;
     margin: 0 16px;
+    margin-bottom: 20px;
 
     border-radius: 10px;
     border: 1px solid #c48b76;
@@ -32,5 +34,6 @@ h2 {
     width: 24px;
     position: absolute;
     margin-left: 25px;
+    top: 9px;
   }
 }

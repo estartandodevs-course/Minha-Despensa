@@ -1,4 +1,4 @@
-export const itens=[
+/* export const itens=[
   {
   src: "https://www.clubeextra.com.br/img/uploads/1/246/596246.png", 
   alt: "arroz", 
@@ -20,3 +20,5 @@ export const itens=[
   qnt:0, 
   stateItem: "Fechado", 
   date:"30/11/2021"}]
+ */
+export const itens=[]

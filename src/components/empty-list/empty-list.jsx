@@ -22,7 +22,7 @@ export function EmptyList(props) {
       <p>{description}</p>
       <h2>{subTitle}</h2>
 
-      <Link to="/despensa">
+      <Link to="/form">
         <Button value="Vamos lá!" />
       </Link>
     </div>
