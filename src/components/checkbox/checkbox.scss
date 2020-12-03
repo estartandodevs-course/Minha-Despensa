@@ -1,0 +1,31 @@
+.radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.input-fechado,
+.input-aberto,
+.input-acabou {
+  display: none;
+}
+.label-fechado,
+.label-aberto,
+.label-acabou {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+}
+.input-fechado:checked + .label-fechado {
+  background: chocolate;
+}
+.input-aberto:checked + .label-aberto {
+  background: violet;
+}
+.input-acabou:checked + .label-acabou {
+  background: firebrick;
+}
