@@ -16,10 +16,9 @@
 }
 .mock{
   position: relative;
-
+  overflow: hidden;
   width: 360px;
   height: 640px;
-  flex-wrap: wrap;
   background-color: #F2F2F2;
   
 }

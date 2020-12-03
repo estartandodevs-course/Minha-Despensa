@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <>
       <Header/>
-      <Link to="/despensavazia">
+      <Link to="/despensa">
             <Card
               title="Despensa"
               qnt="Quantidade de itens:"
