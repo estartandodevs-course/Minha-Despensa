@@ -1,8 +1,14 @@
+import { useState } from "react"
 import "./success.scss"
 
 export function Success(){
+    const [styles, setStyles] = useState({display: "flex"})
+
     function Alert(){
-        return {display: 'flex'}
+        setTimeout(()=>{
+            setStyles({display: 'none'})
+        }, 5500)
+        return styles
     }
 
     return (

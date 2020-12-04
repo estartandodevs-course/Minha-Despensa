@@ -1,7 +1,20 @@
+@keyframes animation {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .success-alert {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+  animation: animation 6s;
   margin: 5px;
   width: 350px;
   height: 48px;
