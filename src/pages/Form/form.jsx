@@ -5,10 +5,8 @@ import { Navbar } from '../../components/navbar/navbar'
 export function FormItens() {
   return (
     <>
-    <Header text="Inserir item na despensa"/> 
-
-
-    <Navbar />
+      <Header text="Inserir item na despensa" />
+      <Navbar />
     </>
   )
 }
