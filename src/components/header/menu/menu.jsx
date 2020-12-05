@@ -5,7 +5,7 @@ import ImgMenu from '../../../assets/icons/navigation-drawer.svg'
 import './menu.scss'
 
 export function Menu() {
-  let location = useLocation()
+  const location = useLocation()
   if(location.pathname === "/form"){
     return  <img  className="header-menu" src={ImgMenu} alt="Menu"/>
   }else{

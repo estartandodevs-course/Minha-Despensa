@@ -17,7 +17,7 @@ export function SearchBar() {
       <h2 className="search-title">Pesquisa</h2>
       <div className="search-container">
         <img className="search-img" src={Imgsearch} alt="Lupa" />
-        <input
+        <input className="search-input"
           type="text"
           value={filter}
           placeholder="O que você procura?"
