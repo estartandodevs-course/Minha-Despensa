@@ -4,7 +4,7 @@ import ImgLogo from '../../../assets/img/img-logo.svg'
 import './logo.scss'
 
 export function Logo() {
-  let visible = useLocation()
+  const visible = useLocation()
      return(
        (visible.pathname === "/" ) && <img className="header-logo" src={ImgLogo} alt="Logo"/>
      )
