@@ -7,14 +7,13 @@ import { Item } from '../../components/item/item';
 import { Navbar } from '../../components/navbar/navbar';
 
 export function MinhaDespensa() {   
-  const pesoItens = itens.length 
-  
+  const isEmpty = itens.length === 0;
     return(
         <>
           <Header text="Despensa"/> 
           <SearchBar/>
           
-            { pesoItens === 0 ?
+            { isEmpty  ?
 
             <EmptyList description="Ops! A sua despensa está vazia."
             subTitle="Que tal adicionar itens agora?" />
