@@ -19,7 +19,6 @@ export function FormItens() {
         title='Unidade de medida:' 
         placeholder='Unidades' 
         options={options} 
-        width='190px'
       />
     
 
