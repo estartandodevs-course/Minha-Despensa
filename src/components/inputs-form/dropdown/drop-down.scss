@@ -1,38 +1,60 @@
-.drop{
-  
+.container-select{
+    position: relative;
+    h2{
+        margin: 0 0 0 15px;
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: #C48B76;
+    }
     
+}
+.select{
+    padding: 0 0 0 7px;
+    margin: 2px 0 0 6px;
+
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+
     width: 190px;
     height: 40px;
 
     border: 1px solid #C48B76;
     border-radius: 10px;
-}
-.place{
-    
-    margin: 8px 0 0 6px;
-
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: 500;
     
     color: #2E2E2E;
 }
-.options{
-    
-    margin: 13px 0 0 6px;
+.menu{
+    width: 190px;
+    height: 130px;
+    padding: 15px 68px 0 18px;
+
+    margin-top: 15px;
 
     font-family: Quicksand;
     font-style: normal;
     font-weight: 500;
+    line-height: 25px;
 
     background: #F2F2F2;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
-}
-.control{
-    
 
+    :hover{
+        background: #DECEC8;
+        border-radius: 4px;
+    }
+}
+.place{
+    padding:7px 0 0 7px;
 }
 .arrow{
-    background-color: blue;
+    position: absolute;
+    left: 165px;
+    top: 35px;
+
 }
