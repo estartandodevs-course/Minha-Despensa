@@ -5,19 +5,19 @@ import arrow from '../../../assets/icons/arrow-down.svg'
 
 
 export function DropDownAb(props){
-    const {options, title, placeholder} = props
+    const {options, title, placeholder, className, arrowWidth} = props
     
     let [valor, setValor] = useState('')
     
-    
+
 
     return(
         <>
             <div className="container-select">
                 <h2>{title}</h2>
-                <img className='arrow' src={arrow} alt="arrow to down"/>
+                <img className={arrowWidth} src={arrow} alt="arrow to down"/>
                 <DropDown 
-                    className='select' 
+                    className={className} 
                     placeholderClassName='place' 
                     menuClassName='menu'
                     controlClassName='control'
