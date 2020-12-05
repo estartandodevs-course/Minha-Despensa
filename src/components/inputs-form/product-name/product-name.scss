@@ -1,25 +1,24 @@
-.search-title {
+.product-title {
   font-size: 14px;
   font-weight: 600;
   color: #c48b76;
-  margin-top: 12px;
   margin-left: 24px;
+  margin-top: 12px;
 }
-.search-container {
+
+.container-product {
   display: flex;
   align-items: center;
-  position: relative;
 
-  input {
+  .product-input {
     width: 100%;
     height: 40px;
 
     font-size: 14px;
     color: #d1ab9d;
 
-    padding: 0 40px;
+    padding: 0 8px;
     margin: 0 16px;
-    margin-bottom: 20px;
 
     border-radius: 10px;
     border: 1px solid #c48b76;
@@ -29,10 +28,8 @@
   ::placeholder {
     color: #d1ab9d;
   }
-  .search-img {
-    width: 24px;
-    position: absolute;
-    margin-left: 25px;
-    top: 9px;
-  }
+}
+.product-input:focus{
+    border: 1px solid #437056;
+    color: #437056;
 }
