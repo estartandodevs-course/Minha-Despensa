@@ -19,18 +19,18 @@ export function HomePage() {
               src={despensa}
               color="#83A390"
               text="Confira todos os itens disponíveis na sua despensa ou adicione novos!"
-            >
-            </Card>
+            />
             </Link>
 
+            <Link to="/despensa">
             <Card
               title="Lista de Compra"
               qnt="Quantidade de itens:"
               src={carrinho}
               color="#D1CBBD"
               text="Lembre-se de atualizar sua lista antes de fazer as compras!"
-            >
-            </Card>
+            />
+            </Link>
       <Navbar />
     </>
   )

@@ -8,13 +8,20 @@
 
   position: absolute;
   bottom: 0;
-  
+
   background-color: #f2f2f2;
-  
+
   bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: 0px -2px 2px #d1ab9d;
+  a:-webkit-any-link {
+    display: flex;
+    align-items: center;
+    color: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
 }
-
-
