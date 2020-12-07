@@ -1,3 +1,8 @@
-.header-logo{
-  margin-left: 57px;
+.container-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header-logo{
+   width: 200px;
+  }
 }
