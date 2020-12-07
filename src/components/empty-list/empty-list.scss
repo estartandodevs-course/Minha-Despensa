@@ -12,7 +12,7 @@ $font-button: "Quicksand", sans-serif;
 }
 
 .container-emptyList {
-  position: absolute;
+  position: fixed;
   bottom: 48px;
   animation: surgindo 3s;
   width: 100%;
