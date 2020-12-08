@@ -6,11 +6,7 @@ import './menu.scss'
 
 export function Menu() {
   const location = useLocation()
-  if(location.pathname === "/form"){
-    return  <img  className="header-menu" src={ImgMenu} alt="Menu"/>
-  }else{
-    return <img  className="header-menu" src={ImgMenu} alt="Menu" style={{visibility: "hidden"}}/>
-  }
- 
+  return (location.pathname === "/form") && <img  className="header-menu" src={ImgMenu} alt="Menu"/>
+  
 }
 
