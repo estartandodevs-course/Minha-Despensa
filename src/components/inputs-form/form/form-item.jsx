@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-//
 
-//
 import { Calendar } from "../calendar/calendar";
-//import { Checkbox } from "../checkbox/checkbox";
+import { Checkbox } from "../checkbox/checkbox";
 import { ProductName } from "../product-name/product-name";
 import { DropDownAb } from "../dropdown/drop-down";
 import { Quant } from "../input-quant/input-quant";
@@ -30,7 +28,7 @@ export function FormItens(props) {
   function handleChange(e) {
     const name = e.target.name;
     const value = e.target.value;
-    const formulario = { ...form, unit: unita, category: catego, };
+    const formulario = { ...form, unit: unita, category: catego };
     //const som = parseInt(e.target.value)
 
     setForm({
@@ -47,13 +45,12 @@ export function FormItens(props) {
     setCatego(value);
   }
 
-
   return (
     <div>
       <ProductName name="name" label="nome" onChange={handleChange} />
 
       <div style={{ display: "flex" }}>
-         <Quant onChange={handleChange} name="qnt" />
+        <Quant onChange={handleChange} name="qnt" />
         <DropDownAb
           name="category"
           onChange={handleChangeDropbox}
@@ -75,7 +72,7 @@ export function FormItens(props) {
         options={categorias}
       />
 
-      {/* <Checkbox name="stateItem" onChange={handleChange} /> */}
+      <Checkbox onChange={handleChange} />
 
       <Button onClick={() => console.log(form)} value="Salvar" />
     </div>
