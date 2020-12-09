@@ -4,7 +4,7 @@ import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";
 import { Button } from "../../components/Button/Button";
 import { ProductName } from "../../components/inputs-form/product-name/product-name";
-import logo from "../../assets/img/img-logo.svg";
+import logo from "../../assets/img/login.svg";
 import "./login.scss";
 
 export function LoginPage() {
@@ -25,11 +25,13 @@ export function LoginPage() {
       <Header />
       <main className="login-container">
         <img src={logo} alt="" />
+
         <ProductName
           label="Usuário"
           placeholder="E-mail"
           name="username"
           onChange={handleChange}
+          style={{ marginBottom: "20px" }}
         />
         <ProductName
           label="Senha"
@@ -38,7 +40,16 @@ export function LoginPage() {
           name="password"
           onChange={handleChange}
         />
-        <Button onClick={() => console.log(form)} value="Enviar" />
+        <Button
+          onClick={() => console.log(form)}
+          value="Enviar"
+          style={{
+            background: "#437056",
+            width: "100%",
+            alignSelf: "center",
+            marginTop: "36px",
+          }}
+        />
       </main>
       <Navbar />
     </>

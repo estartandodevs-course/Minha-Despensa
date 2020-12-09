@@ -9,12 +9,13 @@ export function ProductName(props) {
     onChange,
     value,
     name,
+    style,
   } = props;
 
   return (
     <>
-      <h2 className="product-title"> {label} </h2>
       <div className="container-product">
+        <h2 className="product-title"> {label} </h2>
         <input
           className="product-input"
           type={type}
@@ -22,6 +23,7 @@ export function ProductName(props) {
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
           name={name}
+          style={style}
         />
       </div>
     </>
