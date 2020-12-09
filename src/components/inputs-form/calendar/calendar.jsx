@@ -1,16 +1,19 @@
-import React, {useState} from 'react'
-import './calendar.scss'
+import React from "react";
+import "./calendar.scss";
 
-export function Calendar() {
-  const [data, setData] = useState("")
+export function Calendar(props) {
+  const { onChange, name, value } = props;
 
-  function onChange(e) {
-    setData(e.target.value)
-  }
   return (
     <div className="container-calendar">
       <h2 className="calendar-title">Data de validade</h2>
-      <input className="calendar-input"  type="date" value={data} onChange={onChange}/>
+      <input
+        name={name}
+        onChange={(e) => onChange(e)}
+        value={value}
+        className="calendar-input"
+        type="date"
+      />
     </div>
   );
 }
