@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
-import './product-name.scss'
+import React, { useState } from "react";
+import "./product-name.scss";
 
+export function ProductName(props) {
+  const {
+    label = "Nome",
+    placeholder = "Informe o nome do item",
+    type = "text",
+    onChange,
+    value,
+    name,
+  } = props;
 
-export function ProductName(props){
-    const [name, setName] = useState("")
-  
-    function onChange(e) {
-      setName(e.target.value)
-      console.log(name);
-    }
-
-    return (
-        <>
-          <h2 className="product-title"> Nome </h2>
-          <div className="container-product">
-            <input className="product-input"
-              type="text"
-              value={name}
-              placeholder="Informe o nome do item"
-              onChange={onChange} />
-          </div>
-        </>
-    )
+  return (
+    <>
+      <h2 className="product-title"> {label} </h2>
+      <div className="container-product">
+        <input
+          className="product-input"
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e)}
+          name={name}
+        />
+      </div>
+    </>
+  );
 }
