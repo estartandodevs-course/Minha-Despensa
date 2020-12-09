@@ -5,6 +5,7 @@ import arrow from "../../../assets/icons/arrow-down.svg";
 
 export function DropDownAb(props) {
   const {
+    name,
     options,
     title,
     placeholder,
@@ -12,7 +13,6 @@ export function DropDownAb(props) {
     arrowWidth,
     onChange,
     value,
-    name,
   } = props;
 
   return (
