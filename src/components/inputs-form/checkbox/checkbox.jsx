@@ -15,7 +15,7 @@ export function Checkbox(props) {
             name="state"
             value="Fechado"
           />
-          <label for="fechado" className="label-fechado">
+          <label htmlFor="fechado" className="label-fechado">
             Fechado
           </label>
         </div>
@@ -28,7 +28,7 @@ export function Checkbox(props) {
             name="state"
             value="Aberto"
           />
-          <label for="aberto" className="label-aberto">
+          <label htmlFor="aberto" className="label-aberto">
             Em uso
           </label>
         </div>
@@ -42,7 +42,7 @@ export function Checkbox(props) {
             value="acabou"
             disabled
           />
-          <label for="acabou" className="label-acabou">
+          <label htmlFor="acabou" className="label-acabou">
             Acabou
           </label>
         </div>

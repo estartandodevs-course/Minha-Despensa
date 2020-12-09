@@ -22,9 +22,17 @@ const categorias = [
 
 export function FormItens(props) {
   const [form, setForm] = useState({});
-  const [unita, setUnita] = useState({});
-  const [catego, setCatego] = useState({});
+  const [unita, setUnita] = useState("");
+  const [catego, setCatego] = useState("");
 
+  function handleChangeDropbox(e) {
+    const value = e.value;
+    setUnita(value);
+  }
+  function handleChangeDropbox2(e) {
+    const value = e.value;
+    setCatego(value);
+  }
   function handleChange(e) {
     const name = e.target.name;
     const value = e.target.value;
@@ -35,14 +43,6 @@ export function FormItens(props) {
       ...formulario,
       [name]: value,
     });
-  }
-  function handleChangeDropbox(e) {
-    const value = e.value;
-    setUnita(value);
-  }
-  function handleChangeDropbox2(e) {
-    const value = e.value;
-    setCatego(value);
   }
 
   return (
