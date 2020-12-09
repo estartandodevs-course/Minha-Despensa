@@ -48,11 +48,14 @@ export function Quant(){
 
     return(
         <>
+        <div>
         <h2 style={title} className="quant-title"> Qtde. </h2>
         <div className="quant-section">
             <Icon onClick={Menos} className={"icon-menos"} src={menos}/>
             <input style={num} onFocus={onFocus} onBlur={onFocusOut} onChange={onChange} className="input-quant" type="number" value={quant}/>
             <Icon onClick={Mais} className={"icon-mais"} src={mais}/>
+        </div>
+
         </div>
         </>
     )
