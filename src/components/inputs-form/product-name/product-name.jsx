@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./product-name.scss";
 
 export function ProductName(props) {
