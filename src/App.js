@@ -1,7 +1,7 @@
 import './App.css';
 import { HomePage } from './pages/home/home'
 import { MinhaDespensa } from './pages/despensa/despensa'
-import { FormItens } from './pages/Form/form';
+import { FormPage } from './pages/Form/form';
 import { DespensaVazia } from './pages/despensa-vazia/despensa-vazia';
 
 import {
@@ -19,7 +19,7 @@ export function App(){
           <DespensaVazia />
         </Route>
       <Route path="/form">
-          <FormItens />
+          <FormPage />
         </Route>
         <Route path="/despensa">
           <MinhaDespensa />
