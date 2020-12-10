@@ -1,10 +1,11 @@
-import "./App.css";
-import { HomePage } from "./pages/home/home";
-import { Layout } from "./components/layout/layout";
 
-import { MinhaDespensa } from "./pages/despensa/despensa";
+import { HomePage } from './pages/home/home'
+import { MinhaDespensa } from './pages/despensa/despensa'
+import { DespensaVazia } from './pages/despensa-vazia/despensa-vazia';
+import { Layout } from "./components/layout/layout";
 import { FormPage } from "./pages/Form/form";
-import { DespensaVazia } from "./pages/despensa-vazia/despensa-vazia";
+import { LoginPage } from './pages/login/login'
+import "./App.css";
 
 import {
   BrowserRouter as Router,
@@ -16,6 +17,7 @@ import {
 export function App() {
   return (
     <>
+
       <Router>
         <Switch>
           <Route exact path="/despensavazia">
@@ -31,6 +33,11 @@ export function App() {
           <Route exact path="/despensa">
             <Layout>
               <MinhaDespensa />
+            </Layout>
+          </Route>
+          <Route exact path="/login">
+            <Layout>
+              <LoginPage />
             </Layout>
           </Route>
           <Route exact path="/">
