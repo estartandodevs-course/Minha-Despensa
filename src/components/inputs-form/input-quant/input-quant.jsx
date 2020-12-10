@@ -8,28 +8,10 @@ import { useState } from "react";
 
 export function Quant(props) {
   const { onChange, name, value } = props;
-
-  const [quant, setQuant] = useState(0);
   const [mais, setMais] = useState(iconMais);
   const [menos, setMenos] = useState(iconMenos);
   const [num, setNum] = useState({ color: "#c48b76" });
   const [title, setTitle] = useState({ color: "#c48b76" });
-
-  function Mais() {
-    setQuant(quant + 1);
-  }
-
-  function Menos() {
-    if (quant === 0) {
-      setQuant(quant);
-    } else {
-      setQuant(quant - 1);
-    }
-  }
-
-  /*  function onChange(qnt) {
-    setQuant(parseInt(qnt.target.value));
-  } */
 
   function onFocus() {
     setMais(iconMaisVerde);
@@ -53,7 +35,7 @@ export function Quant(props) {
           Qtde.{" "}
         </h2>
         <div className="quant-section">
-          <Icon onClick={Menos} className={"icon-menos"} src={menos} />
+          <Icon className={"icon-menos"} src={menos} />
           <input
             name={name}
             style={num}
@@ -64,7 +46,7 @@ export function Quant(props) {
             type="number"
             value={value}
           />
-          <Icon onClick={Mais} className={"icon-mais"} src={mais} />
+          <Icon className={"icon-mais"} src={mais} />
         </div>
       </div>
     </>
