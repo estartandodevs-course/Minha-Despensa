@@ -22,7 +22,6 @@ export function LoginPage() {
 
   return (
     <>
-      <Header />
       <main className="login-container">
         <img src={logo} alt="" />
 
@@ -51,7 +50,6 @@ export function LoginPage() {
           }}
         />
       </main>
-      <Navbar />
     </>
   );
 }
