@@ -14,7 +14,7 @@ export function Menu() {
   }
 
   return (
-    (location.pathname === "/form")
+    (location.pathname === "/inserir-item")
     &&
     <>
       <img className="header-menu" src={ImgMenu} alt="Menu" onClick={menuShow} />
