@@ -1,29 +1,38 @@
-import React from 'react';
-import { EmptyList } from '../../components/empty-list/empty-list'
-import { SearchBar } from '../../components/search-bar/search-bar'
-import { Header } from '../../components/header/header';
-import { itens } from "../../_mocks/mocks.jsx"
-import { Item } from '../../components/item/item';
-import { Navbar } from '../../components/navbar/navbar';
+import React from "react";
+import { EmptyList } from "../../components/empty-list/empty-list";
+import { SearchBar } from "../../components/search-bar/search-bar";
 
-export function MinhaDespensa() {   
+import { itens } from "../../_mocks/mocks.jsx";
+import { Item } from "../../components/item/item";
+
+export function MinhaDespensa() {
   const isEmpty = itens.length === 0;
-    return(
-        <>
-          <Header text="Despensa"/> 
-          <SearchBar/>
-          
-            { isEmpty  ?
+  return (
+    <>
+      <SearchBar />
 
-            <EmptyList description="Ops! A sua despensa está vazia."
-            subTitle="Que tal adicionar itens agora?" />
-            
-            :itens.map((item)=>{
-            return <Item src={item.src} alt={item.alt} name={item.name} qnt={item.qnt} stateItem={item.stateItem} date={item.date}/>})
-          }
-
-          <Navbar />
-        </>
-  )
+      {isEmpty ? (
+        <EmptyList
+          description="Ops! A sua despensa está vazia."
+          subTitle="Que tal adicionar itens agora?"
+        />
+      ) : (
+        <main>
+          {itens.map((item, index) => {
+            return (
+              <Item
+                key={index}
+                src={item.src}
+                alt={item.alt}
+                name={item.name}
+                qnt={item.qnt}
+                stateItem={item.stateItem}
+                date={item.date}
+              />
+            );
+          })}
+        </main>
+      )}
+    </>
+  );
 }
-

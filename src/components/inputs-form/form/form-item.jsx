@@ -23,25 +23,10 @@ const categorias = [
 
 export function FormItens(props) {
   const [form, setForm] = useState({});
-  const [unita, setUnita] = useState("");
-  const [catego, setCatego] = useState("");
 
-  function handleChangeDropbox(e) {
-    const value = e.value;
-    setUnita(value);
-  }
-  function handleChangeDropbox2(e) {
-    const value = e.value;
-    setCatego(value);
-  }
-  function handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    const formulario = { ...form, unit: unita, category: catego };
-    //const som = parseInt(e.target.value)
-
+  function handleChange(name, value) {
     setForm({
-      ...formulario,
+      ...form,
       [name]: value,
     });
   }
@@ -54,13 +39,21 @@ export function FormItens(props) {
 
   return (
     <div className="container-form">
-      <ProductName name="name" label="nome" onChange={handleChange} />
-      <Checkbox onChange={handleChange} />
+      <ProductName
+        name="name"
+        label="nome"
+        onChange={({ target }) => handleChange(target.name, target.value)}
+      />
+      <Checkbox
+        onChange={({ target }) => handleChange(target.name, target.value)}
+      />
       <div className="quant-drop">
-        <Quant onChange={handleChange} name="qnt" />
+        <Quant
+          onChange={({ target }) => handleChange(target.name, target.value)}
+          name="qnt"
+        />
         <DropDownAb
-          name="category"
-          onChange={handleChangeDropbox}
+          onChange={({ value }) => handleChange("unit", value)}
           className="w190"
           arrowWidth="arrow190"
           title="Unidades de medida:"
@@ -69,11 +62,13 @@ export function FormItens(props) {
         />
       </div>
 
-      <Calendar name="date" onChange={handleChange} />
+      <Calendar
+        name="date"
+        onChange={({ target }) => handleChange(target.name, target.value)}
+      />
       <div className="container-category"></div>
       <DropDownAb
-        name="category"
-        onChange={handleChangeDropbox2}
+        onChange={({ value }) => handleChange("category", value)}
         className="w328"
         arrowWidth="arrow328"
         title="Categoria:"

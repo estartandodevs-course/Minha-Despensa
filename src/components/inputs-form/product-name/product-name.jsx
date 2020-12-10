@@ -13,8 +13,8 @@ export function ProductName(props) {
 
   return (
     <>
-      <h2 className="product-title"> Nome </h2>
       <div className="container-product">
+        <h2 className="product-title"> Nome </h2>
         <input
           label={label}
           name={name}

@@ -19,6 +19,26 @@ export const itens = [
     alt: "arroz",
     date: "30/11/2020",
   },
+  {
+    unit: "kg",
+    category: "Mercearia",
+    name: "Arroz",
+    stateItem: "Fechado",
+    qnt: 5,
+    src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png",
+    alt: "arroz",
+    date: "30/11/2020",
+  },
+  {
+    unit: "kg",
+    category: "Mercearia",
+    name: "Arroz",
+    stateItem: "Fechado",
+    qnt: 5,
+    src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png",
+    alt: "arroz",
+    date: "30/11/2020",
+  },
 
   {
     category: "Mercearia",
