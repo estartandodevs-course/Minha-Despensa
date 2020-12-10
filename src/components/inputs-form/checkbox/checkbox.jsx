@@ -13,7 +13,7 @@ export function Checkbox(props) {
             id="fechado"
             className="input-fechado"
             type="radio"
-            name="state"
+            name="stateItem"
             value="Fechado"
           />
           <label htmlFor="fechado" className="label-fechado">
@@ -26,7 +26,7 @@ export function Checkbox(props) {
             id="aberto"
             className="input-aberto"
             type="radio"
-            name="state"
+            name="stateItem"
             value="Aberto"
           />
           <label htmlFor="aberto" className="label-aberto">
@@ -39,7 +39,7 @@ export function Checkbox(props) {
             id="acabou"
             className="input-acabou"
             type="radio"
-            name="state"
+            name="stateItem"
             value="acabou"
             disabled
           />

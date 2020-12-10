@@ -1,24 +1,33 @@
-export const itens=[
+export const itens = [
   {
-  src: "https://www.clubeextra.com.br/img/uploads/1/246/596246.png", 
-  alt: "arroz", 
-  name: "Arroz", 
-  qnt:2, 
-  stateItem: "Aberto", 
-  date:"30/11/2020"},
+    unit: "kg",
+    category: "Mercearia",
+    name: "Arroz",
+    stateItem: "Fechado",
+    qnt: 2,
+    src: "https://www.clubeextra.com.br/img/uploads/1/246/596246.png",
+    alt: "arroz",
+    date: "4/11/2020",
+  },
   {
-  src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png", 
-  alt: "feijão", 
-  name: "Feijão", 
-  qnt:5, 
-  stateItem: "Fechado", 
-  date:"30/11/2021"
-},
-{src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png", 
-  alt: "feijão", 
-  name: "Feijão", 
-  qnt:0, 
-  stateItem: "Fechado", 
-  date:"30/11/2021"}]
+    unit: "kg",
+    category: "Mercearia",
+    name: "Arroz",
+    stateItem: "Fechado",
+    qnt: 5,
+    src: "https://www.clubeextra.com.br/img/uploads/1/348/590348.png",
+    alt: "arroz",
+    date: "30/11/2020",
+  },
+
+  {
+    category: "Mercearia",
+    date: "2020-12-16",
+    name: "Prioridade",
+    qnt: "5",
+    stateItem: "Fechado",
+    unit: "kg",
+  },
+];
 
 //export const itens=[]

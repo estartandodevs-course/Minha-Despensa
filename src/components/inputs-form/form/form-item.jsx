@@ -7,7 +7,7 @@ import { DropDownAb } from "../dropdown/drop-down";
 import { Quant } from "../input-quant/input-quant";
 import { Button } from "../../Button/Button";
 import "../../../pages/Form/form.scss";
-//import { itens } from "../../../_mocks/mocks";
+import { itens } from "../../../_mocks/mocks";
 
 const options = [
   { value: "pct" },
@@ -44,6 +44,12 @@ export function FormItens(props) {
       ...formulario,
       [name]: value,
     });
+  }
+
+  function addItem() {
+    itens.push(form);
+    console.log(form);
+    console.log(itens);
   }
 
   return (
@@ -86,7 +92,7 @@ export function FormItens(props) {
         <Button
           value="Salvar"
           style={{ background: "#437056", width: "150px" }}
-          onClick={() => console.log(form)}
+          onClick={addItem}
         />
       </div>
     </div>
