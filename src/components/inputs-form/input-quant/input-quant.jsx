@@ -35,7 +35,7 @@ export function Quant(props) {
           Qtde.{" "}
         </h2>
         <div className="quant-section">
-          <Icon onClick={(e) => e + 1} className={"icon-menos"} src={menos} />
+          <Icon className={"icon-menos"} src={menos} />
           <input
             name={name}
             style={num}
