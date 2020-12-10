@@ -4,8 +4,6 @@ import HomeIcon from "../../assets/icons/home-icon.svg";
 import HomeIconOk from "../../assets/icons/home-icon-ok.svg";
 import AddIcon from "../../assets/icons/add-icon.svg";
 import AddIconOk from "../../assets/icons/add-icon-ok.svg";
-import ComprasIcon from "../../assets/icons/compras-icon.svg";
-import ComprasIconOk from "../../assets/icons/compras-icon-press.svg";
 import DespensaIcon from "../../assets/icons/despensa-icon.svg";
 import DespensaIconOk from "../../assets/icons/despensa-icon-press.svg";
 import ProfileIcon from "../../assets/icons/profile-icon.svg";
