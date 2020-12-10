@@ -1,7 +1,7 @@
 import React from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
-
+import "./despensa.scss";
 import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
 
@@ -17,7 +17,7 @@ export function MinhaDespensa() {
           subTitle="Que tal adicionar itens agora?"
         />
       ) : (
-        <main>
+        <main className="container-itens">
           {itens.map((item, index) => {
             return (
               <Item

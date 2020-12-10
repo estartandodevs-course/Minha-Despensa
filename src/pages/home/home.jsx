@@ -3,10 +3,11 @@ import { Card } from "../../components/card/card";
 import { Link } from "react-router-dom";
 import despensa from "../../assets/img/img-legumes.svg";
 import carrinho from "../../assets/img/img-carrinho.svg";
+import "./home.scss";
 
 export function HomePage() {
   return (
-    <>
+    <div className="home-wraper">
       <Link to="/despensa">
         <Card
           title="Despensa"
@@ -26,6 +27,6 @@ export function HomePage() {
           text="Lembre-se de atualizar sua lista antes de fazer as compras!"
         />
       </Link>
-    </>
+    </div>
   );
 }
