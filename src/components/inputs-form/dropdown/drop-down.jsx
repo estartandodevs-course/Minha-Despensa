@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import DropDown from "react-dropdown";
 import "./drop-down.scss";
 import arrow from "../../../assets/icons/arrow-down.svg";
 
 export function DropDownAb(props) {
-  const { options, title, placeholder, className, arrowWidth } = props;
-
-  let [valor, setValor] = useState("");
+  const {
+    options,
+    title,
+    placeholder,
+    className,
+    arrowWidth,
+    onChange,
+    value,
+  } = props;
 
   return (
     <>
@@ -21,20 +27,11 @@ export function DropDownAb(props) {
           menuClassName="menu"
           controlClassName="control"
           options={options}
-          value={valor}
-          onChange={(e) => {
-            setValor((valor = e.value));
-            console.log(valor);
-          }}
+          value={value}          
+          onChange={(e) => onChange(e)}
           placeholder={placeholder}
         />
       </div>
     </>
   );
 }
-/*
-e=>{
-                            setValor(e.value)
-                            console.log(valor)
-                    }}
-} */
