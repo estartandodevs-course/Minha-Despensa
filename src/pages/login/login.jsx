@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-
-import { Navbar } from "../../components/navbar/navbar";
-import { Header } from "../../components/header/header";
 import { Button } from "../../components/Button/Button";
 import { ProductName } from "../../components/inputs-form/product-name/product-name";
 import logo from "../../assets/img/login.svg";
