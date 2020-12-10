@@ -1,9 +1,7 @@
 
 import { HomePage } from './pages/home/home'
 import { MinhaDespensa } from './pages/despensa/despensa'
-import { FormItens } from './pages/Form/form';
 import { DespensaVazia } from './pages/despensa-vazia/despensa-vazia';
-import { LoginPage } from './pages/login/login';
 import "./App.css";
 import { Layout } from "./components/layout/layout";
 import { FormPage } from "./pages/Form/form";
