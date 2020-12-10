@@ -1,15 +1,17 @@
 .login-container {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 16px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 0 16px;
+  margin: 0 auto;
 
-    // padding-top: 20px;
+  // padding-top: 20px;
 
-    img {
-        width: 240px;
-        margin-top: 30px;
-        margin-bottom: 42px;
-        align-self: center;
-    }
+  img {
+    width: 240px;
+    margin-top: 30px;
+    margin-bottom: 42px;
+    align-self: center;
+  }
 }

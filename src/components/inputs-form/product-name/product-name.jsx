@@ -9,12 +9,13 @@ export function ProductName(props) {
     onChange,
     value,
     name,
+    title,
   } = props;
 
   return (
     <>
       <div className="container-product">
-        <h2 className="product-title"> Nome </h2>
+        <h2 className="product-title">{title}</h2>
         <input
           label={label}
           name={name}
