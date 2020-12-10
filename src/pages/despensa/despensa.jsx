@@ -19,9 +19,8 @@ export function MinhaDespensa() {
             subTitle="Que tal adicionar itens agora?" />
             
             :itens.map((item)=>{
-            return <Item src={item.src} alt={item.alt} name={item.name} qnt={item.qnt} stateItem={item.stateItem} date={item.date}/>})
+            return <Item key={item.index} src={item.src} alt={item.alt} name={item.name} qnt={item.qnt} stateItem={item.stateItem} date={item.date}/>})
           }
-
           <Navbar />
         </>
   )
