@@ -17,6 +17,9 @@ export function ProductName(props) {
       <div className="container-product">
         <h2 className="product-title"> {label} </h2>
         <input
+          label={label}
+          name={name}
+          onChange={(e) => onChange(e)}
           className="product-input"
           type={type}
           value={value}
