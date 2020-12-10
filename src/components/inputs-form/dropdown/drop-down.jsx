@@ -27,8 +27,7 @@ export function DropDownAb(props) {
           menuClassName="menu"
           controlClassName="control"
           options={options}
-          value={value}
-          name={name}
+          value={value}          
           onChange={(e) => onChange(e)}
           placeholder={placeholder}
         />
