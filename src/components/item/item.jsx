@@ -26,21 +26,22 @@ export function Item(props) {
     function qntItem(){
         if (qnt===0){
             return {backgroundColor: "#A72422"}
-        }else if(qnt ===1){
+        }else if(qnt===1){
             return {backgroundColor:"#ED6807"}
         }else{
             return {backgroundColor: "#437056"}
         }
     }
 
-    function onClick(){
-        if (market === redMarket){
-            setMarket(greenMarket)
-            }
-        if (market === greenMarket){
-            setMarket(redMarket)
-        }        
-    }
+    // function onClick(){
+         
+    //     if (market === redMarket){
+    //         setMarket(greenMarket)
+    //         }
+    //     if (market === greenMarket){
+    //         setMarket(redMarket)
+    //     }        
+    // }
 
 
     return(
@@ -60,9 +61,10 @@ export function Item(props) {
                 <div className="flag-text">
                 <Icon className="icon" src={calendarIcon}/>
                 <p className="text-item">{date}</p>
-                <Icon src={market} onClick={onClick}/>
+                <Icon src={market} onClick={()=>(market === redMarket) ? setMarket(greenMarket) : setMarket(redMarket)}/>
                 </div>
             </div>
         </div>
-    )
+      
+  );
 }

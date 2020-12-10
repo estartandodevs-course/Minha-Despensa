@@ -1,9 +1,15 @@
+.container-quant{
+  margin: 17px 23px 0 16px;
+}
 .quant-title {
+  margin-bottom: 2px;
+  padding-left: 7px;
   font-family: Quicksand;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
+  margin-left: 10px;
   color: #c48b76;
 }
 .quant-section {
@@ -25,6 +31,7 @@
     text-align: center;
     color: #c48b76;
     outline: none;
+    background-color: #f2f2f2;
   }
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
