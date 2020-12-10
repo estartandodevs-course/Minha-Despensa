@@ -23,6 +23,7 @@ export function LoginPage() {
         <img src={logo} alt="" />
 
         <ProductName
+          title="Nome:"
           label="Usuário"
           placeholder="E-mail"
           name="username"
@@ -30,6 +31,7 @@ export function LoginPage() {
           style={{ marginBottom: "20px" }}
         />
         <ProductName
+          title="Senha:"
           label="Senha"
           placeholder="Senha"
           type="password"
