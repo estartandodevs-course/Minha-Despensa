@@ -6,8 +6,8 @@ import { ModalDelete } from "../../components/modal/modal";
 export function FormPage() {
   return (
     <main className="container-form-page">
-      <ModalDelete/>
       <FormItens />
+      <ModalDelete/>
     </main>
   );
 }
