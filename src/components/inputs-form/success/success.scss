@@ -5,16 +5,20 @@
   50% {
     opacity: 1;
   }
+  70% {
+    opacity: 0.7;
+  }
   100% {
     opacity: 0;
   }
 }
 
 .success-alert {
-  display: flex;
+  /* display: none; */
   justify-content: center;
   align-items: center;
-  animation: animation 6s;
+  animation: animation 4s;
+  position: absolute;
   margin: 5px;
   width: 350px;
   height: 48px;
