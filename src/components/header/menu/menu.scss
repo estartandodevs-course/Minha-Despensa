@@ -6,7 +6,7 @@
    cursor: pointer;
 }
 .container-menu {
-  width: 185px;
+   min-width:150px; 
    top: 48px;
    right: -100%;
    position: fixed;
@@ -19,12 +19,14 @@
    border-radius: 4px;
    ul {
       list-style: none;
+      width: 100%;
+
    }
    li {
-      margin-bottom: 10px;
+      text-align: center;
+      width: 100%;
       font-size: 14px;
       padding: 10px 8px;
-      margin: 0px 8px;
       color: #000;
       cursor: pointer;
 

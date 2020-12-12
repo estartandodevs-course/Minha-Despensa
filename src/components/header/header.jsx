@@ -10,6 +10,7 @@ import { Logo } from "./logo/logo";
 import { Link } from "react-router-dom";
 
 export function Header(props) {
+const {openDeleteModal} = props
   const { pathname } = useLocation();
   const validPathname = (pathname) => {
     let pathLet = "";
@@ -27,7 +28,7 @@ export function Header(props) {
       </Link>
       <Logo />
       <Title text={validPathname(pathname)} />
-      <Menu />
+      <Menu openDeleteModal={openDeleteModal}/>
     </div>
   );
 }
