@@ -36,6 +36,13 @@ export function FormItens(props) {
 
   function addItem() {
     itens.push(form);
+
+    if (localStorage.getItem("Item") === null) {
+      localStorage.setItem("Item", JSON.stringify([form]));
+    } else {
+      const jsonItem = JSON.parse(localStorage.getItem("Item"));
+      localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
+    }
     Alert();
     setForm({});
   }

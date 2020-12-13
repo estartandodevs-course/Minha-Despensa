@@ -2,13 +2,14 @@ import React from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import "./despensa.scss";
-import { itens } from "../../_mocks/mocks.jsx";
+// import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
 import { useHistory } from "react-router-dom";
 
 export function MinhaDespensa() {
-  const isEmpty = itens.length === 0;
   const history = useHistory();
+  const itens = JSON.parse(localStorage.getItem("Item"));
+  const isEmpty = itens === null;
   return (
     <>
       <SearchBar />
