@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import "./despensa.scss";
@@ -9,7 +9,7 @@ export function MinhaDespensa() {
   const isEmpty = itens.length === 0;
   return (
     <>
-      <SearchBar/>
+      <SearchBar />
 
       {isEmpty ? (
         <EmptyList
