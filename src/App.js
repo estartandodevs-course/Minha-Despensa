@@ -26,9 +26,9 @@ export function App() {
             </Layout>
           </Route>
           <Route exact path="/inserir-item">
-            <Layout>
+           
               <FormPage />
-            </Layout>
+           
           </Route>
           <Route exact path="/despensa">
             <Layout>
