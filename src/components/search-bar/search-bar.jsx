@@ -4,11 +4,12 @@ import './search-bar.scss'
 import Imgsearch from '../../assets/icons/busca.svg'
 
 
-export function SearchBar() {
-  const [filter, setFilter] = useState("")
+export function SearchBar(props) {
+  // const {value,onChange} = props
+    const [buscar, setBuscar] = useState("")
 
   function onChange(e) {
-    setFilter(e.target.value)
+    setBuscar(e.target.value)
   }
 
 
@@ -19,9 +20,10 @@ export function SearchBar() {
         <img className="search-img" src={Imgsearch} alt="Lupa" />
         <input className="search-input"
           type="text"
-          value={filter}
+          value={buscar}
           placeholder="O que você procura?"
-          onChange={onChange} />
+          onChange={onChange}
+          />
       </div>
     </>
   )
