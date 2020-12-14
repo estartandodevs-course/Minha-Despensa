@@ -56,7 +56,7 @@ export function FormItens(props) {
   }
 
   return (
-    <div className="container-form">
+    <form className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
       <ProductName
@@ -87,7 +87,7 @@ export function FormItens(props) {
         name="date"
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
-      <div className="container-category"></div>
+  
       <DropDownAb
         onChange={({ value }) => handleChange("category", value)}
         className="w328"
@@ -116,6 +116,6 @@ export function FormItens(props) {
         />
         {/* </Link> */}
       </div>
-    </div>
+    </form>
   );
 }
