@@ -5,10 +5,12 @@ import { ModalDelete } from "../../components/modal/modal";
 import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 
 export function FormPage() {
   const [modalIsOpen, setModalOpen] = useState(false);
   const location = useLocation();
+  const history = useHistory();
 
   function Delete() {
     if (location.state !== null) {
@@ -17,8 +19,8 @@ export function FormPage() {
       jsonItem.splice(index, 1);
       localStorage.setItem("Item", JSON.stringify(jsonItem));
     }
-
-    setModalOpen(false);
+    history.push("/despensa");
+    // setModalOpen(false);
   }
 
   return (
