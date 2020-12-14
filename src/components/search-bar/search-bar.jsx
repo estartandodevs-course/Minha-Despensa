@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './search-bar.scss'
 import Imgsearch from '../../assets/icons/busca.svg'
