@@ -56,7 +56,7 @@ export function FormItens(props) {
   }
 
   return (
-    <form className="container-form">
+    <div className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
       <ProductName
@@ -116,6 +116,6 @@ export function FormItens(props) {
         />
         {/* </Link> */}
       </div>
-    </form>
+    </div>
   );
 }

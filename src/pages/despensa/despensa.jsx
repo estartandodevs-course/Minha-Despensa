@@ -1,36 +1,30 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import "./despensa.scss";
 // import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export function MinhaDespensa() {
   const history = useHistory();
   const itens = JSON.parse(localStorage.getItem("Item"));
   const isEmpty = itens === null;
-  const [search, setSearch] = useState("")
 
+  const [search, setSearch] = useState("");
   function onChange(e) {
-    setSearch(e.target.value)
-    console.log(search)
+    setSearch(e.target.value);
+  }
+  if(itens !==null){
+    var itemSearch = itens.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+
   }
 
-  // useEffect(()=>{
-  //   setFiltrarItem(
-  //     itens.filter((item)=>{
-  //       return item.name.toLowerCase().includes(search.toLowerCase())
-  //     })
-  //   )
-  // },[search,itens])
-
-  const itemSearch = itens.filter((item)=>{
-    return item.name.toLowerCase().includes(search.toLowerCase())
-      })
   return (
     <>
-      <SearchBar onChange={onChange} />
+      <SearchBar onChange={onChange} value={search} />
 
       {isEmpty ? (
         <EmptyList
