@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import "./despensa.scss";
@@ -10,9 +10,21 @@ export function MinhaDespensa() {
   const history = useHistory();
   const itens = JSON.parse(localStorage.getItem("Item"));
   const isEmpty = itens === null;
+
+  const [search, setSearch] = useState("");
+  function onChange(e) {
+    setSearch(e.target.value);
+  }
+  if(itens !==null){
+    var itemSearch = itens.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+  }
+
   return (
     <>
-      <SearchBar />
+      <SearchBar onChange={onChange} value={search} />
 
       {isEmpty ? (
         <EmptyList
@@ -21,7 +33,7 @@ export function MinhaDespensa() {
         />
       ) : (
         <main className="container-itens">
-          {itens.map((item, index) => {
+          {itemSearch.map((item, index) => {
             function handleClick() {
               history.push("/inserir-item", {
                 key: index,
