@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
+import imgMercearia from "../../assets/icons/form-icons/category/refinado.svg";
 import "./despensa.scss";
 // import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
@@ -15,11 +16,10 @@ export function MinhaDespensa() {
   function onChange(e) {
     setSearch(e.target.value);
   }
-  if(itens !==null){
+  if (itens !== null) {
     var itemSearch = itens.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
     );
-
   }
 
   return (
@@ -36,22 +36,20 @@ export function MinhaDespensa() {
           {itemSearch.map((item, index) => {
             function handleClick() {
               history.push("/inserir-item", {
-                key: index,
-                name: item.name,
-                alt: item.alt,
-                qnt: item.qnt,
-                stateItem: item.stateItem,
-                date: item.date,
-                category: item.category,
-                unit: item.unit,
+                item,
               });
+            }
+            function Img() {
+              if (item.category === "Mercearia") {
+                return imgMercearia;
+              }
             }
 
             return (
               <Item
                 onClick={handleClick}
                 key={index}
-                src={item.src}
+                src={Img()}
                 alt={item.alt}
                 name={item.name}
                 qnt={item.qnt}

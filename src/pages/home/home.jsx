@@ -6,12 +6,18 @@ import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
 
 export function HomePage() {
+  const jsonItem = JSON.parse(localStorage.getItem("Item"));
+  var quantItem = 0;
+  if (jsonItem !== null) {
+    quantItem = jsonItem.length;
+  }
+
   return (
     <div className="home-wraper">
       <Link to="/despensa">
         <Card
           title="Despensa"
-          qnt="Quantidade de itens:"
+          qnt={"Quantidade de itens: " + quantItem}
           src={despensa}
           color="#83A390"
           text="Confira todos os itens disponíveis na sua despensa ou adicione novos!"
