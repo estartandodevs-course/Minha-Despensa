@@ -9,11 +9,12 @@ import { useState, useEffect } from "react";
 
 export function Item(props) {
   const { src, alt, name, qnt, stateItem, date, onClick } = props;
-  const [market, setMarket] = useState(redMarket);
   const [flag, setFlag] = useState(greenFlag);
+  const jsonItem = JSON.parse(localStorage.getItem("Item"));
+  console.log(jsonItem);
 
   function flagColor() {
-    if (qnt === 0) {
+    if (stateItem === "Fechado") {
       setFlag(redFlag);
     } else {
       setFlag(greenFlag);
@@ -23,24 +24,14 @@ export function Item(props) {
   useEffect(flagColor);
 
   function qntItem() {
-    if (qnt === 0) {
+    if (qnt === "0") {
       return { backgroundColor: "#A72422" };
-    } else if (qnt === 1) {
+    } else if (qnt === "1") {
       return { backgroundColor: "#ED6807" };
     } else {
       return { backgroundColor: "#437056" };
     }
   }
-
-  // function onClick(){
-
-  //     if (market === redMarket){
-  //         setMarket(greenMarket)
-  //         }
-  //     if (market === greenMarket){
-  //         setMarket(redMarket)
-  //     }
-  // }
 
   return (
     <div onClick={onClick} className="card-item-container">
@@ -59,14 +50,6 @@ export function Item(props) {
         <div className="flag-text">
           <Icon className="icon" src={calendarIcon} />
           <p className="text-item">{date}</p>
-          <Icon
-            src={market}
-            onClick={() =>
-              market === redMarket
-                ? setMarket(greenMarket)
-                : setMarket(redMarket)
-            }
-          />
         </div>
       </div>
     </div>

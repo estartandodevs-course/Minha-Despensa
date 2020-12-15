@@ -23,13 +23,6 @@ export function Navbar() {
             alt={"iconeHome"}
           />
         </Link>
-        <Link to="/despensa">
-          <Icon
-            className="icon"
-            src={pathname === "/despensa" ? DespensaIconOk : DespensaIcon}
-            alt={"iconeNotification"}
-          />
-        </Link>
         <Link to="/inserir-item">
           <Icon
             className="icon"
@@ -37,13 +30,21 @@ export function Navbar() {
             alt={"iconeAdd"}
           />
         </Link>
-        <Link to="/login">
+        <Link to="/despensa">
+          <Icon
+            className="icon"
+            src={pathname === "/despensa" ? DespensaIconOk : DespensaIcon}
+            alt={"iconeNotification"}
+          />
+        </Link>
+
+        {/* <Link to="/login">
           <Icon
             className="icon"
             src={pathname === "/login" ? ProfileIconOk : ProfileIcon}
             alt={"iconeProfile"}
           />
-        </Link>
+        </Link> */}
       </div>
     </>
   );

@@ -24,7 +24,7 @@ export function HomePage() {
         />
       </Link>
 
-      <Link to="/despensa">
+      {/* <Link to="/despensa">
         <Card
           title="Lista de Compra"
           qnt="Quantidade de itens:"
@@ -32,7 +32,7 @@ export function HomePage() {
           color="#D1CBBD"
           text="Lembre-se de atualizar sua lista antes de fazer as compras!"
         />
-      </Link>
+      </Link> */}
     </div>
   );
 }

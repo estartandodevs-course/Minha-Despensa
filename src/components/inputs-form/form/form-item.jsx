@@ -80,6 +80,7 @@ export function FormItens(props) {
       />
       <Checkbox
         onChange={({ target }) => handleChange(target.name, target.value)}
+        currentItem={currentItem}
       />
       <div className="quant-drop">
         <Quant
