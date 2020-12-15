@@ -8,11 +8,11 @@ export function Calendar(props) {
     <div className="container-calendar">
       <h2 className="calendar-title">Data de validade</h2>
       <input
+        className="calendar-input"
         name={name}
         placeholder="dd/mm/aaaa"
         onChange={(e) => onChange(e)}
         value={value}
-        className="calendar-input"
         type="date"
       />
     </div>
