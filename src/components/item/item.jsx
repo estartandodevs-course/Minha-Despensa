@@ -16,6 +16,7 @@ export function Item(props) {
   const [market, setMarket] = useState(redMarket);
   const [flag, setFlag] = useState(greenFlag);
   const [calendar, setCalendar] = useState(calendarIcon);
+  const [shelfLife, setShelfLife] = useState("");
 
   function flagColor() {
     if (qnt === 0) {
@@ -38,66 +39,71 @@ export function Item(props) {
     }
   }
 
-  let validade = "a";
   function catchDate() {
-    //let validDate = date
+    //DATA ATUAL
     let currentDateJS = new Date();
     const dayJS = currentDateJS.getDate();
     const monthJS = currentDateJS.getMonth() + 1;
     const yearJS = currentDateJS.getFullYear();
     const actualDate = `${monthJS}-${dayJS}-${yearJS}`;
+    //DATA ATUAL
 
-    //const DataAtual = moment(actualDate);
-
+    //DATA DO ITEM
     const dateArray = date.match(/\d/g);
     const itemDay = dateArray[6] + dateArray[7];
     const itemMonth = dateArray[4] + dateArray[5];
     const itemYear = dateArray[0] + dateArray[1] + dateArray[2] + dateArray[3];
     const itemDate = ` ${itemMonth}-${itemDay}-${itemYear}`;
+    //DATA DO ITEM
 
+    //ESTÁ FRESCO ?
     const isFresh = moment(itemDate).isAfter(actualDate);
-    //const itemFresh = moment(itemDate).diff(actualDate, "d")
-    //const itemUnfresh = moment(actualDAte).diff(itemlDate, "d")
-    console.log(moment(itemDate).isAfter(actualDate));
 
+    console.log(moment(date).isAfter(currentDateJS));
+
+    //Caso Fresco
     if (isFresh) {
-      let itemFresh = moment(itemDate).diff(actualDate, "d");
-      if (itemFresh > 7) {
-        itemFresh = moment(itemDate).diff(actualDate, "week");
-        validade = `Em ${itemFresh} semanas`;
-        //console.log(validade);
+      let diffFresh = moment(itemDate).diff(actualDate, "d");
+
+      if (diffFresh > 7) {
+        diffFresh = moment(itemDate).diff(actualDate, "week");
+        if (diffFresh === 1) {
+          setShelfLife(`Em ${diffFresh} semana`);
+          return;
+        }
+        setShelfLife(`Em ${diffFresh} semanas`);
         setCalendar(calendarIcon);
-        return `Em ${itemFresh} semanas`;
+        return;
       }
-      if (itemFresh === 1) {
-        validade = `Em ${itemFresh} dia`;
-        //console.log(validade);
-        return validade;
+
+      if (diffFresh === 1) {
+        setShelfLife(`Em ${diffFresh} dia`);
+        return;
       }
-      validade = `Em ${itemFresh} dias`;
-      //console.log(validade);
+
+      setShelfLife(`Em ${diffFresh} dias`);
       setCalendar(calendarOrange);
-      return validade;
-    } else {
-      let itemUnfresh = moment(actualDate).diff(itemDate, "d");
+      return;
+    }
+    // Caso Vencido
+    else {
+      let diffUnFresh = moment(actualDate).diff(itemDate, "d");
       setCalendar(calendarRed);
-      if (itemUnfresh > 7) {
-        itemUnfresh = moment(actualDate).diff(itemDate, "w");
-        validade = `Há ${itemUnfresh} semanas`;
-        //console.log(validade);
-        return validade;
+
+      if (diffUnFresh > 7) {
+        diffUnFresh = moment(actualDate).diff(itemDate, "w");
+        setShelfLife(`Há ${diffUnFresh} semanas`);
+        return;
       }
 
-      if (itemUnfresh === 1) {
-        itemUnfresh = moment(actualDate).diff(itemDate, "d");
-        validade = `Há ${itemUnfresh} dia`;
-        //console.log(validade);
-        return validade;
+      if (diffUnFresh === 1) {
+        diffUnFresh = moment(actualDate).diff(itemDate, "d");
+        setShelfLife(`Há ${diffUnFresh} dia`);
+        return;
       }
 
-      validade = `Há ${itemUnfresh} dias`;
-      //console.log(validade);
-      return validade;
+      setShelfLife(`Há ${diffUnFresh} dias`);
+      return;
     }
   }
 
@@ -128,7 +134,7 @@ export function Item(props) {
         </div>
         <div className="flag-text">
           <Icon className="icon" src={calendar} />
-          <p className="text-item">{validade}</p>
+          <p className="text-item">{shelfLife}</p>
           <Icon
             src={market}
             onClick={() =>
