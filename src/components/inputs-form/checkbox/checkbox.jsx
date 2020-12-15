@@ -2,7 +2,8 @@ import React from "react";
 import "./checkbox.scss";
 
 export function Checkbox(props) {
-  const { onChange } = props;
+  const { onChange, currentItem } = props;
+  const isEdit = currentItem || false;
   return (
     <>
       <h2 className="checkbox-title">Status:</h2>
@@ -40,8 +41,8 @@ export function Checkbox(props) {
             className="input-acabou"
             type="radio"
             name="stateItem"
-            value="acabou"
-            disabled
+            value="Acabou"
+            disabled={isEdit ? false : true}
           />
           <label htmlFor="acabou" className="label-acabou">
             Acabou

@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "../../components/card/card";
 import { Link } from "react-router-dom";
 import despensa from "../../assets/img/img-legumes.svg";
-import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
 
 export function HomePage() {
@@ -24,7 +23,7 @@ export function HomePage() {
         />
       </Link>
 
-      <Link to="/despensa">
+      {/* <Link to="/despensa">
         <Card
           title="Lista de Compra"
           qnt="Quantidade de itens:"
@@ -32,7 +31,7 @@ export function HomePage() {
           color="#D1CBBD"
           text="Lembre-se de atualizar sua lista antes de fazer as compras!"
         />
-      </Link>
+      </Link> */}
     </div>
   );
 }
