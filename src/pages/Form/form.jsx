@@ -11,13 +11,19 @@ export function FormPage() {
   const [modalIsOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
+  const data = location.state;
+  console.log(data);
+  const currentItem = data?.item || false;
 
   function Delete() {
     if (location.state !== null) {
-      const index = location.state.key;
       const jsonItem = JSON.parse(localStorage.getItem("Item"));
+      const index = jsonItem.findIndex((item) => item.id === currentItem.id);
       jsonItem.splice(index, 1);
       localStorage.setItem("Item", JSON.stringify(jsonItem));
+      if (jsonItem.length === 0) {
+        localStorage.removeItem("Item");
+      }
     }
     history.push("/despensa");
     // setModalOpen(false);
@@ -32,7 +38,7 @@ export function FormPage() {
           onCancel={() => setModalOpen(false)}
           onDelete={() => Delete()}
         />
-        <FormItens />
+        <FormItens currentItem={currentItem} />
       </main>
       <Navbar />
     </>

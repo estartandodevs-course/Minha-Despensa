@@ -24,14 +24,7 @@ export function MinhaDespensa() {
           {itens.map((item, index) => {
             function handleClick() {
               history.push("/inserir-item", {
-                key: index,
-                name: item.name,
-                alt: item.alt,
-                qnt: item.qnt,
-                stateItem: item.stateItem,
-                date: item.date,
-                category: item.category,
-                unit: item.unit,
+                item,
               });
             }
 

@@ -8,7 +8,6 @@ import { DropDownAb } from "../dropdown/drop-down";
 import { Button } from "../../Button/Button";
 import { Link } from "react-router-dom";
 import { Success } from "../success/success";
-import { itens } from "../../../_mocks/mocks";
 import "../../../pages/Form/form.scss";
 
 const options = [
@@ -24,7 +23,11 @@ const categorias = [
 ];
 
 export function FormItens(props) {
-  const [form, setForm] = useState({});
+  const { currentItem } = props;
+  const isEdit = currentItem || false;
+  const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
+  const initialForm = isEdit ? currentItem : { id: id };
+  const [form, setForm] = useState(initialForm);
   const [modal, setModal] = useState({ display: "none" });
 
   function handleChange(name, value) {
@@ -35,8 +38,6 @@ export function FormItens(props) {
   }
 
   function addItem() {
-    itens.push(form);
-
     if (localStorage.getItem("Item") === null) {
       localStorage.setItem("Item", JSON.stringify([form]));
     } else {
@@ -45,6 +46,13 @@ export function FormItens(props) {
     }
     Alert();
     setForm({});
+  }
+
+  function editItem() {
+    let jsonItem = JSON.parse(localStorage.getItem("Item"));
+    const index = jsonItem.findIndex((item) => item.id === form.id);
+    jsonItem[index] = form;
+    localStorage.setItem("Item", JSON.stringify(jsonItem));
   }
 
   function Alert() {
@@ -64,6 +72,7 @@ export function FormItens(props) {
         name="name"
         label="nome"
         onChange={({ target }) => handleChange(target.name, target.value)}
+        value={form.name}
       />
       <Checkbox
         onChange={({ target }) => handleChange(target.name, target.value)}
@@ -72,6 +81,7 @@ export function FormItens(props) {
         <Quant
           onChange={({ target }) => handleChange(target.name, target.value)}
           name="qnt"
+          value={form.qnt}
         />
         <DropDownAb
           onChange={({ value }) => handleChange("unit", value)}
@@ -112,7 +122,7 @@ export function FormItens(props) {
           type="submit"
           value="Salvar"
           style={{ background: "#437056", width: "150px" }}
-          onClick={addItem}
+          onClick={isEdit ? editItem : addItem}
         />
         {/* </Link> */}
       </div>
