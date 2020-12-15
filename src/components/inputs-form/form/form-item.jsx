@@ -97,7 +97,7 @@ export function FormItens(props) {
         name="date"
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
-      <div className="container-category"></div>
+  
       <DropDownAb
         onChange={({ value }) => handleChange("category", value)}
         className="w328"
