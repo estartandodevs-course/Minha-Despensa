@@ -15,11 +15,10 @@ export function MinhaDespensa() {
   function onChange(e) {
     setSearch(e.target.value);
   }
-  if(itens !==null){
+  if (itens !== null) {
     var itemSearch = itens.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
     );
-
   }
 
   return (

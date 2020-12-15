@@ -6,7 +6,7 @@ import { Quant } from "../input-quant/input-quant";
 import { Calendar } from "../calendar/calendar";
 import { DropDownAb } from "../dropdown/drop-down";
 import { Button } from "../../Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Success } from "../success/success";
 import "../../../pages/Form/form.scss";
 
@@ -24,6 +24,7 @@ const categorias = [
 
 export function FormItens(props) {
   const { currentItem } = props;
+  const history = useHistory();
   const isEdit = currentItem || false;
   const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
   const initialForm = isEdit ? currentItem : { id: id };
@@ -31,10 +32,12 @@ export function FormItens(props) {
   const [modal, setModal] = useState({ display: "none" });
 
   function handleChange(name, value) {
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    if (value !== undefined) {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
   }
 
   function addItem() {
@@ -45,7 +48,7 @@ export function FormItens(props) {
       localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
     }
     Alert();
-    setForm({});
+    setForm({ id: id });
   }
 
   function editItem() {
@@ -53,6 +56,7 @@ export function FormItens(props) {
     const index = jsonItem.findIndex((item) => item.id === form.id);
     jsonItem[index] = form;
     localStorage.setItem("Item", JSON.stringify(jsonItem));
+    history.push("/despensa");
   }
 
   function Alert() {
@@ -97,7 +101,7 @@ export function FormItens(props) {
         name="date"
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
-  
+
       <DropDownAb
         onChange={({ value }) => handleChange("category", value)}
         className="w328"
