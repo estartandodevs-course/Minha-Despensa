@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
+import imgMercearia from "../../assets/icons/form-icons/category/refinado.svg";
 import "./despensa.scss";
 // import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
@@ -38,12 +39,17 @@ export function MinhaDespensa() {
                 item,
               });
             }
+            function Img() {
+              if (item.category === "Mercearia") {
+                return imgMercearia;
+              }
+            }
 
             return (
               <Item
                 onClick={handleClick}
                 key={index}
-                src={item.src}
+                src={Img()}
                 alt={item.alt}
                 name={item.name}
                 qnt={item.qnt}

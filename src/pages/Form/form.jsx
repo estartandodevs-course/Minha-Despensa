@@ -31,7 +31,10 @@ export function FormPage() {
 
   return (
     <>
-      <Header openDeleteModal={() => setModalOpen(true)} />
+      <Header
+        openDeleteModal={() => setModalOpen(true)}
+        currentItem={currentItem}
+      />
       <main className="container-form-page">
         <ModalDelete
           isOpen={modalIsOpen}
