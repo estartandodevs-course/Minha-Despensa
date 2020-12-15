@@ -6,8 +6,6 @@ import AddIcon from "../../assets/icons/add-icon.svg";
 import AddIconOk from "../../assets/icons/add-icon-ok.svg";
 import DespensaIcon from "../../assets/icons/despensa-icon.svg";
 import DespensaIconOk from "../../assets/icons/despensa-icon-press.svg";
-import ProfileIcon from "../../assets/icons/profile-icon.svg";
-import ProfileIconOk from "../../assets/icons/profile-icon-press.svg";
 import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export function Navbar() {

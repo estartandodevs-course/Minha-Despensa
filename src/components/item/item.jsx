@@ -2,8 +2,6 @@ import { Icon } from "../navbar/icon-navbar/icon-navbar";
 import calendarIcon from "../../assets/icons/calendar-icon.svg";
 import greenFlag from "../../assets/icons/green-flag.svg";
 import redFlag from "../../assets/icons/red-flag.svg";
-import greenMarket from "../../assets/icons/green-market.svg";
-import redMarket from "../../assets/icons/red-market.svg";
 import "./item.scss";
 import { useState, useEffect } from "react";
 

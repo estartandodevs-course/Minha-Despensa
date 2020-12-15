@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "../../components/card/card";
 import { Link } from "react-router-dom";
 import despensa from "../../assets/img/img-legumes.svg";
-import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
 
 export function HomePage() {
