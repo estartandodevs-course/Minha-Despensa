@@ -11,7 +11,7 @@ export function Card(props) {
       <h1>{title}</h1>
       <p className="text">{text}</p>
 
-      <p className="qnt">{qnt}:</p>
+      <p className="qnt">{qnt}</p>
 
       {/* <img className="abso" src={src} alt="Legumes" /> */}
       <div className="container-arrow">
