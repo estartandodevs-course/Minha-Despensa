@@ -5,21 +5,23 @@ import calendarOrange from "../../assets/icons/calendar-orange.svg";
 
 import greenFlag from "../../assets/icons/green-flag.svg";
 import redFlag from "../../assets/icons/red-flag.svg";
-import greenMarket from "../../assets/icons/green-market.svg";
-import redMarket from "../../assets/icons/red-market.svg";
 import "./item.scss";
 import { useState, useEffect } from "react";
 import moment from "moment";
 
 export function Item(props) {
   const { src, alt, name, qnt, stateItem, date, onClick } = props;
-  const [market, setMarket] = useState(redMarket);
   const [flag, setFlag] = useState(greenFlag);
+
   const [calendar, setCalendar] = useState(calendarIcon);
   const [shelfLife, setShelfLife] = useState("");
 
+  const jsonItem = JSON.parse(localStorage.getItem("Item"));
+  console.log(jsonItem);
+
+
   function flagColor() {
-    if (qnt === 0) {
+    if (stateItem === "Fechado") {
       setFlag(redFlag);
     } else {
       setFlag(greenFlag);
@@ -30,14 +32,15 @@ export function Item(props) {
   useEffect(catchDate);
 
   function qntItem() {
-    if (qnt === 0) {
+    if (qnt === "0") {
       return { backgroundColor: "#A72422" };
-    } else if (qnt === 1) {
+    } else if (qnt === "1") {
       return { backgroundColor: "#ED6807" };
     } else {
       return { backgroundColor: "#437056" };
     }
   }
+
 
   function catchDate() {
     //DATA ATUAL
@@ -118,6 +121,7 @@ export function Item(props) {
   // }
   //catchDate();
 
+
   return (
     <div onClick={onClick} className="card-item-container">
       <div className="image-container">
@@ -133,6 +137,7 @@ export function Item(props) {
           <p className="text-item">{stateItem}</p>
         </div>
         <div className="flag-text">
+
           <Icon className="icon" src={calendar} />
           <p className="text-item">{shelfLife}</p>
           <Icon
@@ -143,7 +148,7 @@ export function Item(props) {
                 : setMarket(redMarket)
             }
           />
-          <button onClick={catchDate}></button>
+
         </div>
       </div>
     </div>
