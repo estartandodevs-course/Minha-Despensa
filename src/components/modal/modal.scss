@@ -27,6 +27,7 @@
     justify-content: flex-end;
     button {
       padding: 5px 10px;
+      cursor: pointer;
       border: none;
       font-size: 14px;
       font-family: Quicksand, Arial, Helvetica, sans-serif;
@@ -42,6 +43,6 @@
     }
   }
 }
-.container-modal.active{
-left: 0;
+.container-modal.active {
+  left: 0;
 }
