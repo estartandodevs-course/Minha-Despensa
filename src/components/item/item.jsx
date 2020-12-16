@@ -108,17 +108,6 @@ export function Item(props) {
     }
   }
 
-  // function onClick(){
-
-  //     if (market === redMarket){
-  //         setMarket(greenMarket)
-  //         }
-  //     if (market === greenMarket){
-  //         setMarket(redMarket)
-  //     }
-  // }
-  //catchDate();
-
   return (
     <div onClick={onClick} className="card-item-container">
       <div className="image-container">
@@ -136,14 +125,6 @@ export function Item(props) {
         <div className="flag-text">
           <Icon className="icon" src={calendar} />
           <p className="text-item">{shelfLife}</p>
-          <Icon
-            src={market}
-            onClick={() =>
-              market === redMarket
-                ? setMarket(greenMarket)
-                : setMarket(redMarket)
-            }
-          />
         </div>
       </div>
     </div>
