@@ -7,7 +7,7 @@ import iconMenosVerde from "../../../assets/icons/icon-menos-verde.svg";
 import { useState } from "react";
 
 export function Quant(props) {
-  const { onChange, name, value } = props;
+  const { onChange, name, value = 0 } = props;
   const [mais, setMais] = useState(iconMais);
   const [menos, setMenos] = useState(iconMenos);
   const [num, setNum] = useState({ color: "#c48b76" });
@@ -27,15 +27,23 @@ export function Quant(props) {
     setTitle({ color: "#c48b76" });
   }
 
+  function onPlus() {
+    onChange({ target: { name: name, value: parseInt(value) + 1 } });
+  }
+  function onLess() {
+    if (value >= 1) {
+     onChange({ target: { name: name, value: parseInt(value) - 1 } });
+    }
+  }
+
   return (
     <>
       <div>
         <h2 style={title} className="quant-title">
-          {" "}
-          Qtde.{" "}
+          Qtde
         </h2>
         <div className="quant-section">
-          <Icon className={"icon-menos"} src={menos} />
+          <Icon className={"icon-menos"} src={menos} onClick={onLess} />
           <input
             name={name}
             style={num}
@@ -45,8 +53,9 @@ export function Quant(props) {
             className="input-quant"
             type="number"
             value={value}
+            disabled
           />
-          <Icon className={"icon-mais"} src={mais} />
+          <Icon className={"icon-mais"} src={mais} onClick={onPlus} />
         </div>
       </div>
     </>

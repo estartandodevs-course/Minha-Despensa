@@ -12,6 +12,8 @@ export function ProductName(props) {
     title,
   } = props;
 
+
+
   return (
     <>
       <div className="container-product">
