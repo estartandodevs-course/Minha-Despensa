@@ -40,7 +40,8 @@ export function FormItens(props) {
     }
   }
 
-  function addItem() {
+  function addItem(e) {
+    e.preventDefault();
     if (localStorage.getItem("Item") === null) {
       localStorage.setItem("Item", JSON.stringify([form]));
     } else {
@@ -68,7 +69,7 @@ export function FormItens(props) {
   }
 
   return (
-    <div className="container-form">
+    <form className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
       <ProductName
@@ -131,6 +132,6 @@ export function FormItens(props) {
         />
         {/* </Link> */}
       </div>
-    </div>
+    </form>
   );
 }
