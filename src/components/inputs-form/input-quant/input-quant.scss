@@ -16,6 +16,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .quant{
+    position: absolute;
+    left: 45px;
+  }
   .input-quant {
     width: 100px;
     height: 40px;

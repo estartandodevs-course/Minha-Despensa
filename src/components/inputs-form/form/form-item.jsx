@@ -27,10 +27,10 @@ export function FormItens(props) {
   const history = useHistory();
   const isEdit = currentItem || false;
   const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
-  const initialForm = isEdit ? currentItem : { id: id };
+  const initialForm = isEdit ? currentItem : { id: id, qnt:0} ;
   const [form, setForm] = useState(initialForm);
   const [modal, setModal] = useState({ display: "none" });
-
+  
   function handleChange(name, value) {
     if (value !== undefined) {
       setForm({
@@ -39,7 +39,7 @@ export function FormItens(props) {
       });
     }
   }
-
+console.log(form.value)
   function addItem() {
     if (localStorage.getItem("Item") === null) {
       localStorage.setItem("Item", JSON.stringify([form]));
@@ -64,7 +64,6 @@ export function FormItens(props) {
     setTimeout(() => {
       setModal({ display: "none" });
     }, 4000);
-    //return modal;
   }
 
   return (
