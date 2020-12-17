@@ -16,8 +16,8 @@ export function Item(props) {
   const [calendar, setCalendar] = useState(calendarIcon);
   const [shelfLife, setShelfLife] = useState("");
 
-  const jsonItem = JSON.parse(localStorage.getItem("Item"));
-  console.log(jsonItem);
+  //const jsonItem = JSON.parse(localStorage.getItem("Item"));
+  //console.log(jsonItem);
 
   function flagColor() {
     if (stateItem === "Fechado") {
@@ -43,67 +43,56 @@ export function Item(props) {
   function catchDate() {
     //DATA ATUAL
     let currentDateJS = new Date();
-    const dayJS = currentDateJS.getDate();
-    const monthJS = currentDateJS.getMonth() + 1;
-    const yearJS = currentDateJS.getFullYear();
-    const actualDate = `${monthJS}-${dayJS}-${yearJS}`;
-    //DATA ATUAL
-
-    //DATA DO ITEM
-    const dateArray = date.match(/\d/g);
-    const itemDay = dateArray[6] + dateArray[7];
-    const itemMonth = dateArray[4] + dateArray[5];
-    const itemYear = dateArray[0] + dateArray[1] + dateArray[2] + dateArray[3];
-    const itemDate = ` ${itemMonth}-${itemDay}-${itemYear}`;
-    //DATA DO ITEM
 
     //ESTÁ FRESCO ?
-    const isFresh = moment(itemDate).isAfter(actualDate);
+    const isFresh = moment(date).isAfter(currentDateJS);
 
-    console.log(moment(date).isAfter(currentDateJS));
+    const diffFreshDays = moment(date).diff(currentDateJS, "d");
+    const diffFreshWeeks = moment(date).diff(currentDateJS, "w");
+
+    const diffUnFreshDays = moment(currentDateJS).diff(date, "d");
+    const diffUnFreshWeeks = moment(currentDateJS).diff(date, "w");
 
     //Caso Fresco
     if (isFresh) {
-      let diffFresh = moment(itemDate).diff(actualDate, "d");
-
-      if (diffFresh > 7) {
-        diffFresh = moment(itemDate).diff(actualDate, "week");
-        if (diffFresh === 1) {
-          setShelfLife(`Em ${diffFresh} semana`);
+      if (diffFreshDays > 7) {
+        if (diffFreshWeeks === 1) {
+          setShelfLife(`Em ${diffFreshWeeks} semana`);
           return;
         }
-        setShelfLife(`Em ${diffFresh} semanas`);
+        setShelfLife(`Em ${diffFreshWeeks} semanas`);
         setCalendar(calendarIcon);
         return;
       }
 
-      if (diffFresh === 1) {
-        setShelfLife(`Em ${diffFresh} dia`);
+      if (diffFreshDays === 1) {
+        setShelfLife(`Em ${diffFreshDays} dia`);
+        setCalendar(calendarOrange);
+        return;
+      }
+      if (diffFreshDays === 0) {
+        setShelfLife(`Vence hoje`);
+        setCalendar(calendarOrange);
         return;
       }
 
-      setShelfLife(`Em ${diffFresh} dias`);
+      setShelfLife(`Em ${diffFreshDays} dias`);
       setCalendar(calendarOrange);
       return;
     }
     // Caso Vencido
     else {
-      let diffUnFresh = moment(actualDate).diff(itemDate, "d");
       setCalendar(calendarRed);
 
-      if (diffUnFresh > 7) {
-        diffUnFresh = moment(actualDate).diff(itemDate, "w");
-        setShelfLife(`Há ${diffUnFresh} semanas`);
+      if (diffUnFreshDays > 7) {
+        setShelfLife(`Há ${diffUnFreshWeeks} semanas`);
         return;
       }
-
-      if (diffUnFresh === 1) {
-        diffUnFresh = moment(actualDate).diff(itemDate, "d");
-        setShelfLife(`Há ${diffUnFresh} dia`);
+      if (diffUnFreshDays === 1) {
+        setShelfLife(`Há ${diffUnFreshDays} dia`);
         return;
       }
-
-      setShelfLife(`Há ${diffUnFresh} dias`);
+      setShelfLife(`Há ${diffUnFreshDays} dias`);
       return;
     }
   }
