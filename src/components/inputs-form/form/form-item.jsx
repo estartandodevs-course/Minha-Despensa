@@ -39,7 +39,7 @@ export function FormItens(props) {
       });
     }
   }
-console.log(form.value)
+
   function addItem() {
     if (localStorage.getItem("Item") === null) {
       localStorage.setItem("Item", JSON.stringify([form]));
