@@ -27,7 +27,7 @@ export function FormItens(props) {
   const history = useHistory();
   const isEdit = currentItem || false;
   const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
-  const initialForm = isEdit ? currentItem : { id: id };
+  const initialForm = isEdit ? currentItem : { id: id, name: "" };
   const [form, setForm] = useState(initialForm);
   const [modal, setModal] = useState({ display: "none" });
 
@@ -49,7 +49,7 @@ export function FormItens(props) {
       localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
     }
     Alert();
-    setForm({ id: id });
+    setForm({ id: id, name: "" });
   }
 
   function editItem() {

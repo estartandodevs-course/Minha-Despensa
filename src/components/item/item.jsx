@@ -8,11 +8,9 @@ import { useState, useEffect } from "react";
 export function Item(props) {
   const { src, alt, name, qnt, stateItem, date, onClick } = props;
   const [flag, setFlag] = useState(greenFlag);
-  const jsonItem = JSON.parse(localStorage.getItem("Item"));
-  console.log(jsonItem);
 
   function flagColor() {
-    if (stateItem === "Fechado") {
+    if (stateItem === "Acabou") {
       setFlag(redFlag);
     } else {
       setFlag(greenFlag);
