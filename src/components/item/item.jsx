@@ -16,11 +16,8 @@ export function Item(props) {
   const [calendar, setCalendar] = useState(calendarIcon);
   const [shelfLife, setShelfLife] = useState("");
 
-  //const jsonItem = JSON.parse(localStorage.getItem("Item"));
-  //console.log(jsonItem);
-
   function flagColor() {
-    if (stateItem === "Fechado") {
+    if (stateItem === "Acabou") {
       setFlag(redFlag);
     } else {
       setFlag(greenFlag);

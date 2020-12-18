@@ -27,10 +27,11 @@ export function FormItens(props) {
   const history = useHistory();
   const isEdit = currentItem || false;
   const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
-  const initialForm = isEdit ? currentItem : { id: id, qnt:0} ;
+  const initialForm = isEdit ? currentItem : { id: id, name: "", qnt: 0 };
+
   const [form, setForm] = useState(initialForm);
   const [modal, setModal] = useState({ display: "none" });
-  
+
   function handleChange(name, value) {
     if (value !== undefined) {
       setForm({
@@ -40,7 +41,8 @@ export function FormItens(props) {
     }
   }
 
-  function addItem() {
+  function addItem(e) {
+    e.preventDefault();
     if (localStorage.getItem("Item") === null) {
       localStorage.setItem("Item", JSON.stringify([form]));
     } else {
@@ -48,7 +50,7 @@ export function FormItens(props) {
       localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
     }
     Alert();
-    setForm({ id: id });
+    setForm({ id: id, name: "" });
   }
 
   function editItem() {
@@ -67,7 +69,7 @@ export function FormItens(props) {
   }
 
   return (
-    <div className="container-form">
+    <form className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
       <ProductName
@@ -130,6 +132,6 @@ export function FormItens(props) {
         />
         {/* </Link> */}
       </div>
-    </div>
+    </form>
   );
 }
