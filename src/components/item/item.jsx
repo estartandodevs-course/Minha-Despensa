@@ -28,9 +28,9 @@ export function Item(props) {
   useEffect(catchDate);
 
   function qntItem() {
-    if (qnt === "0") {
+    if (qnt === 0) {
       return { backgroundColor: "#A72422" };
-    } else if (qnt === "1") {
+    } else if (qnt === 1) {
       return { backgroundColor: "#ED6807" };
     } else {
       return { backgroundColor: "#437056" };
