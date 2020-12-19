@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import imgMercearia from "../../assets/icons/form-icons/category/refinado.svg";
+import imgLimpeza from "../../assets/icons/form-icons/category/limpeza.svg";
+import imgPerfumaria from "../../assets/icons/form-icons/category/perfumaria.svg";
 import "./despensa.scss";
 // import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
@@ -42,6 +44,12 @@ export function MinhaDespensa() {
             function Img() {
               if (item.category === "Mercearia") {
                 return imgMercearia;
+              }
+              if (item.category === "Limpeza") {
+                return imgLimpeza;
+              }
+              if (item.category === "Perfumaria") {
+                return imgPerfumaria;
               }
             }
 

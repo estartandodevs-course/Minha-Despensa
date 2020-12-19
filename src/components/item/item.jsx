@@ -2,7 +2,7 @@ import { Icon } from "../navbar/icon-navbar/icon-navbar";
 import calendarIcon from "../../assets/icons/calendar-icon.svg";
 import calendarRed from "../../assets/icons/calendar-red.svg";
 import calendarOrange from "../../assets/icons/calendar-orange.svg";
-
+import brownFlag from "../../assets/icons/brown-flag.svg";
 import greenFlag from "../../assets/icons/green-flag.svg";
 import redFlag from "../../assets/icons/red-flag.svg";
 import "./item.scss";
@@ -19,7 +19,11 @@ export function Item(props) {
   function flagColor() {
     if (stateItem === "Acabou") {
       setFlag(redFlag);
-    } else {
+    }
+    if (stateItem === "Fechado") {
+      setFlag(brownFlag);
+    }
+    if (stateItem === "Aberto") {
       setFlag(greenFlag);
     }
   }
