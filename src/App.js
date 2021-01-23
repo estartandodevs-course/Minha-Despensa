@@ -1,7 +1,6 @@
 
 import { HomePage } from "./pages/home/home";
-import { MinhaDespensa } from "./pages/despensa/despensa";
-import { DespensaVazia } from "./pages/despensa-vazia/despensa-vazia";
+import { MinhaDespensa } from "./pages/pantry/pantry";
 import { Layout } from "./components/layout/layout";
 import { FormPage } from "./pages/Form/form";
 import { LoginPage } from "./pages/login/login";
@@ -21,7 +20,6 @@ export function App() {
         <Switch>
           <Route exact path="/despensavazia">
             <Layout>
-              <DespensaVazia />
             </Layout>
           </Route>
           <Route exact path="/inserir-item">
