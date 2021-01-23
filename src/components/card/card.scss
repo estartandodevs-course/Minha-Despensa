@@ -1,8 +1,4 @@
 .container-card {
-  max-width: 700px;
-  width: 100%;
-
-  /* max-height: 160px; */
   display: flex;
   flex-direction: column;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -11,14 +7,14 @@
   margin: 16px 20px;
   outline: none;
   cursor: pointer;
-
+  position: relative;
+  
   h1 {
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 30px;
     font-weight: 700;
-
     margin: 24px 20px 6px 20px;
   }
   .text {
@@ -40,7 +36,6 @@
   }
   .abso {
     width: 320px;
-    opacity: 0.1;
     position: absolute;
     padding: 0;
   }
@@ -56,7 +51,20 @@
     }
   }
 }
-
 a:-webkit-any-link {
   text-decoration: none;
+}
+
+.container-card:after{
+  content : "";
+  display: block;
+  position: absolute;
+  background: url('../../assets/img/img-legumes.svg')no-repeat center center;
+  background-size: cover;
+  opacity : .1;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }

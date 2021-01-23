@@ -32,7 +32,7 @@ export function Quant(props) {
   }
   function onLess() {
     if (value >= 1) {
-     onChange({ target: { name: name, value: parseInt(value) - 1 } });
+      onChange({ target: { name: name, value: parseInt(value) - 1 } });
     }
   }
 
