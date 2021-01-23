@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../../components/Button/Button";
-import { ProductName } from "../../components/inputs-form/product-name/product-name";
+import { ProductName } from "../../components/inputs-form/components/product-name/product-name";
 import logo from "../../assets/img/login.svg";
 import "./login.scss";
 

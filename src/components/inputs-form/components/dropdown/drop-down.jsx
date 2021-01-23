@@ -1,7 +1,7 @@
 import React from "react";
 import DropDown from "react-dropdown";
 import "./drop-down.scss";
-import arrow from "../../../assets/icons/arrow-down.svg";
+import arrow from "../../../../assets/icons/arrow.svg";
 
 export function DropDownAb(props) {
   const {

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import { ProductName } from "../product-name/product-name";
-import { Checkbox } from "../checkbox/checkbox";
-import { Quant } from "../input-quant/input-quant";
-import { Calendar } from "../calendar/calendar";
-import { DropDownAb } from "../dropdown/drop-down";
-import { Button } from "../../Button/Button";
+import { ProductName } from "../../components/product-name/product-name";
+import { Checkbox } from "../../components/checkbox/checkbox";
+import { Quant } from "../../components/input-quant/input-quant";
+import { Calendar } from "../../components/calendar/calendar";
+import { DropDownAb } from "../../components/dropdown/drop-down";
+import { Button } from "../../../../components/Button/Button";
+import { Success } from "../../components/success/success";
+import "../../../../pages/Form/form.scss";
 import { Link, useHistory } from "react-router-dom";
-import { Success } from "../success/success";
-import "../../../pages/Form/form.scss";
 
 const options = [
   { value: "pct" },
