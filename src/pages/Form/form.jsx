@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./form.scss";
-import { FormItens } from "../../components/inputs-form/form/form-item";
+import { FormItens } from "../../components/inputs-form/components/form/form-item";
 import { ModalDelete } from "../../components/modal/modal";
 import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";

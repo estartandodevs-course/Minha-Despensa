@@ -1,9 +1,9 @@
-import { Icon } from "../../navbar/icon-navbar/icon-navbar";
+import { Icon } from "../../../navbar/icon-navbar/icon-navbar";
 import "./input-quant.scss";
-import iconMais from "../../../assets/icons/icon-mais.svg";
-import iconMaisVerde from "../../../assets/icons/icon-mais-verde.svg";
-import iconMenos from "../../../assets/icons/icon-menos.svg";
-import iconMenosVerde from "../../../assets/icons/icon-menos-verde.svg";
+import iconMais from "../../../../assets/icons/icon-mais.svg";
+import iconMaisVerde from "../../../../assets/icons/icon-mais-verde.svg";
+import iconMenos from "../../../../assets/icons/icon-menos.svg";
+import iconMenosVerde from "../../../../assets/icons/icon-menos-verde.svg";
 import { useState } from "react";
 
 export function Quant(props) {
@@ -32,7 +32,7 @@ export function Quant(props) {
   }
   function onLess() {
     if (value >= 1) {
-     onChange({ target: { name: name, value: parseInt(value) - 1 } });
+      onChange({ target: { name: name, value: parseInt(value) - 1 } });
     }
   }
 
