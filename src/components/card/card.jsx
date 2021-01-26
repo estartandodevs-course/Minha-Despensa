@@ -5,6 +5,7 @@ import "./card.scss";
 
 export function Card(props) {
   const { title, text, quantity, color } = props;
+  console.log(title)
 
   return (
     <div className={`${'container-card'} ${title === 'Despensa' ? 'vegetable-img' : 'cart-img'}`} style={{ backgroundColor: color }}>
