@@ -23,14 +23,14 @@ export function HomePage() {
         />
       </Link>
 
-      <Link to="/">
+      {/* <Link to="/">
         <Card
           title="Lista de Compra"
           quantity="Quantidade de itens:"
           color="#D1CBBD"
           text="Lembre-se de atualizar sua lista antes de fazer as compras!"
         />
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export function Card(props) {
   console.log(title)
 
   return (
-    <div className={`${'container-card'} ${title === 'Despensa' ? 'vegetable-img' : 'cart-img'}`} style={{ backgroundColor: color }}>
+    <div className={'container-card vegetable-img'} style={{ backgroundColor: color }}>
       <h1>{title}</h1>
       <p className="text">{text}</p>
       <p className="qnt">{quantity}</p>
