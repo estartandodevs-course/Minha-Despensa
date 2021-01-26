@@ -7,6 +7,7 @@ import { Calendar } from "../../components/calendar/calendar";
 import { DropDownAb } from "../../components/dropdown/drop-down";
 import { Button } from "../../../../components/Button/Button";
 import { Success } from "../../components/success/success";
+// import { AddPhoto } from "../addPhoto/addPhoto"
 import "../../../../pages/Form/form.scss";
 import { Link, useHistory } from "react-router-dom";
 
@@ -112,6 +113,7 @@ export function FormItens(props) {
         placeholder="Escolha uma categoria"
         options={categorias}
       />
+
       <div className="container-button">
         <Link to="/despensa">
           <Button
@@ -123,14 +125,13 @@ export function FormItens(props) {
             }}
           />
         </Link>
-        {/* <Link to="/despensa"> */}
+
         <Button
           type="submit"
           value="Salvar"
           style={{ background: "#437056", width: "150px" }}
           onClick={isEdit ? editItem : addItem}
         />
-        {/* </Link> */}
       </div>
     </form>
   );
