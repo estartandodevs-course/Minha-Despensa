@@ -7,7 +7,7 @@ import { Calendar } from "../../components/calendar/calendar";
 import { DropDownAb } from "../../components/dropdown/drop-down";
 import { Button } from "../../../../components/Button/Button";
 import { Success } from "../../components/success/success";
-// import { AddPhoto } from "../addPhoto/addPhoto"
+import { AddPhoto } from "../addPhoto/addPhoto"
 import "../../../../pages/Form/form.scss";
 import { Link, useHistory } from "react-router-dom";
 
@@ -113,6 +113,8 @@ export function FormItens(props) {
         placeholder="Escolha uma categoria"
         options={categorias}
       />
+
+      <AddPhoto/>
 
       <div className="container-button">
         <Link to="/despensa">
