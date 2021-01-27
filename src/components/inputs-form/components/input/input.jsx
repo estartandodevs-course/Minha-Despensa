@@ -1,7 +1,7 @@
 import React from "react";
-import "./product-name.scss";
+import "./input.scss";
 
-export function ProductName(props) {
+export function ProdutcName(props) {
   const {
     label = "Nome",
     placeholder = "Informe o nome do item",
@@ -16,13 +16,13 @@ export function ProductName(props) {
 
   return (
     <>
-      <div className="container-product">
-        <h2 className="product-title">{title}</h2>
+      <div className="container-input">
+        <label className="title">{title}</label>
         <input
+          className="input"
           label={label}
           name={name}
           onChange={(e) => onChange(e)}
-          className="product-input"
           type={type}
           value={value}
           placeholder={placeholder}

@@ -1,32 +1,34 @@
-label {
-  font-size: 14px;
-  color: #C48B76;
-}
-.container-photo{
-  width:160px;
-  height: 130px;
-  border: 1px solid #C48B76;
-  box-sizing: border-box;
-  border-radius: 10px;
-
-
-  .addPhoto[type=file]::-webkit-file-upload-button {
-    width: 110px;
-    height: 110px;
-    background: white;
-    background-size: cover;
-    background: url('../../../../assets/img/img.svg')no-repeat center center;
-    border: 2px solid #C48B76;
+.container-photo {
+  label {
+    font-size: 14px;
+    color: #C48B76;
+  }
+  .photo{
+    width:160px;
+    height: 130px;
+    border: 1px solid #C48B76;
     box-sizing: border-box;
     border-radius: 10px;
-    color: #C48B76;
-    margin: 8px 24px;
-    outline: none;
-  }
-  .addPhoto[type="file" i]{
-    width: 159px;
-    height: 129px;
-    outline: none;
   
+  
+    .addPhoto[type=file]::-webkit-file-upload-button {
+      width: 110px;
+      height: 110px;
+      background: white;
+      background-size: cover;
+      background: url('../../../../assets/img/img.svg')no-repeat center center;
+      border: 2px solid #C48B76;
+      box-sizing: border-box;
+      border-radius: 10px;
+      color: #C48B76;
+      margin: 8px 24px;
+      outline: none;
+    }
+    .addPhoto[type="file" i]{
+      width: 159px;
+      height: 129px;
+      outline: none;
+    
+    }
   }
 }

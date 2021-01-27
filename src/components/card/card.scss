@@ -54,7 +54,7 @@
   }
 }
 
-.vegetable-img:after{
+.vegetable-img::after{
   content : "";
   display: block;
   position: absolute;

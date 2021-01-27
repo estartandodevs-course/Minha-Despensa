@@ -6,8 +6,8 @@ export function Checkbox(props) {
   const isEdit = currentItem || false;
   return (
     <>
-      <h2 className="checkbox-title">Status:</h2>
       <div className="container-checkbox">
+      <h2 className="checkbox-title">Status:</h2>
         <div className="radio">
           <input
             onChange={(e) => onChange(e)}

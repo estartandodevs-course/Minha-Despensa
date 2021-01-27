@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ProductName } from "../../components/product-name/product-name";
+import { ProdutcName } from "../input/input";
 import { Checkbox } from "../../components/checkbox/checkbox";
 import { Quant } from "../../components/input-quant/input-quant";
 import { Calendar } from "../../components/calendar/calendar";
@@ -73,18 +73,15 @@ export function FormItens(props) {
     <form className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
-      <ProductName
+      <ProdutcName
         title="Nome:"
         name="name"
         label="nome"
         onChange={({ target }) => handleChange(target.name, target.value)}
         value={form.name}
       />
-      <Checkbox
-        onChange={({ target }) => handleChange(target.name, target.value)}
-        currentItem={currentItem}
-      />
-      <div className="quant-drop">
+
+      {/* <div className="quant-drop">
         <Quant
           onChange={({ target }) => handleChange(target.name, target.value)}
           name="qnt"
@@ -98,9 +95,9 @@ export function FormItens(props) {
           placeholder="Unidades"
           options={options}
         />
-      </div>
+      </div> */}
 
-      <Calendar
+      {/* <Calendar
         name="date"
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
@@ -112,11 +109,17 @@ export function FormItens(props) {
         title="Categoria:"
         placeholder="Escolha uma categoria"
         options={categorias}
-      />
+      /> */}
+      {/* <div className="AddPhoto-Checkbox">
+        <AddPhoto />
+        <Checkbox
+          onChange={({ target }) => handleChange(target.name, target.value)}
+          currentItem={currentItem}
+        />
+      </div> */}
 
-      <AddPhoto/>
 
-      <div className="container-button">
+      {/* <div className="container-button">
         <Link to="/despensa">
           <Button
             value="Cancelar"
@@ -134,7 +137,7 @@ export function FormItens(props) {
           style={{ background: "#437056", width: "150px" }}
           onClick={isEdit ? editItem : addItem}
         />
-      </div>
+      </div> */}
     </form>
   );
 }
