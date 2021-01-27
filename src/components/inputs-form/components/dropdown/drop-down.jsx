@@ -1,7 +1,7 @@
 import React from "react";
 import DropDown from "react-dropdown";
 import "./drop-down.scss";
-import arrow from "../../../../assets/icons/arrow.svg";
+import arrow from "../../../../assets/icons/arrow-low.svg";
 
 export function DropDownAb(props) {
   const {
@@ -17,7 +17,7 @@ export function DropDownAb(props) {
   return (
     <>
       <div className="container-select">
-        <h2>{title}</h2>
+        <label>{title}</label>
         <div className="arrow-img">
           <img className={arrowWidth} src={arrow} alt="arrow to down" />
         </div>

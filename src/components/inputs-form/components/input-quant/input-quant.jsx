@@ -37,27 +37,25 @@ export function Quant(props) {
   }
 
   return (
-    <>
-      <div>
-        <h2 style={title} className="quant-title">
-          Qtde
-        </h2>
-        <div className="quant-section">
-          <Icon className={"icon-menos"} src={menos} onClick={onLess} />
-          <input
-            name={name}
-            style={num}
-            onFocus={onFocus}
-            onBlur={onFocusOut}
-            onChange={(e) => onChange(e)}
-            className="input-quant"
-            type="number"
-            value={value}
-            disabled
-          />
-          <Icon className={"icon-mais"} src={mais} onClick={onPlus} />
-        </div>
+    <div>
+      <label style={title} className="quant-title">
+        Qtde
+        </label>
+      <div className="quant-section">
+        <Icon className={"icon-menos"} src={menos} onClick={onLess} />
+        <input
+          className="input-quant"
+          name={name}
+          style={num}
+          onFocus={onFocus}
+          onBlur={onFocusOut}
+          onChange={(e) => onChange(e)}
+          type="number"
+          value={value}
+          // disabled
+        />
+        <Icon className={"icon-mais"} src={mais} onClick={onPlus} />
       </div>
-    </>
+    </div>
   );
 }

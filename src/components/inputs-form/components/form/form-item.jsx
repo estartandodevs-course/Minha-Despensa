@@ -81,7 +81,7 @@ export function FormItens(props) {
         value={form.name}
       />
 
-      {/* <div className="quant-drop">
+      <div className="quant-drop">
         <Quant
           onChange={({ target }) => handleChange(target.name, target.value)}
           name="qnt"
@@ -92,10 +92,10 @@ export function FormItens(props) {
           className="w190"
           arrowWidth="arrow190"
           title="Unidades de medida:"
-          placeholder="Unidades"
+          placeholder="Escolha uma unidade"
           options={options}
         />
-      </div> */}
+      </div>
 
       {/* <Calendar
         name="date"
