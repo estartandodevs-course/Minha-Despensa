@@ -97,12 +97,12 @@ export function FormItens(props) {
         />
       </div>
 
-      {/* <Calendar
+      <Calendar
         name="date"
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
 
-      <DropDownAb
+      {/* <DropDownAb
         onChange={({ value }) => handleChange("category", value)}
         className="w328"
         arrowWidth="arrow328"
