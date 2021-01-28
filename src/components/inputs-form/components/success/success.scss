@@ -14,20 +14,19 @@
 }
 
 .success-alert {
-  /* display: none; */
+  z-index: 1000;
   justify-content: center;
   align-items: center;
   animation: animation 4s;
-  margin-top: 8px;
+  margin-top: -6px;
   position: absolute;
   width: 100%;
+  max-width: 400px;
   height: 48px;
   background-color: #437056;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .text-success {
-    font-family: Quicksand;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;

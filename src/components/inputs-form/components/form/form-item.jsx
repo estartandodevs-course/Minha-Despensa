@@ -70,8 +70,9 @@ export function FormItens(props) {
   }
 
   return (
-    <form className="container-form">
+    <>
       <Success style={modal} text="Item adicionado com sucesso!" />
+    <form className="container-form">
 
       <ProdutcName
         title="Nome"
@@ -139,5 +140,6 @@ export function FormItens(props) {
         />
       </div>
     </form>
+    </>
   );
 }
