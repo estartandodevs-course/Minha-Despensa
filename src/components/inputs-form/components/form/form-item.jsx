@@ -96,20 +96,21 @@ export function FormItens(props) {
           options={options}
         />
       </div>
+      <div className="Calendar-DropDownAb">
+        <Calendar
+          name="date"
+          onChange={({ target }) => handleChange(target.name, target.value)}
+        />
 
-      <Calendar
-        name="date"
-        onChange={({ target }) => handleChange(target.name, target.value)}
-      />
-
-      <DropDownAb
-        onChange={({ value }) => handleChange("category", value)}
-        className="w328"
-        arrowWidth="arrow328"
-        title="Categoria"
-        placeholder="Escolha uma categoria"
-        options={categorias}
-      />
+        <DropDownAb
+          onChange={({ value }) => handleChange("category", value)}
+          className="w328"
+          arrowWidth="arrow328"
+          title="Categoria"
+          placeholder="Escolha uma categoria"
+          options={categorias}
+        />
+      </div>
       <div className="AddPhoto-Checkbox">
         <AddPhoto />
         <Checkbox
@@ -125,7 +126,6 @@ export function FormItens(props) {
             value="Cancelar"
             style={{
               background: "#B24947",
-              width: "150px",
               margin: "0 16px 0 0",
             }}
           />
@@ -134,7 +134,7 @@ export function FormItens(props) {
         <Button
           type="submit"
           value="Salvar"
-          style={{ background: "#437056", width: "150px" }}
+          style={{ background: "#437056" }}
           onClick={isEdit ? editItem : addItem}
         />
       </div>

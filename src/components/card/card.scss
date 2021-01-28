@@ -54,19 +54,19 @@
   }
 }
 
-.vegetable-img::after{
-  content : "";
-  display: block;
-  position: absolute;
-  background: url('../../assets/img/img-legumes.svg')no-repeat center center;
-  background-size: cover;
-  opacity : .1;
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
+// .vegetable-img::after{
+//   content : "";
+//   display: block;
+//   position: absolute;
+//   background: url('../../assets/img/img-legumes.svg')no-repeat center center;
+//   background-size: cover;
+//   opacity : .1;
+//   border-radius: 10px;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+// }
 // .cart-img:after{
 //   content : "";
 //   display: block;

@@ -2,6 +2,9 @@
   color: #c48b76;
   margin-bottom: 20px;
   max-width: 330px;
+  @media (max-width:350px) {
+    margin-bottom: 0px;
+  }
 
   .calendar-title {
     font-size: 14px;
@@ -19,6 +22,9 @@
     border: 1px solid #c48b76;
     background-color: #f2f2f2;
     outline: none;
+    @media (max-width:350px) {
+      width: 165px;
+    }
   }
 
   .calendar-input:focus-within {
