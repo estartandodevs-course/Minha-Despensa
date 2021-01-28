@@ -74,7 +74,7 @@ export function FormItens(props) {
       <Success style={modal} text="Item adicionado com sucesso!" />
 
       <ProdutcName
-        title="Nome:"
+        title="Nome"
         name="name"
         label="nome"
         onChange={({ target }) => handleChange(target.name, target.value)}
@@ -91,7 +91,7 @@ export function FormItens(props) {
           onChange={({ value }) => handleChange("unit", value)}
           className="w190"
           arrowWidth="arrow190"
-          title="Unidades de medida:"
+          title="Unidades de medida"
           placeholder="Escolha uma unidade"
           options={options}
         />
@@ -102,24 +102,24 @@ export function FormItens(props) {
         onChange={({ target }) => handleChange(target.name, target.value)}
       />
 
-      {/* <DropDownAb
+      <DropDownAb
         onChange={({ value }) => handleChange("category", value)}
         className="w328"
         arrowWidth="arrow328"
-        title="Categoria:"
+        title="Categoria"
         placeholder="Escolha uma categoria"
         options={categorias}
-      /> */}
-      {/* <div className="AddPhoto-Checkbox">
+      />
+      <div className="AddPhoto-Checkbox">
         <AddPhoto />
         <Checkbox
           onChange={({ target }) => handleChange(target.name, target.value)}
           currentItem={currentItem}
         />
-      </div> */}
+      </div>
 
 
-      {/* <div className="container-button">
+      <div className="container-button">
         <Link to="/despensa">
           <Button
             value="Cancelar"
@@ -137,7 +137,7 @@ export function FormItens(props) {
           style={{ background: "#437056", width: "150px" }}
           onClick={isEdit ? editItem : addItem}
         />
-      </div> */}
+      </div>
     </form>
   );
 }

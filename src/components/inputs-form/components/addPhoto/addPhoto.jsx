@@ -6,9 +6,9 @@ export function AddPhoto() {
 
   return (
     <div className="container-photo">
-      <label>foto</label>
+      <label className="addPhoto-title">Foto</label>
       <div className="photo">
-        <input className="addPhoto" type="file" />
+        <input className="addPhoto" type="file"/>
       </div>
     </div>
 

@@ -1,7 +1,9 @@
 .container-photo {
-  label {
+  .addPhoto-title {
+    font-weight: 500;
     font-size: 14px;
-    color: #C48B76;
+    margin-left: 10px;
+    color: #c48b76;
   }
   .photo{
     width:160px;
@@ -28,7 +30,6 @@
       width: 159px;
       height: 129px;
       outline: none;
-    
     }
   }
 }
