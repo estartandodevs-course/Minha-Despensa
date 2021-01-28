@@ -1,35 +1,35 @@
-.container-photo {
-  .addPhoto-title {
-    font-weight: 500;
-    font-size: 14px;
-    margin-left: 10px;
-    color: #c48b76;
-  }
-  .photo{
-    width:160px;
-    height: 130px;
-    border: 1px solid #C48B76;
-    box-sizing: border-box;
+.new-addPhoto {
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 10px;
+  color: #c48b76;
+  cursor: pointer;
+
+  .addPhoto-content {
+    width: 160px;
+    border: 1px solid #c48b76;
     border-radius: 10px;
-  
-  
-    .addPhoto[type=file]::-webkit-file-upload-button {
+
+    .addPhoto {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 110px;
       height: 110px;
-      background: white;
       background-size: cover;
-      background: url('../../../../assets/img/img.svg')no-repeat center center;
-      border: 2px solid #C48B76;
-      box-sizing: border-box;
+      background: url("../../../../assets/img/img.svg") no-repeat center center;
+      border: 2px solid #c48b76;
       border-radius: 10px;
-      color: #C48B76;
       margin: 8px 24px;
       outline: none;
+      p {
+        font-size: 14px;
+        text-align: center;
+        color: #c48b76;
+      }
     }
-    .addPhoto[type="file" i]{
-      width: 159px;
-      height: 129px;
-      outline: none;
+    .addPhoto[type="file" i] {
+      display: none;
     }
   }
 }
