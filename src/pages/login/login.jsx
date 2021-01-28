@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../../components/Button/Button";
-import { ProductName } from "../../components/inputs-form/components/product-name/product-name";
+import { ProdutcName } from "../../components/inputs-form/components/input/input";
 import logo from "../../assets/img/login.svg";
 import "./login.scss";
 
@@ -22,7 +22,7 @@ export function LoginPage() {
       <main className="login-container">
         <img src={logo} alt="" />
 
-        <ProductName
+        <ProdutcName
           title="Nome:"
           label="Usuário"
           placeholder="E-mail"
@@ -30,7 +30,7 @@ export function LoginPage() {
           onChange={handleChange}
           style={{ marginBottom: "20px" }}
         />
-        <ProductName
+        <ProdutcName
           title="Senha:"
           label="Senha"
           placeholder="Senha"

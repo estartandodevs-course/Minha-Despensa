@@ -18,8 +18,11 @@ $radius-button: 10px;
   border: none;
   border-radius: $radius-button;
   box-shadow: 0px 1px 5px black;
-
+  width: 150px;
   margin: 0;
   cursor: pointer;
   outline: none;
+  @media (max-width:350px) {
+    width: 140px;
+  }
 }

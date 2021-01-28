@@ -1,50 +1,30 @@
-.container-quant{
-  margin: 17px 23px 0 16px;
-}
 .quant-title {
-  margin-bottom: 2px;
-  padding-left: 7px;
-  font-family: Quicksand;
-  font-style: normal;
-  font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
+  font-weight: 500;
   margin-left: 10px;
   color: #c48b76;
 }
+
 .quant-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .quant{
-    position: absolute;
-    left: 45px;
-  }
+
   .input-quant {
-    width: 100px;
+    max-width: 100px;
     height: 40px;
     border: 1px solid #c48b76;
-    box-sizing: border-box;
-    border-radius: 10px;
-    text-align: center;
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
     color: #c48b76;
-    outline: none;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
     background-color: #f2f2f2;
+    outline: none;
   }
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
-  }
-  :focus {
-    border: 1px solid #437056;
-    color: #c48b76;
+    margin: 0;
   }
   .icon-menos {
     position: absolute;
@@ -55,5 +35,9 @@
     position: absolute;
     margin-left: 70px;
     margin-right: 10px;
+  }
+  :focus {
+    border: 1px solid #437056;
+
   }
 }

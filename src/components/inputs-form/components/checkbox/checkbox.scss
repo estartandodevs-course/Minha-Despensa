@@ -1,26 +1,24 @@
 .container-checkbox {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 .checkbox-title {
   font-size: 14px;
   font-weight: 500;
   color: #c48b76;
-  margin-top: 23px;
   margin-left: 10px;
 }
-.radio {
+.radio  {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  width: 100%;
-  // background-color: forestgreen;
-  // margin-bottom: 10px;
-  margin: 0 3px;
-  color: #868686;
+  max-width: 160px;
+  margin-left: 10px;
+  margin-bottom: 3px;
+  // color: #868686;
 }
 .input-fechado,
 .input-aberto,
@@ -35,6 +33,7 @@
   text-align: center;
   border-radius: 8px;
   border: 1px solid #868686;
+  cursor: pointer;
 }
 
 .input-fechado:checked + .label-fechado {
@@ -51,4 +50,9 @@
   color: #f2f2f2;
   border: none;
   background: #868686;
+}
+
+.AddPhoto-Checkbox {
+  margin-top: 20px;
+  display: flex;
 }

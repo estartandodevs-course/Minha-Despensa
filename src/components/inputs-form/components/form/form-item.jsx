@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import { ProductName } from "../../components/product-name/product-name";
+import { ProdutcName } from "../input/input";
 import { Checkbox } from "../../components/checkbox/checkbox";
 import { Quant } from "../../components/input-quant/input-quant";
 import { Calendar } from "../../components/calendar/calendar";
 import { DropDownAb } from "../../components/dropdown/drop-down";
 import { Button } from "../../../../components/Button/Button";
 import { Success } from "../../components/success/success";
-// import { AddPhoto } from "../addPhoto/addPhoto"
+import { AddPhoto } from "../addPhoto/addPhoto"
 import "../../../../pages/Form/form.scss";
 import { Link, useHistory } from "react-router-dom";
 
@@ -73,17 +73,14 @@ export function FormItens(props) {
     <form className="container-form">
       <Success style={modal} text="Item adicionado com sucesso!" />
 
-      <ProductName
-        title="Nome:"
+      <ProdutcName
+        title="Nome"
         name="name"
         label="nome"
         onChange={({ target }) => handleChange(target.name, target.value)}
         value={form.name}
       />
-      <Checkbox
-        onChange={({ target }) => handleChange(target.name, target.value)}
-        currentItem={currentItem}
-      />
+
       <div className="quant-drop">
         <Quant
           onChange={({ target }) => handleChange(target.name, target.value)}
@@ -94,25 +91,34 @@ export function FormItens(props) {
           onChange={({ value }) => handleChange("unit", value)}
           className="w190"
           arrowWidth="arrow190"
-          title="Unidades de medida:"
-          placeholder="Unidades"
+          title="Unidades de medida"
+          placeholder="Escolha uma unidade"
           options={options}
         />
       </div>
+      <div className="Calendar-DropDownAb">
+        <Calendar
+          name="date"
+          onChange={({ target }) => handleChange(target.name, target.value)}
+        />
 
-      <Calendar
-        name="date"
-        onChange={({ target }) => handleChange(target.name, target.value)}
-      />
+        <DropDownAb
+          onChange={({ value }) => handleChange("category", value)}
+          className="w328"
+          arrowWidth="arrow328"
+          title="Categoria"
+          placeholder="Escolha uma categoria"
+          options={categorias}
+        />
+      </div>
+      <div className="AddPhoto-Checkbox">
+        <AddPhoto />
+        <Checkbox
+          onChange={({ target }) => handleChange(target.name, target.value)}
+          currentItem={currentItem}
+        />
+      </div>
 
-      <DropDownAb
-        onChange={({ value }) => handleChange("category", value)}
-        className="w328"
-        arrowWidth="arrow328"
-        title="Categoria:"
-        placeholder="Escolha uma categoria"
-        options={categorias}
-      />
 
       <div className="container-button">
         <Link to="/despensa">
@@ -120,7 +126,6 @@ export function FormItens(props) {
             value="Cancelar"
             style={{
               background: "#B24947",
-              width: "150px",
               margin: "0 16px 0 0",
             }}
           />
@@ -129,7 +134,7 @@ export function FormItens(props) {
         <Button
           type="submit"
           value="Salvar"
-          style={{ background: "#437056", width: "150px" }}
+          style={{ background: "#437056" }}
           onClick={isEdit ? editItem : addItem}
         />
       </div>

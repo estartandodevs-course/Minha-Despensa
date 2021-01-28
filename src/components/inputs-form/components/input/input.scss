@@ -1,33 +1,33 @@
-.container-product {
+.container-input {
   display: flex;
   flex-direction: column;
-  margin-top: 12px;
   color: #c48b76;
   &:focus-within {
     color: #437056;
   }
-  .product-title {
+  .title {
     font-size: 14px;
     font-weight: 500;
     margin-left: 10px;
   }
-
-  .product-input {
-    color: #2e2e2e;
+  .input {
     width: 100%;
+    max-width: 330px;
     height: 40px;
-    font-size: 14px;
     padding: 0 8px;
+    font-size: 14px;
+    font-weight: 500;
     border-radius: 10px;
-    border: 1px solid #c48b76;
+    border: 1px solid #C48B76;
+    color: #2e2e2e;
+    background-color: #F2F2F2;
     outline: none;
-    background-color: #f2f2f2;
+    margin-bottom: 20px;
   }
   ::placeholder {
-    color: #d1ab9d;
+    color: #D1AB9D;
   }
-
-  .product-input:focus {
+  .input:focus {
     border: 1px solid #437056;
     color: #437056;
   }

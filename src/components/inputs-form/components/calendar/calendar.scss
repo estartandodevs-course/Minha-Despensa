@@ -1,32 +1,42 @@
 .container-calendar {
   color: #c48b76;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
+  max-width: 330px;
+  @media (max-width:350px) {
+    margin-bottom: 0px;
+  }
 
   .calendar-title {
     font-size: 14px;
     font-weight: 500;
-    margin-top: 23px;
     margin-left: 10px;
-  }
-  &:focus-within {
-    color: #437056;
   }
 
   .calendar-input {
     color: #decec8;
     width: 100%;
     height: 40px;
-    padding: 0 10px;
+    padding-left: 8px;
     font-size: 14px;
-
     border-radius: 10px;
     border: 1px solid #c48b76;
     background-color: #f2f2f2;
     outline: none;
+    @media (max-width:350px) {
+      width: 165px;
+    }
   }
 
   .calendar-input:focus-within {
     border: 1px solid #437056;
     color: #437056;
   }
+  &:focus-within {
+    color: #437056;
+  }
+}
+.calendar-input::-webkit-calendar-picker-indicator {
+  margin-right: 10px;
+  background: url("../../../../assets/icons/calendar.svg") no-repeat center
+    center;
 }
