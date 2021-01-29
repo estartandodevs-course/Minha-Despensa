@@ -12,7 +12,6 @@ export function FormPage() {
   const location = useLocation();
   const history = useHistory();
   const data = location.state;
-  console.log(data);
   const currentItem = data?.item || false;
 
   function Delete() {
@@ -30,17 +29,18 @@ export function FormPage() {
   }
 
   return (
-    <>
+    <> 
+    <ModalDelete
+          isOpen={modalIsOpen}
+          onCancel={() => setModalOpen(false)}
+          onDelete={() => Delete()}
+        />
       <Header
         openDeleteModal={() => setModalOpen(true)}
         currentItem={currentItem}
       />
       <main className="container-form-page">
-        <ModalDelete
-          isOpen={modalIsOpen}
-          onCancel={() => setModalOpen(false)}
-          onDelete={() => Delete()}
-        />
+       
         <FormItens currentItem={currentItem} />
       </main>
       <Navbar />

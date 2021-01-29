@@ -9,7 +9,10 @@ export function AddPhoto() {
       <label for="photo" className="new-addPhoto">Foto
       <div className="addPhoto-content">
           <div className="addPhoto">
-            <input id="photo" className="addPhoto" type="file" />
+            <input id="photo"
+              className="addPhoto"
+              type="file"
+            />
             <p>Adicione uma imagem</p>
           </div>
         </div>

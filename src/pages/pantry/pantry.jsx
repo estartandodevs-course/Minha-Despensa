@@ -23,7 +23,6 @@ export function MinhaDespensa() {
       item.name.toLowerCase().includes(search.toLowerCase())
     );
   }
-
   return (
     <>
       <SearchBar onChange={onChange} value={search} />
