@@ -12,7 +12,6 @@ export function FormPage() {
   const location = useLocation();
   const history = useHistory();
   const data = location.state;
-  console.log(data);
   const currentItem = data?.item || false;
 
   function Delete() {
