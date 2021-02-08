@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import despensa from "../../assets/img/img-legumes.svg";
 // import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
+import { authConfig } from "../../auth/config";
 
 export function HomePage() {
   const jsonItem = JSON.parse(localStorage.getItem("Item"));
@@ -14,6 +15,7 @@ export function HomePage() {
 
   return (
     <div className="home-wraper">
+      <button onClick={() => authConfig.auth().signOut()}>sair</button>
       <Link to="/despensa">
         <Card
           title="Despensa"

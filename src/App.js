@@ -3,7 +3,9 @@ import { HomePage } from "./pages/home/home";
 import { MinhaDespensa } from "./pages/pantry/pantry";
 import { Layout } from "./components/layout/layout";
 import { FormPage } from "./pages/Form/form";
-import { LoginPage } from "./pages/login/login";
+import Login  from "./pages/login/login";
+import SignUp from "./pages/cadastro/cadastro"
+import {AuthProvider} from "./auth/auth"
 import "./App.css";
 
 import {
@@ -16,6 +18,7 @@ import {
 export function App() {
   return (
     <>
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/despensavazia">
@@ -30,9 +33,14 @@ export function App() {
               <MinhaDespensa />
             </Layout>
           </Route>
+          <Route exact path="/cadastro">
+            <Layout>
+              <SignUp />
+            </Layout>
+          </Route>
           <Route exact path="/login">
             <Layout>
-              <LoginPage />
+              <Login />
             </Layout>
           </Route>
           <Route exact path="/">
@@ -43,6 +51,7 @@ export function App() {
           <Redirect to="/" />
         </Switch>
       </Router>
+      </AuthProvider>
     </>
   );
 }
