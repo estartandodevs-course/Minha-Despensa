@@ -1,7 +1,7 @@
 import React from "react";
 import "./input.scss";
 
-export function ProdutcName(props) {
+export function Input(props) {
   const {
     label = "Nome",
     placeholder = "Informe o nome do item",

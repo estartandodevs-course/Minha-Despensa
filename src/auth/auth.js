@@ -4,11 +4,13 @@ import { authConfig } from "./config";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState();
 
-  useEffect(() => {
+
+  useEffect((user) => {
     authConfig.auth().onAuthStateChanged(setCurrentUser);
   }, []);
+
 
   return (
     <AuthContext.Provider value={{currentUser}}>

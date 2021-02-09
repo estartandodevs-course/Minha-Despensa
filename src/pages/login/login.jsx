@@ -1,63 +1,15 @@
-// import React, { useState } from "react";
-// import { Button } from "../../components/Button/Button";
-// import { ProdutcName } from "../../components/inputs-form/components/input/input";
-// import logo from "../../assets/img/login.svg";
-// import "./login.scss";
-
-// export function LoginPage() {
-//   const [form, setForm] = useState({});
-
-//   function handleChange(e) {
-//     const name = e.target.name;
-//     const value = e.target.value;
-
-//     setForm({
-//       ...form,
-//       [name]: value,
-//     });
-//   }
-
-//   return (
-//     <>
-//       <main className="login-container">
-//         <img src={logo} alt="" />
-
-//         <ProdutcName
-//           title="Nome:"
-//           label="Usuário"
-//           placeholder="E-mail"
-//           name="username"
-//           onChange={handleChange}
-//           style={{ marginBottom: "20px" }}
-//         />
-//         <ProdutcName
-//           title="Senha:"
-//           label="Senha"
-//           placeholder="Senha"
-//           type="password"
-//           name="password"
-//           onChange={handleChange}
-//         />
-//         <Button
-//           onClick={() => console.log(form)}
-//           value="Enviar"
-//           style={{
-//             background: "#437056",
-//             width: "100%",
-//             alignSelf: "center",
-//             marginTop: "36px",
-//           }}
-//         />
-//       </main>
-//     </>
-//   );
-// }
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { withRouter, Redirect } from "react-router";
-import {authConfig} from "../../auth/config";
+import { authConfig } from "../../auth/config";
 import { AuthContext } from "../../auth/auth";
+import { Button } from "../../components/Button/Button";
+import logo from "../../assets/img/login.svg";
+import "./login.scss";
+import { Input } from "../../components/inputs-form/components/input/input";
 
 const Login = ({ history }) => {
+  const [form, setForm] = useState()
+
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
@@ -79,23 +31,51 @@ const Login = ({ history }) => {
   if (currentUser) {
     return <Redirect to="/" />;
   }
+  function handleChange(name, value) {
+    if (value !== undefined) {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
+  }
 
   return (
-    <div>
-      <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Log in</button>
-      </form>
-    </div>
+    <>
+      <main className="login-container">
+        <img src={logo} alt="" />
+        <form onSubmit={handleLogin}>
+          <Input
+            title="Nome:"
+            label="Usuário"
+            placeholder="E-mail"
+            name="email"
+            type="email"
+            onChange={({ target }) => handleChange(target.name, target.value)}
+            style={{ marginBottom: "20px" }}
+          />
+          <Input
+            title="Senha:"
+            label="Senha"
+            placeholder="Senha"
+            type="password"
+            name="password"
+            onChange={({ target }) => handleChange(target.name, target.value)}
+          />
+          <Button
+            value="Enviar"
+            style={{
+              background: "#437056",
+              width: "250px",
+              alignSelf: "center",
+              margin: "12px auto 0",
+            }}
+          />
+        </form>
+      </main>
+    </>
   );
-};
+}
 
 export default withRouter(Login);
+

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ProdutcName } from "../input/input";
+import { Input } from "../input/input";
 import { Checkbox } from "../../components/checkbox/checkbox";
 import { Quant } from "../../components/input-quant/input-quant";
 import { Calendar } from "../../components/calendar/calendar";
@@ -73,7 +73,7 @@ export function FormItens(props) {
     <>
       <Success style={modal} text="Item adicionado com sucesso!" />
       <form className="container-form">
-        <ProdutcName
+        <Input
           title="Nome"
           name="name"
           label="nome"

@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   color: #c48b76;
+  margin: 0 auto;
+  max-width: 330px;
+
   &:focus-within {
     color: #437056;
   }
@@ -11,21 +14,19 @@
     margin-left: 10px;
   }
   .input {
-    width: 100%;
-    max-width: 330px;
     height: 40px;
     padding: 0 8px;
     font-size: 14px;
     font-weight: 500;
     border-radius: 10px;
-    border: 1px solid #C48B76;
+    border: 1px solid #c48b76;
     color: #2e2e2e;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     outline: none;
     margin-bottom: 20px;
   }
   ::placeholder {
-    color: #D1AB9D;
+    color: #d1ab9d;
   }
   .input:focus {
     border: 1px solid #437056;
