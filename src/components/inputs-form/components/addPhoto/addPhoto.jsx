@@ -1,17 +1,12 @@
 import React from "react";
 import "./addPhoto.scss"
-import { storage } from "../../../../auth/config"
 
-
-export function AddPhoto() {
-  // const [image, setImage] = React.useState(null)
+export function AddPhoto(props) {
+  const {onChange,name, value} = props
+  const [image, setImage] = React.useState(null)
   // const [url, setUrl] = React.useState("");
 
-  // const handleChange = e => {
-  //   if (e.target.files[0]) {
-  //     setImage(e.target.files[0]);
-  //   }
-  // };
+ 
 
   // const handleUpload = () => {
   //   const uploadTask = storage.ref(`images/${image.name}`).put(image);
@@ -38,17 +33,25 @@ export function AddPhoto() {
   //   );
   // };
 
+   const handleChangeImg = e => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
   // console.log("image: ", image);
 
   return (
     <div>
-      <label for="photo" className="new-addPhoto">Foto
+      <label className="new-addPhoto">Foto
       <div className="addPhoto-content">
           <div className="addPhoto">
             <input id="photo"
               className="addPhoto"
               type="file"
-              // onChange={handleChange}
+              onChange={(e) => onChange(e)}
+              name={name}
+              value={value}
             />
             <p>Adicione uma imagem</p>
           </div>

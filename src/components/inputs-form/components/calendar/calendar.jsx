@@ -11,7 +11,7 @@ export function Calendar(props) {
         className="calendar-input"
         name={name}
         placeholder="dd/mm/aaaa"
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
         value={value}
         type="date"
       />
