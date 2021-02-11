@@ -6,13 +6,14 @@ import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
+import {database} from '../../auth/config'
 
 export function FormPage() {
   const [modalIsOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
-  const data = location.state;
-  const currentItem = data?.item || false;
+  // const data = location.state;
+  // const currentItem = data?.item || false;
 
   function Delete() {
     if (location.state !== null) {
@@ -28,6 +29,16 @@ export function FormPage() {
     // setModalOpen(false);
   }
 
+  const currentItem = obj=> {
+    database.child('1').push(
+      obj,
+      err => {
+        if(err)
+        console.log(err)
+      }
+    )
+  }
+console.log({currentItem})
   return (
     <> 
     <ModalDelete
@@ -40,7 +51,6 @@ export function FormPage() {
         currentItem={currentItem}
       />
       <main className="container-form-page">
-       
         <FormItens currentItem={currentItem} />
       </main>
       <Navbar />

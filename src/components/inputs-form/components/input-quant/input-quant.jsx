@@ -6,7 +6,7 @@ import iconMenos from "../../../../assets/icons/icon-menos.svg";
 import iconMenosVerde from "../../../../assets/icons/icon-menos-verde.svg";
 import { useState } from "react";
 
-export function Quant(props) {
+export function Quantity(props) {
   const { onChange, name, value = 0 } = props;
   const [mais, setMais] = useState(iconMais);
   const [menos, setMenos] = useState(iconMenos);

@@ -1,143 +1,136 @@
 import React, { useState } from "react";
-
 import { Input } from "../input/input";
-import { Checkbox } from "../../components/checkbox/checkbox";
-import { Quant } from "../../components/input-quant/input-quant";
-import { Calendar } from "../../components/calendar/calendar";
-import { DropDownAb } from "../../components/dropdown/drop-down";
+// import { Checkbox } from "../../components/checkbox/checkbox";
+import { Quantity } from "../../components/input-quant/input-quant";
+// import { Calendar } from "../../components/calendar/calendar";
+// import { DropDownAb } from "../../components/dropdown/drop-down";
 import { Button } from "../../../../components/Button/Button";
-import { Success } from "../../components/success/success";
-import { AddPhoto } from "../addPhoto/addPhoto"
+// import { Success } from "../../components/success/success";
+// import { AddPhoto } from "../addPhoto/addPhoto"
 import "../../../../pages/Form/form.scss";
 import { Link, useHistory } from "react-router-dom";
-
-const options = [
-  { value: "pct" },
-  { value: "kg" },
-  { value: "g" },
-  { value: "cx" },
-];
-const categorias = [
-  { value: "Limpeza" },
-  { value: "Mercearia" },
-  { value: "Perfumaria" },
-];
+// import { database } from '../../../../auth/config'
+// const options = [
+//   { value: "pct" },
+//   { value: "kg" },
+//   { value: "g" },
+//   { value: "cx" },
+// ];
+// const categorias = [
+//   { value: "Limpeza" },
+//   { value: "Mercearia" },
+//   { value: "Perfumaria" },
+// ];
 
 export function FormItens(props) {
-  const { currentItem } = props;
-  const history = useHistory();
-  const isEdit = currentItem || false;
-  const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
-  const initialForm = isEdit ? currentItem : { id: id, name: "", qnt: 0};
-  const [form, setForm] = useState(initialForm);
-  const [modal, setModal] = useState({ display: "none" });
-  
-  function handleChange(name, value) {
-    if (value  !== undefined) {
-      setForm({
-        ...form,
-        [name]: value,
-      });
-    }
+  const initialFieldValues = {
+    name: "",
+    quantity: "",
   }
-  
-  
-  function addItem(e) {
+
+  const [form, setForm] = useState(initialFieldValues);
+  // console.log(form)
+
+  const handleChange = (e) => {
+    var { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  // function handleChange(e) {
+  //   var { name, value } = e.target;
+  //     setForm({
+  //       ...form,
+  //       [name]: value,
+  //     });
+  //   }
+
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (localStorage.getItem("Item") === null) {
-      localStorage.setItem("Item", JSON.stringify([form]));
-    } else {
-      const jsonItem = JSON.parse(localStorage.getItem("Item"));
-      localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
-    }
-    Alert();
-    setForm({ id: id, name: "" });
-  }
-  
-  function editItem() {
-    let jsonItem = JSON.parse(localStorage.getItem("Item"));
-    const index = jsonItem.findIndex((item) => item.id === form.id);
-    jsonItem[index] = form;
-    localStorage.setItem("Item", JSON.stringify(jsonItem));
-    history.push("/despensa");
-  }
-  
-  function Alert() {
-    setModal({ display: "flex" });
-    setTimeout(() => {
-      setModal({ display: "none" });
-    }, 4000);
-  }
-  
+    props.currentItem(form)
+  };
+console.log(form)
+
+  // const { currentItem } = props;
+  // const history = useHistory();
+  // const isEdit = currentItem || false;
+  // const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
+  // const initialForm = isEdit ? currentItem : { id: id, name: "", qnt: 0 };
+  const [modal, setModal] = useState({ display: "none" });
+
+  // const handleInputChange = (e) => {
+  //   var { name, value } = e.target;
+  //   setValues({
+  //     ...values,
+  //     [name]: value,
+  //   });
+  // };
+
+
+
+
   return (
     <>
-      <Success style={modal} text="Item adicionado com sucesso!" />
-      <form className="container-form">
+    <form onSubmit={handleFormSubmit}>
+      <Input
+        placeholder="fULL name"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+      />
+      <Input
+        placeholder="Mobile"
+        name="quantity"
+        value={form.quantity}
+        onChange={handleChange}
+      />
+
+      <input type="submit" value="Save" />
+
+      </form>
+
+
+
+
+
+      {/* <form className="container-form" onSubmit={handleFormSubmit}>
         <Input
           title="Nome"
           name="name"
           label="nome"
-          onChange={({ target }) => handleChange(target.name, target.value)}
           value={form.name}
+          onChange={handleChange}
         />
         <div className="quant-drop">
-          <Quant
-            onChange={({ target }) => handleChange(target.name, target.value)}
-            name="qnt"
-            value={form.qnt}
-          />
-          <DropDownAb
-            onChange={({ value }) => handleChange("unit", value)}
-            className="w190"
-            arrowWidth="arrow190"
-            title="Unidades de medida"
-            placeholder="Escolha uma unidade"
-            options={options}
-          />
-        </div>
-        <div className="Calendar-DropDownAb">
-          <Calendar
-            name="date"
-            onChange={({ target }) => handleChange(target.name, target.value)}
-          />
+          <Quantity
+            name="quantity"
+            value={form.quantity}
+            onChange={handleChange}
 
-          <DropDownAb
-            onChange={({ value }) => handleChange("category", value)}
-            className="w328"
-            arrowWidth="arrow328"
-            title="Categoria"
-            placeholder="Escolha uma categoria"
-            options={categorias}
           />
         </div>
-        <div className="AddPhoto-Checkbox">
-          <AddPhoto/>
-          <Checkbox
-            onChange={({ target }) => handleChange(target.name, target.value)}
-            currentItem={currentItem}
-          />
-        </div>
-
+      <input type="submit" value="Save" />
 
         <div className="container-button">
-          <Link to="/despensa">
-            <Button
+          <Link to="/despensa"> */}
+      {/* <Button
               value="Cancelar"
               style={{
                 background: "#B24947",
                 margin: "0 16px 0 0",
               }}
-            />
-          </Link>
-
-          <Button
+            /> */}
+      {/* </Link> */}
+      {/* <Button
             type="submit"
             value="Salvar"
             style={{ background: "#437056" }}
-            onClick={isEdit ? editItem : addItem}
-          />
-        </div>
-      </form>
+          // onClick={isEdit ? editItem : addItem}
+          /> */}
+      {/* </div> */}
+      {/* </form> */}
     </>
   );
 }

@@ -39,6 +39,7 @@ const Login = ({ history }) => {
       });
     }
   }
+  // console.log(form.value)
 
   return (
     <>

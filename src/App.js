@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { HomePage } from "./pages/home/home";
 import { MinhaDespensa } from "./pages/pantry/pantry";
 import { Layout } from "./components/layout/layout";
@@ -7,7 +7,6 @@ import Login from "./pages/login/login";
 import SignUp from "./pages/register/register";
 import { AuthProvider } from "./auth/auth";
 import "./App.css";
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +19,7 @@ export function App() {
 
   return (
     <>
-      <AuthProvider>
+    <AuthProvider>
         <Router>
           <Switch>
                 <Route exact path="/despensavazia">
@@ -50,9 +49,11 @@ export function App() {
                   </Layout>
                 </Route>
                 <Redirect to="/" />
+                {/* <Redirect to="/login" /> */}
           </Switch>
         </Router>
-      </AuthProvider>
+        </AuthProvider>
+      
     </>
   );
 }
