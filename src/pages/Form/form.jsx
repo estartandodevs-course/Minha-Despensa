@@ -6,13 +6,13 @@ import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
-import {database} from '../../auth/config'
+import firebaseDb from '../../auth/config'
 
 export function FormPage() {
   const [modalIsOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
-  // const data = location.state;
+  const data = location.state;
   // const currentItem = data?.item || false;
 
   function Delete() {
@@ -30,7 +30,7 @@ export function FormPage() {
   }
 
   const currentItem = obj=> {
-    database.child('1').push(
+    firebaseDb.child('produtos').push(
       obj,
       err => {
         if(err)
@@ -38,7 +38,7 @@ export function FormPage() {
       }
     )
   }
-console.log({currentItem})
+
   return (
     <> 
     <ModalDelete
