@@ -9,6 +9,7 @@ import "./item.scss";
 import { useState, useEffect } from "react";
 import moment from "moment";
 
+
 export function Item(props) {
   const { imageSrc, alt, name, quantity, status, expirationDate, onClick } = props;
   const [flag, setFlag] = useState(greenFlag);
@@ -97,6 +98,7 @@ export function Item(props) {
       return;
     }
   }
+
 
   return (
     <div onClick={onClick} className="card-item-container">

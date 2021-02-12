@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { EmptyList } from "../../components/empty-list/empty-list";
 import { SearchBar } from "../../components/search-bar/search-bar";
+import "./pantry.scss";
+import { Item } from "../../components/item/item";
+import firebaseDb from "../../auth/config"
+
 import imgMercearia from "../../assets/icons/form-icons/category/refinado.svg";
 import imgLimpeza from "../../assets/icons/form-icons/category/limpeza.svg";
 import imgPerfumaria from "../../assets/icons/form-icons/category/perfumaria.svg";
-import "./pantry.scss";
-// import { itens } from "../../_mocks/mocks.jsx";
-import { Item } from "../../components/item/item";
-import { useHistory } from "react-router-dom";
-import firebaseDb from "../../auth/config"
 
 export function MinhaDespensa() {
-  var [contactObjects, setContacObjects] = React.useState({});
-
-  React.useEffect(() => {
+  var [contactObjects, setContacObjects] = useState(false);
+  useEffect(() => {
     firebaseDb.child("produtos").on("value", (snapshot) => {
       if (snapshot.val() != null)
         setContacObjects({
@@ -21,36 +19,46 @@ export function MinhaDespensa() {
         });
     });
   }, []);
-  function Img() {
-    if (contactObjects.category === "Mercearia") {
-      return imgMercearia;
-    }
-    if (contactObjects.category === "Limpeza") {
-      return imgLimpeza;
-    }
-    if (contactObjects.category === "Perfumaria") {
-      return imgPerfumaria;
-    }
-  }
+
+
+
   return (
     <>
-    <SearchBar/>
-    <main className="container-itens">
-      {
-        Object.keys(contactObjects).map((id) => {
-          return (
-            <Item
-            key={id}
-              name={contactObjects[id].name}
-              quantity={contactObjects[id].quantity}
-              status={contactObjects[id].status}
-              expirationDate={contactObjects[id].expirationDate}
-              imageSrc={contactObjects[id].imageSrc}
-            />
-          ); 
-        })
-      }
-      </main>
+      <SearchBar />
+      {contactObjects === false ? (
+        <EmptyList
+          description="Ops! A sua despensa está vazia."
+          subTitle="Que tal adicionar itens agora?"
+        />
+      ) : (
+          <main className="container-itens">
+            {
+              Object.keys(contactObjects).map((id) => {
+                function Img() {
+                  if (contactObjects[id].category === "Mercearia") {
+                    return imgMercearia;
+                  }
+                  if (contactObjects[id].category === "Limpeza") {
+                    return imgLimpeza;
+                  }
+                  if (contactObjects[id].category === "Perfumaria") {
+                    return imgPerfumaria;
+                  }
+                }
+                return (
+                  <Item
+                    key={id}
+                    name={contactObjects[id].name}
+                    quantity={contactObjects[id].quantity}
+                    status={contactObjects[id].status}
+                    expirationDate={contactObjects[id].expirationDate}
+                    imageSrc={Img()}
+                  />
+                );
+              })
+            }
+          </main>
+        )}
     </>
   )
 }

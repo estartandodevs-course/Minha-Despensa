@@ -8,6 +8,7 @@ import { AddPhoto } from "../addPhoto/addPhoto"
 import { Checkbox } from "../../components/checkbox/checkbox";
 import { Button } from "../../../../components/Button/Button";
 import { Link } from "react-router-dom";
+import {storage} from '../../../../auth/config'
 
 export function FormItens(props) {
   const initialFieldValues = {
@@ -33,7 +34,6 @@ export function FormItens(props) {
   
   const [modal, setModal] = useState({ display: "none" });
   const [values, setValues] = useState(initialFieldValues);
-
   function handleChange(name, value) {
     if (value !== undefined) {
       setValues({
@@ -41,12 +41,43 @@ export function FormItens(props) {
         [name]: value,
       });
     }
+    
   }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     props.currentItem(values)
   };
+
+  
+    const onChange = (e) =>  {
+      const file = e.target.files[0];
+      const storageRef = storage.ref()
+      const fileRef = storageRef.child(file.name)
+      fileRef.put(file).then(()=> {
+        console.log("update")
+      })
+      console.log(file) 
+    }
+ 
+  
+    // const handleUpload = () => {
+    //   const uploadTask = storage(`images/${values.imageSrc.name}`).put(values);
+    //   uploadTask.on(
+    //     "state_changed",
+    //     snapshot => {},
+    //     error => {
+    //       console.log(error)
+    //     },
+    //     () => {
+    //       storage("images").child(values.imageSrc.name).getDownloadURL().then(url => {
+    //         console.log(url)
+    //       })
+    //     }
+    //   )
+    // }
+
+
 
   return (
     <>
@@ -97,7 +128,7 @@ export function FormItens(props) {
         <div className="AddPhoto-Checkbox">
           <AddPhoto 
             name="imageSrc"
-            onChange={({ target }) => handleChange("imageSrc", target.files[0].name)}
+            onChange={onChange}
 
           />
           <Checkbox
@@ -122,6 +153,7 @@ export function FormItens(props) {
             value="Salvar"
             style={{ background: "#437056" }}
           // onClick={isEdit ? editItem : addItem}
+          onClick={onChange}
           />
         </div>
       </form>
