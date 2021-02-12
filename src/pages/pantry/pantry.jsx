@@ -8,65 +8,49 @@ import "./pantry.scss";
 // import { itens } from "../../_mocks/mocks.jsx";
 import { Item } from "../../components/item/item";
 import { useHistory } from "react-router-dom";
+import firebaseDb from "../../auth/config"
 
 export function MinhaDespensa() {
-  const history = useHistory();
-  const itens = JSON.parse(localStorage.getItem("Item"));
-  const isEmpty = itens === null;
+  var [contactObjects, setContacObjects] = React.useState({});
 
-  const [search, setSearch] = useState("");
-  function onChange(e) {
-    setSearch(e.target.value);
-  }
-  if (itens !== null) {
-    var itemSearch = itens.filter((item) =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
+  React.useEffect(() => {
+    firebaseDb.child("produtos").on("value", (snapshot) => {
+      if (snapshot.val() != null)
+        setContacObjects({
+          ...snapshot.val(),
+        });
+    });
+  }, []);
+  function Img() {
+    if (contactObjects.category === "Mercearia") {
+      return imgMercearia;
+    }
+    if (contactObjects.category === "Limpeza") {
+      return imgLimpeza;
+    }
+    if (contactObjects.category === "Perfumaria") {
+      return imgPerfumaria;
+    }
   }
   return (
     <>
-      <SearchBar onChange={onChange} value={search} />
-
-      {isEmpty ? (
-        <EmptyList
-          description="Ops! A sua despensa está vazia."
-          subTitle="Que tal adicionar itens agora?"
-        />
-      ) : (
-        <main className="container-itens">
-          {itemSearch.map((item, index) => {
-            function handleClick() {
-              history.push("/inserir-item", {
-                item,
-              });
-            }
-            function Img() {
-              if (item.category === "Mercearia") {
-                return imgMercearia;
-              }
-              if (item.category === "Limpeza") {
-                return imgLimpeza;
-              }
-              if (item.category === "Perfumaria") {
-                return imgPerfumaria;
-              }
-            }
-
-            return (
-              <Item
-                onClick={handleClick}
-                key={index}
-                src={Img()}
-                alt={item.alt}
-                name={item.name}
-                qnt={item.qnt}
-                stateItem={item.stateItem}
-                date={item.date}
-              />
-            );
-          })}
-        </main>
-      )}
+    <SearchBar/>
+    <main className="container-itens">
+      {
+        Object.keys(contactObjects).map((id) => {
+          return (
+            <Item
+            key={id}
+              name={contactObjects[id].name}
+              quantity={contactObjects[id].quantity}
+              status={contactObjects[id].status}
+              expirationDate={contactObjects[id].expirationDate}
+              imageSrc={contactObjects[id].imageSrc}
+            />
+          ); 
+        })
+      }
+      </main>
     </>
-  );
+  )
 }
