@@ -17,6 +17,7 @@ export function Item(props) {
   const [calendar, setCalendar] = useState(calendarIcon);
   const [shelfLife, setShelfLife] = useState("");
 
+
   function flagColor() {
     if (status === "Acabou") {
       setFlag(redFlag);

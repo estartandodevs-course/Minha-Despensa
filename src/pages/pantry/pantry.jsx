@@ -8,19 +8,28 @@ import firebaseDb from "../../auth/config"
 import imgMercearia from "../../assets/icons/form-icons/category/refinado.svg";
 import imgLimpeza from "../../assets/icons/form-icons/category/limpeza.svg";
 import imgPerfumaria from "../../assets/icons/form-icons/category/perfumaria.svg";
+import { useHistory } from "react-router-dom";
+
+import { useCount } from '../../context/count'
 
 export function MinhaDespensa() {
-  var [contactObjects, setContacObjects] = useState(false);
-  useEffect(() => {
-    firebaseDb.child("produtos").on("value", (snapshot) => {
-      if (snapshot.val() != null)
-        setContacObjects({
-          ...snapshot.val(),
-        });
-    });
-  }, []);
+  const {contactObjects, setContacObjects} = useCount()
 
 
+  // const [contactObjects, setContacObjects] = useState(false);
+  var [currentId, setCurrentId] = useState();
+  const history  = useHistory()
+
+
+useEffect(() => {
+  firebaseDb.child("produtos").on("value", (snapshot) => {
+    if (snapshot.val() != null)
+      setContacObjects({
+        ...snapshot.val(),
+      });
+  });
+}, []);
+ 
 
   return (
     <>
@@ -34,6 +43,11 @@ export function MinhaDespensa() {
           <main className="container-itens">
             {
               Object.keys(contactObjects).map((id) => {
+                function handleClick() {
+                  history.push("/inserir-item", {
+                    contactObjects,
+                  });
+                }
                 function Img() {
                   if (contactObjects[id].category === "Mercearia") {
                     return imgMercearia;
@@ -47,6 +61,7 @@ export function MinhaDespensa() {
                 }
                 return (
                   <Item
+                    // onClick={() => {setCurrentId(id)}}
                     key={id}
                     name={contactObjects[id].name}
                     quantity={contactObjects[id].quantity}

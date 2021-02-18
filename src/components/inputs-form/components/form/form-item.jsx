@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Success } from "../../components/success/success";
 import { Quantity } from "../input-quant/input-quant";
 import { Input } from "../input/input"
@@ -9,8 +9,10 @@ import { Checkbox } from "../../components/checkbox/checkbox";
 import { Button } from "../../../../components/Button/Button";
 import { Link } from "react-router-dom";
 import {storage} from '../../../../auth/config'
+import firebaseDb from "../../../../auth/config"
 
 export function FormItens(props) {
+
   const initialFieldValues = {
     imageSrc: "",
     name: "",
@@ -34,6 +36,35 @@ export function FormItens(props) {
   
   const [modal, setModal] = useState({ display: "none" });
   const [values, setValues] = useState(initialFieldValues);
+  const [img, setImg] = useState()
+  const isEdit = props.currentItem || false;
+
+
+  const onChange = async (e) =>  {
+    const file = e.target.files[0];
+    const storageRef = storage.ref()
+    const fileRef = storageRef.child(file.name)
+    await fileRef.put(file).then(()=> {
+      console.log("update")
+    })
+    await fileRef.getDownloadURL().then((url)=> {
+      setImg(url)
+    })
+  }
+
+
+  // useEffect(()=> {
+  //  if(props.currentId == '')
+  //  setValues({
+  //    ...initialFieldValues
+  //  })
+  //  else
+  //     setValues({
+  //       ...props.contactObjects.currentId
+  //     })
+  // },[props.currentId,props.cantactObjets])
+
+
   function handleChange(name, value) {
     if (value !== undefined) {
       setValues({
@@ -41,43 +72,26 @@ export function FormItens(props) {
         [name]: value,
       });
     }
-    
   }
-
+  
+  const addOrEdit = (obj) => {
+    if (props.currentId == "")
+      firebaseDb.child("produtos").push(obj, (err) => {
+        if (err) console.log(err);
+        else props.setCurrentId("");
+      });
+    else
+      firebaseDb.child(`produtos/${props.currentId}`).set(obj, (err) => {
+        if (err) console.log(err);
+        else props.setCurrentId("");
+      });
+  };
+  
+  
   const handleFormSubmit = (e) => {
     e.preventDefault();
     props.currentItem(values)
   };
-
-  
-    const onChange = (e) =>  {
-      const file = e.target.files[0];
-      const storageRef = storage.ref()
-      const fileRef = storageRef.child(file.name)
-      fileRef.put(file).then(()=> {
-        console.log("update")
-      })
-      console.log(file) 
-    }
- 
-  
-    // const handleUpload = () => {
-    //   const uploadTask = storage(`images/${values.imageSrc.name}`).put(values);
-    //   uploadTask.on(
-    //     "state_changed",
-    //     snapshot => {},
-    //     error => {
-    //       console.log(error)
-    //     },
-    //     () => {
-    //       storage("images").child(values.imageSrc.name).getDownloadURL().then(url => {
-    //         console.log(url)
-    //       })
-    //     }
-    //   )
-    // }
-
-
 
   return (
     <>
@@ -129,7 +143,9 @@ export function FormItens(props) {
           <AddPhoto 
             name="imageSrc"
             onChange={onChange}
-
+            // value={img.imageSrc}
+            src={img}
+          
           />
           <Checkbox
             name="status"
@@ -152,8 +168,8 @@ export function FormItens(props) {
             type="submit"
             value="Salvar"
             style={{ background: "#437056" }}
-          // onClick={isEdit ? editItem : addItem}
-          onClick={onChange}
+            // onClick={console.log(props.currentId)}
+          // onClick={onChange}
           />
         </div>
       </form>

@@ -13,12 +13,14 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import CountProvaider from './context/count'
 
 export function App() {
   const [user, setUser] = useState({ isLogged: false });
 
   return (
     <>
+    <CountProvaider>
     <AuthProvider>
         <Router>
           <Switch>
@@ -53,7 +55,7 @@ export function App() {
           </Switch>
         </Router>
         </AuthProvider>
-      
+        </CountProvaider>
     </>
   );
 }
