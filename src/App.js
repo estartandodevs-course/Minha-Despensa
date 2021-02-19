@@ -16,8 +16,7 @@ import {
 import CountProvaider from './context/count'
 
 export function App() {
-  const [user, setUser] = useState({ isLogged: false });
-
+  // const [user, setUser] = useState({ isLogged: false });
   return (
     <>
     <CountProvaider>

@@ -3,21 +3,27 @@ import firebaseDb from '../auth/config'
  const CountContext = createContext();
 
 export default function CountProvaider({ children }) {
-  const [contactObjects, setContacObjects] = useState(false);
+  const [productsObjects, setProductsObjects] = useState(false);
+  const [currentId, setCurrentId] = useState("");
 
   useEffect(() => {
-    firebaseDb.child("produtos").on("value", (snapshot) => {
+    firebaseDb.child("products").on("value", (snapshot) => {
       if (snapshot.val() != null)
-        setContacObjects({
+      setProductsObjects({
           ...snapshot.val(),
         });
+        else
+        setProductsObjects(false)
     });
   }, []);
+
   return (
     <CountContext.Provider 
     value={{
-        contactObjects,
-        setContacObjects
+      productsObjects,
+      setProductsObjects,
+      currentId,
+      setCurrentId
       }}
         >
       {children}
@@ -27,6 +33,7 @@ export default function CountProvaider({ children }) {
 
 export function useCount() {
   const context = useContext(CountContext)
-  const { contactObjects, setContacObjects } = context
-  return { contactObjects, setContacObjects };
+  const { productsObjects, setProductsObjects } = context
+  const { currentId, setCurrentId } = context
+  return { productsObjects, setProductsObjects, currentId, setCurrentId };
 }

@@ -9,7 +9,9 @@ import { Checkbox } from "../../components/checkbox/checkbox";
 import { Button } from "../../../../components/Button/Button";
 import { Link } from "react-router-dom";
 import {storage} from '../../../../auth/config'
-import firebaseDb from "../../../../auth/config"
+import {useCount} from  '../../../../context/count'
+import { useHistory } from "react-router-dom";
+// import firebaseDb from "../../../../auth/config"
 
 export function FormItens(props) {
 
@@ -33,11 +35,11 @@ export function FormItens(props) {
     { value: "Mercearia" },
     { value: "Perfumaria" },
   ];
-  
   const [modal, setModal] = useState({ display: "none" });
   const [values, setValues] = useState(initialFieldValues);
+  const {currentId} = useCount()
+  const {productsObjects} = useCount()
   const [img, setImg] = useState()
-  const isEdit = props.currentItem || false;
 
 
   const onChange = async (e) =>  {
@@ -52,17 +54,16 @@ export function FormItens(props) {
     })
   }
 
-
-  // useEffect(()=> {
-  //  if(props.currentId == '')
-  //  setValues({
-  //    ...initialFieldValues
-  //  })
-  //  else
-  //     setValues({
-  //       ...props.contactObjects.currentId
-  //     })
-  // },[props.currentId,props.cantactObjets])
+  useEffect(()=> {
+    if(currentId === "")
+    setValues({
+      ...initialFieldValues
+    })
+    else
+    setValues({
+      ...productsObjects[currentId]
+    })
+  },[currentId, productsObjects])
 
 
   function handleChange(name, value) {
@@ -73,19 +74,6 @@ export function FormItens(props) {
       });
     }
   }
-  
-  const addOrEdit = (obj) => {
-    if (props.currentId == "")
-      firebaseDb.child("produtos").push(obj, (err) => {
-        if (err) console.log(err);
-        else props.setCurrentId("");
-      });
-    else
-      firebaseDb.child(`produtos/${props.currentId}`).set(obj, (err) => {
-        if (err) console.log(err);
-        else props.setCurrentId("");
-      });
-  };
   
   
   const handleFormSubmit = (e) => {
@@ -168,6 +156,7 @@ export function FormItens(props) {
             type="submit"
             value="Salvar"
             style={{ background: "#437056" }}
+            value={currentId === "" ? "Save" : "Update"}
             // onClick={console.log(props.currentId)}
           // onClick={onChange}
           />
