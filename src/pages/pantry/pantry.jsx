@@ -14,6 +14,7 @@ export function MinhaDespensa() {
   const {setCurrentId} = useCount()
   const history = useHistory();
 
+
   return (
     <>
       <SearchBar />
@@ -29,9 +30,9 @@ export function MinhaDespensa() {
                 function handleClick() {
                   setCurrentId(id)
                   history.push("/inserir-item", {
-                  
-                 });
-               }
+                    
+                  });
+                }
                 function Img() {
                   if (productsObjects[id].category === "Mercearia") {
                     return imgMercearia;
@@ -51,7 +52,7 @@ export function MinhaDespensa() {
                     quantity={productsObjects[id].quantity}
                     status={productsObjects[id].status}
                     expirationDate={productsObjects[id].expirationDate}
-                    imageSrc={Img()}
+                    imageSrc={productsObjects[id].imageSrc}
                   />
                 );
               })

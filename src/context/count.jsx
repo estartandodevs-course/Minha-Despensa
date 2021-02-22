@@ -10,13 +10,13 @@ export default function CountProvaider({ children }) {
     firebaseDb.child("products").on("value", (snapshot) => {
       if (snapshot.val() != null)
       setProductsObjects({
-          ...snapshot.val(),
-        });
-        else
-        setProductsObjects(false)
+        ...snapshot.val(),
+      });
+      else
+      setProductsObjects(false)
     });
   }, []);
-
+  
   return (
     <CountContext.Provider 
     value={{

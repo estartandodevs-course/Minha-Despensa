@@ -8,9 +8,12 @@ import { Header } from "../../components/header/header";
 // import { useHistory } from "react-router-dom";
 import firebaseDb from '../../auth/config'
 import { useCount } from '../../context/count'
+import { useHistory } from "react-router-dom";
+
 
 
 export function FormPage() {
+  const history = useHistory()
   const { currentId, setCurrentId } = useCount()
   const { productsObjects } = useCount()
   const [modalIsOpen, setModalOpen] = useState(false);
@@ -24,16 +27,30 @@ export function FormPage() {
       firebaseDb.child(`products/${currentId}`).set(obj, (err) => {
         if (err) console.log(err);
         else setCurrentId("")
+        history.push("/despensa");
+
       });
   }
 
+  const onDelete = key => {
+      firebaseDb.child(`products/${key}`).remove(
+        err => {
+          if(err)
+          console.log(err)
+          else
+          setCurrentId('')
+        history.push("/despensa");
+        }
+      )
+    
+  }
 
   return (
     <>
       <ModalDelete
         isOpen={modalIsOpen}
         onCancel={() => setModalOpen(false)}
-      // onDelete={() => Delete()}
+        onDelete={() => {onDelete(currentId)}}
       />
       <Header
         openDeleteModal={() => setModalOpen(true)}

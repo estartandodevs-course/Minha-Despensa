@@ -10,13 +10,13 @@ import { Button } from "../../../../components/Button/Button";
 import { Link } from "react-router-dom";
 import {storage} from '../../../../auth/config'
 import {useCount} from  '../../../../context/count'
-import { useHistory } from "react-router-dom";
 // import firebaseDb from "../../../../auth/config"
 
 export function FormItens(props) {
-
+  const [img, setImg] = useState()
+  console.log(img)
   const initialFieldValues = {
-    imageSrc: "",
+    imageSrc:`${img}`,
     name: "",
     quantity: 0,
     status:"",
@@ -35,38 +35,27 @@ export function FormItens(props) {
     { value: "Mercearia" },
     { value: "Perfumaria" },
   ];
-  const [modal, setModal] = useState({ display: "none" });
+
+  const [modal] = useState({ display: "none" });
   const [values, setValues] = useState(initialFieldValues);
   const {currentId} = useCount()
   const {productsObjects} = useCount()
-  const [img, setImg] = useState()
 
-
-  const onChange = async (e) =>  {
-    const file = e.target.files[0];
-    const storageRef = storage.ref()
-    const fileRef = storageRef.child(file.name)
-    await fileRef.put(file).then(()=> {
-      console.log("update")
-    })
-    await fileRef.getDownloadURL().then((url)=> {
-      setImg(url)
-    })
-  }
-
+  
   useEffect(()=> {
     if(currentId === "")
     setValues({
-      ...initialFieldValues
+      ...initialFieldValues,
     })
     else
     setValues({
       ...productsObjects[currentId]
     })
-  },[currentId, productsObjects])
+  },[productsObjects,currentId,img])
 
 
   function handleChange(name, value) {
+    
     if (value !== undefined) {
       setValues({
         ...values,
@@ -75,11 +64,23 @@ export function FormItens(props) {
     }
   }
   
-  
+  const onChange = async (e) =>  {
+    const file = e.target.files[0];
+    const storageRef = storage.ref()
+    const fileRef = storageRef.child(file.name)
+    await fileRef.put(file).then(()=> {
+      console.log("update")
+    })
+    await fileRef.getDownloadURL().then((url)=> {
+       setImg(url)
+    })
+  }
   const handleFormSubmit = (e) => {
     e.preventDefault();
     props.currentItem(values)
   };
+
+
 
   return (
     <>
@@ -131,7 +132,6 @@ export function FormItens(props) {
           <AddPhoto 
             name="imageSrc"
             onChange={onChange}
-            // value={img.imageSrc}
             src={img}
           
           />
@@ -156,9 +156,6 @@ export function FormItens(props) {
             type="submit"
             value="Salvar"
             style={{ background: "#437056" }}
-            value={currentId === "" ? "Save" : "Update"}
-            // onClick={console.log(props.currentId)}
-          // onClick={onChange}
           />
         </div>
       </form>
