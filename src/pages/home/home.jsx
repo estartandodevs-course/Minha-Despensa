@@ -1,18 +1,11 @@
 import React from "react";
 import { Card } from "../../components/card/card";
 import { Link } from "react-router-dom";
-// import despensa from "../../assets/img/img-legumes.svg";
-// import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
 import { authConfig } from "../../auth/config";
-import { useCount } from "../../context/count";
-
-
 
 
 export function HomePage() {
-  const { productsObjects } = useCount()
-  
 
   const jsonItem = JSON.parse(localStorage.getItem("Item"));
   var quantItem = 0;
