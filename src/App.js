@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HomePage } from "./pages/home/home";
 import { MinhaDespensa } from "./pages/pantry/pantry";
 import { Layout } from "./components/layout/layout";

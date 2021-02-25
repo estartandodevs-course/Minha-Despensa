@@ -49,8 +49,7 @@ export function FormItens(props) {
     setValues({
       ...productsObjects[currentId]
     })
-  },[productsObjects,currentId])
-
+  },[productsObjects,currentId]); //eslint-disable-line
 
   function handleChange(name, value) {
     

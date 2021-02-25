@@ -2,7 +2,7 @@ import React from "react";
 import "./addPhoto.scss"
 
 export function AddPhoto(props) {
-  const {onChange,name, value, src} = props
+  const { onChange, name, value, src } = props
 
   return (
     <div>
@@ -17,7 +17,9 @@ export function AddPhoto(props) {
               value={value}
             />
             <img className="imagem"
-            src={src}/>
+              src={src}
+              alt="Produto"
+            />
             <p>Adicione uma imagem</p>
           </div>
         </div>
