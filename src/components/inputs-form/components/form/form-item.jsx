@@ -13,10 +13,8 @@ import {useCount} from  '../../../../context/count'
 // import firebaseDb from "../../../../auth/config"
 
 export function FormItens(props) {
-  const [img, setImg] = useState()
-  console.log(img)
   const initialFieldValues = {
-    imageSrc:`${img}`,
+    imageSrc: "",
     name: "",
     quantity: 0,
     status:"",
@@ -40,8 +38,8 @@ export function FormItens(props) {
   const [values, setValues] = useState(initialFieldValues);
   const {currentId} = useCount()
   const {productsObjects} = useCount()
+  const [img, setImg] = useState()
 
-  
   useEffect(()=> {
     if(currentId === "")
     setValues({
@@ -51,7 +49,7 @@ export function FormItens(props) {
     setValues({
       ...productsObjects[currentId]
     })
-  },[productsObjects,currentId,img])
+  },[productsObjects,currentId])
 
 
   function handleChange(name, value) {
@@ -72,6 +70,7 @@ export function FormItens(props) {
       console.log("update")
     })
     await fileRef.getDownloadURL().then((url)=> {
+       values.imageSrc = url
        setImg(url)
     })
   }
@@ -132,7 +131,7 @@ export function FormItens(props) {
           <AddPhoto 
             name="imageSrc"
             onChange={onChange}
-            src={img}
+            src={currentId === "" ? img : values.imageSrc}
           
           />
           <Checkbox

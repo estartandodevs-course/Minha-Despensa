@@ -10,20 +10,18 @@ import { useHistory } from "react-router-dom";
 import { useCount } from '../../context/count'
 
 export function MinhaDespensa() {
-  const {productsObjects} = useCount(false)
-  const {setCurrentId} = useCount()
+  const { productsObjects } = useCount(false)
+  const { currentId , setCurrentId } = useCount()
   const history = useHistory();
-
-
   return (
     <>
       <SearchBar />
       {productsObjects === false ? (
         <EmptyList
-          description="Ops! A sua despensa está vazia."
-          subTitle="Que tal adicionar itens agora?"
+        description="Ops! A sua despensa está vazia."
+        subTitle="Que tal adicionar itens agora?"
         />
-      ) : (
+        ) : (
           <main className="container-itens">
             {
               Object.keys(productsObjects).map((id) => {
@@ -33,17 +31,17 @@ export function MinhaDespensa() {
                     
                   });
                 }
-                function Img() {
-                  if (productsObjects[id].category === "Mercearia") {
-                    return imgMercearia;
-                  }
-                  if (productsObjects[id].category === "Limpeza") {
-                    return imgLimpeza;
-                  }
-                  if (productsObjects[id].category === "Perfumaria") {
-                    return imgPerfumaria;
-                  }
-                }
+                // function Img() {
+                //   if (productsObjects[id].category === "Mercearia") {
+                //     return imgMercearia;
+                //   }
+                //   if (productsObjects[id].category === "Limpeza") {
+                //     return imgLimpeza;
+                //   }
+                //   if (productsObjects[id].category === "Perfumaria") {
+                //     return imgPerfumaria;
+                //   }
+                // }
                 return (
                   <Item
                     onClick={handleClick}

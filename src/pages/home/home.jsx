@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 // import carrinho from "../../assets/img/img-carrinho.svg";
 import "./home.scss";
 import { authConfig } from "../../auth/config";
+import { useCount } from "../../context/count";
+
+
+
 
 export function HomePage() {
+  const { productsObjects } = useCount()
+  
+
   const jsonItem = JSON.parse(localStorage.getItem("Item"));
   var quantItem = 0;
   if (jsonItem !== null) {

@@ -17,6 +17,9 @@ export function FormPage() {
   const { currentId, setCurrentId } = useCount()
   const { productsObjects } = useCount()
   const [modalIsOpen, setModalOpen] = useState(false);
+
+
+  
   const currentItem = obj => {
     if (currentId === "")
       firebaseDb.child('products/').push(obj, (err) => {
