@@ -1,123 +1,143 @@
-import React, { useState } from "react";
-
-import { ProdutcName } from "../input/input";
-import { Checkbox } from "../../components/checkbox/checkbox";
-import { Quant } from "../../components/input-quant/input-quant";
-import { Calendar } from "../../components/calendar/calendar";
-import { DropDownAb } from "../../components/dropdown/drop-down";
-import { Button } from "../../../../components/Button/Button";
+import React, { useState, useEffect } from "react";
 import { Success } from "../../components/success/success";
+import { Quantity } from "../input-quant/input-quant";
+import { Input } from "../input/input"
+import { DropDownAb } from "../../components/dropdown/drop-down";
+import { Calendar } from "../../components/calendar/calendar";
 import { AddPhoto } from "../addPhoto/addPhoto"
-import "../../../../pages/Form/form.scss";
-import { Link, useHistory } from "react-router-dom";
-
-const options = [
-  { value: "pct" },
-  { value: "kg" },
-  { value: "g" },
-  { value: "cx" },
-];
-const categorias = [
-  { value: "Limpeza" },
-  { value: "Mercearia" },
-  { value: "Perfumaria" },
-];
+import { Checkbox } from "../../components/checkbox/checkbox";
+import { Button } from "../../../../components/Button/Button";
+import { Link } from "react-router-dom";
+import {storage} from '../../../../auth/config'
+import {useCount} from  '../../../../context/count'
+// import firebaseDb from "../../../../auth/config"
 
 export function FormItens(props) {
-  const { currentItem } = props;
-  const history = useHistory();
-  const isEdit = currentItem || false;
-  const id = isEdit ? currentItem.id : Math.floor(Math.random() * 1000);
-  const initialForm = isEdit ? currentItem : { id: id, name: "", qnt: 0};
-  const [form, setForm] = useState(initialForm);
-  const [modal, setModal] = useState({ display: "none" });
-  
+  const initialFieldValues = {
+    imageSrc: "",
+    name: "",
+    quantity: 0,
+    status:"",
+    expirationDate: "",
+    unit:"",
+    category:"",
+  };
+  const options = [
+    { value: "pct" },
+    { value: "kg" },
+    { value: "g" },
+    { value: "cx" },
+  ];
+  const categorias = [
+    { value: "Limpeza" },
+    { value: "Mercearia" },
+    { value: "Perfumaria" },
+  ];
+
+  const [modal] = useState({ display: "none" });
+  const [values, setValues] = useState(initialFieldValues);
+  const {currentId} = useCount()
+  const {productsObjects} = useCount()
+  const [img, setImg] = useState()
+
+  useEffect(()=> {
+    if(currentId === "")
+    setValues({
+      ...initialFieldValues,
+    })
+    else
+    setValues({
+      ...productsObjects[currentId]
+    })
+  },[productsObjects,currentId]); //eslint-disable-line
+
   function handleChange(name, value) {
-    if (value  !== undefined) {
-      setForm({
-        ...form,
+    
+    if (value !== undefined) {
+      setValues({
+        ...values,
         [name]: value,
       });
     }
   }
   
-  
-  function addItem(e) {
+  const onChange = async (e) =>  {
+    const file = e.target.files[0];
+    const storageRef = storage.ref()
+    const fileRef = storageRef.child(file.name)
+    await fileRef.put(file).then(()=> {
+      console.log("update")
+    })
+    await fileRef.getDownloadURL().then((url)=> {
+       values.imageSrc = url
+       setImg(url)
+    })
+  }
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (localStorage.getItem("Item") === null) {
-      localStorage.setItem("Item", JSON.stringify([form]));
-    } else {
-      const jsonItem = JSON.parse(localStorage.getItem("Item"));
-      localStorage.setItem("Item", JSON.stringify([...jsonItem, form]));
-    }
-    Alert();
-    setForm({ id: id, name: "" });
-  }
-  
-  function editItem() {
-    let jsonItem = JSON.parse(localStorage.getItem("Item"));
-    const index = jsonItem.findIndex((item) => item.id === form.id);
-    jsonItem[index] = form;
-    localStorage.setItem("Item", JSON.stringify(jsonItem));
-    history.push("/despensa");
-  }
-  
-  function Alert() {
-    setModal({ display: "flex" });
-    setTimeout(() => {
-      setModal({ display: "none" });
-    }, 4000);
-  }
-  
+    props.currentItem(values)
+  };
+
+
+
   return (
     <>
-      <Success style={modal} text="Item adicionado com sucesso!" />
-      <form className="container-form">
-        <ProdutcName
+     <Success style={modal} text="Item adicionado com sucesso!" />
+      <form onSubmit={handleFormSubmit}>
+        <Input
           title="Nome"
+          placeholder="Informe o nome do item"
           name="name"
-          label="nome"
+          value={values.name}
           onChange={({ target }) => handleChange(target.name, target.value)}
-          value={form.name}
         />
         <div className="quant-drop">
-          <Quant
-            onChange={({ target }) => handleChange(target.name, target.value)}
-            name="qnt"
-            value={form.qnt}
-          />
-          <DropDownAb
-            onChange={({ value }) => handleChange("unit", value)}
-            className="w190"
-            arrowWidth="arrow190"
-            title="Unidades de medida"
-            placeholder="Escolha uma unidade"
-            options={options}
-          />
-        </div>
-        <div className="Calendar-DropDownAb">
-          <Calendar
-            name="date"
+          <Quantity
+            name="quantity"
+            value={values.quantity}
             onChange={({ target }) => handleChange(target.name, target.value)}
           />
 
           <DropDownAb
-            onChange={({ value }) => handleChange("category", value)}
+            name="unit"
+            className="w190"
+            arrowWidth="arrow190"
+            title="Unidades de medida"
+            placeholder="Escolha uma unidade"
+            onChange={({ value }) => handleChange("unit", value)}
+            options={options}
+          />
+        </div>
+
+        <div className="Calendar-DropDownAb">
+          <Calendar
+            name="expirationDate"
+            value={values.expirationDate}
+            onChange={({ target }) => handleChange(target.name, target.value)}
+          />
+          <DropDownAb
+            name="category"
             className="w328"
             arrowWidth="arrow328"
             title="Categoria"
             placeholder="Escolha uma categoria"
             options={categorias}
-          />
-        </div>
-        <div className="AddPhoto-Checkbox">
-          <AddPhoto/>
-          <Checkbox
-            onChange={({ target }) => handleChange(target.name, target.value)}
-            currentItem={currentItem}
+            onChange={({ value }) => handleChange("category", value)}
           />
         </div>
 
+        <div className="AddPhoto-Checkbox">
+          <AddPhoto 
+            name="imageSrc"
+            onChange={onChange}
+            src={currentId === "" ? img : values.imageSrc}
+          
+          />
+          <Checkbox
+            name="status"
+            onChange={({ target }) => handleChange(target.name, target.value)}
+          />
+        </div>
 
         <div className="container-button">
           <Link to="/despensa">
@@ -134,7 +154,6 @@ export function FormItens(props) {
             type="submit"
             value="Salvar"
             style={{ background: "#437056" }}
-            onClick={isEdit ? editItem : addItem}
           />
         </div>
       </form>

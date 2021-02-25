@@ -9,21 +9,23 @@ import "./item.scss";
 import { useState, useEffect } from "react";
 import moment from "moment";
 
+
 export function Item(props) {
-  const { src, alt, name, qnt, stateItem, date, onClick } = props;
+  const { imageSrc, alt, name, quantity, status, expirationDate, onClick } = props;
   const [flag, setFlag] = useState(greenFlag);
 
   const [calendar, setCalendar] = useState(calendarIcon);
   const [shelfLife, setShelfLife] = useState("");
 
+
   function flagColor() {
-    if (stateItem === "Acabou") {
+    if (status === "Acabou") {
       setFlag(redFlag);
     }
-    if (stateItem === "Fechado") {
+    if (status === "Fechado") {
       setFlag(brownFlag);
     }
-    if (stateItem === "Aberto") {
+    if (status === "Aberto") {
       setFlag(greenFlag);
     }
   }
@@ -32,9 +34,9 @@ export function Item(props) {
   useEffect(catchDate);
 
   function qntItem() {
-    if (qnt === 0) {
+    if (quantity === 0) {
       return { backgroundColor: "#A72422" };
-    } else if (qnt === 1) {
+    } else if (quantity === 1) {
       return { backgroundColor: "#ED6807" };
     } else {
       return { backgroundColor: "#437056" };
@@ -46,13 +48,13 @@ export function Item(props) {
     let currentDateJS = new Date();
 
     //ESTÁ FRESCO ?
-    const isFresh = moment(date).isAfter(currentDateJS);
+    const isFresh = moment(expirationDate).isAfter(currentDateJS);
 
-    const diffFreshDays = moment(date).diff(currentDateJS, "d");
-    const diffFreshWeeks = moment(date).diff(currentDateJS, "w");
+    const diffFreshDays = moment(expirationDate).diff(currentDateJS, "d");
+    const diffFreshWeeks = moment(expirationDate).diff(currentDateJS, "w");
 
-    const diffUnFreshDays = moment(currentDateJS).diff(date, "d");
-    const diffUnFreshWeeks = moment(currentDateJS).diff(date, "w");
+    const diffUnFreshDays = moment(currentDateJS).diff(expirationDate, "d");
+    const diffUnFreshWeeks = moment(currentDateJS).diff(expirationDate, "w");
 
     //Caso Fresco
     if (isFresh) {
@@ -98,19 +100,20 @@ export function Item(props) {
     }
   }
 
+
   return (
     <div onClick={onClick} className="card-item-container">
       <div className="image-container">
-        <img className="item-image" src={src} alt={alt} />
+        <img className="item-image" src={imageSrc} alt={alt} />
         <div style={qntItem()} className="qnt-box">
-          <p>{qnt}</p>
+          <p>{quantity}</p>
         </div>
       </div>
       <div className="item-section">
         <h1 className="item-name">{name}</h1>
         <div className="flag-text">
           <Icon className="icon" src={flag} />
-          <p className="text-item">{stateItem}</p>
+          <p className="text-item">{status}</p>
         </div>
         <div className="flag-text">
           <Icon className="icon" src={calendar} />

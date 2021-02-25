@@ -5,13 +5,41 @@
   align-content: center;
   padding: 0 16px;
   margin: 0 auto;
+  color: #c48b76;
+
 
   // padding-top: 20px;
-
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
   img {
     width: 240px;
     margin-top: 30px;
     margin-bottom: 42px;
     align-self: center;
   }
+  input {
+    width: 100%;
+    max-width: 330px;
+    height: 40px;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid #C48B76;
+    color: #2e2e2e;
+    background-color: #F2F2F2;
+    outline: none;
+    margin-bottom: 20px;
+  }
+  ::placeholder {
+    color: #D1AB9D;
+  }
+  .input:focus {
+    border: 1px solid #437056;
+    color: #437056;
+  }
 }
+

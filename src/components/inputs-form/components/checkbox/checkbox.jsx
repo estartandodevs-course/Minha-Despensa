@@ -2,7 +2,7 @@ import React from "react";
 import "./checkbox.scss";
 
 export function Checkbox(props) {
-  const { onChange, currentItem } = props;
+  const { onChange, currentItem, name } = props;
   const isEdit = currentItem || false;
   return (
     <>
@@ -14,7 +14,7 @@ export function Checkbox(props) {
             id="fechado"
             className="input-fechado"
             type="radio"
-            name="stateItem"
+            name={name}
             value="Fechado"
           />
           <label htmlFor="fechado" className="label-fechado">
@@ -27,7 +27,7 @@ export function Checkbox(props) {
             id="aberto"
             className="input-aberto"
             type="radio"
-            name="stateItem"
+            name={name}
             value="Aberto"
           />
           <label htmlFor="aberto" className="label-aberto">
@@ -40,7 +40,7 @@ export function Checkbox(props) {
             id="acabou"
             className="input-acabou"
             type="radio"
-            name="stateItem"
+            name={name}
             value="Acabou"
             disabled={isEdit ? false : true}
           />

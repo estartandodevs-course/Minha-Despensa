@@ -4,44 +4,63 @@ import { FormItens } from "../../components/inputs-form/components/form/form-ite
 import { ModalDelete } from "../../components/modal/modal";
 import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../components/header/header";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+// import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+// import { useHistory } from "react-router-dom";
+import firebaseDb from '../../auth/config'
+import { useCount } from '../../context/count'
 import { useHistory } from "react-router-dom";
 
-export function FormPage() {
-  const [modalIsOpen, setModalOpen] = useState(false);
-  const location = useLocation();
-  const history = useHistory();
-  const data = location.state;
-  const currentItem = data?.item || false;
 
-  function Delete() {
-    if (location.state !== null) {
-      const jsonItem = JSON.parse(localStorage.getItem("Item"));
-      const index = jsonItem.findIndex((item) => item.id === currentItem.id);
-      jsonItem.splice(index, 1);
-      localStorage.setItem("Item", JSON.stringify(jsonItem));
-      if (jsonItem.length === 0) {
-        localStorage.removeItem("Item");
-      }
-    }
-    history.push("/despensa");
-    // setModalOpen(false);
+
+export function FormPage() {
+  const history = useHistory()
+  const { currentId, setCurrentId } = useCount()
+  const { productsObjects } = useCount()
+  const [modalIsOpen, setModalOpen] = useState(false);
+
+
+  
+  const currentItem = obj => {
+    if (currentId === "")
+      firebaseDb.child('products/').push(obj, (err) => {
+        if (err) console.log(err);
+        else setCurrentId("")
+      });
+    else
+      firebaseDb.child(`products/${currentId}`).set(obj, (err) => {
+        if (err) console.log(err);
+        else setCurrentId("")
+        history.push("/despensa");
+
+      });
+  }
+
+  const onDelete = key => {
+      firebaseDb.child(`products/${key}`).remove(
+        err => {
+          if(err)
+          console.log(err)
+          else
+          setCurrentId('')
+        history.push("/despensa");
+        }
+      )
+    
   }
 
   return (
-    <> 
-    <ModalDelete
-          isOpen={modalIsOpen}
-          onCancel={() => setModalOpen(false)}
-          onDelete={() => Delete()}
-        />
+    <>
+      <ModalDelete
+        isOpen={modalIsOpen}
+        onCancel={() => setModalOpen(false)}
+        onDelete={() => {onDelete(currentId)}}
+      />
       <Header
         openDeleteModal={() => setModalOpen(true)}
         currentItem={currentItem}
       />
       <main className="container-form-page">
-       
-        <FormItens currentItem={currentItem} />
+        <FormItens {...{ currentItem, productsObjects, currentId }} />
       </main>
       <Navbar />
     </>

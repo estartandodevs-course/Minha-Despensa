@@ -1,9 +1,9 @@
 import React from "react";
 import "./input.scss";
 
-export function ProdutcName(props) {
+export function Input(props) {
   const {
-    label = "Nome",
+    // label = "Nome",
     placeholder = "Informe o nome do item",
     type = "text",
     onChange,
@@ -20,7 +20,7 @@ export function ProdutcName(props) {
         <label className="title">{title}</label>
         <input
           className="input"
-          label={label}
+          // label={label}
           name={name}
           onChange={(e) => onChange(e)}
           type={type}

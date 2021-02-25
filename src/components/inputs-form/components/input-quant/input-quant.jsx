@@ -6,8 +6,8 @@ import iconMenos from "../../../../assets/icons/icon-menos.svg";
 import iconMenosVerde from "../../../../assets/icons/icon-menos-verde.svg";
 import { useState } from "react";
 
-export function Quant(props) {
-  const { onChange, name, value = 0 } = props;
+export function Quantity(props) {
+  const { onChange, name, value  } = props;
   const [mais, setMais] = useState(iconMais);
   const [menos, setMenos] = useState(iconMenos);
   const [num, setNum] = useState({ color: "#c48b76" });
@@ -49,7 +49,7 @@ export function Quant(props) {
           style={num}
           onFocus={onFocus}
           onBlur={onFocusOut}
-          onChange={(e) => onChange(e)}
+          onChange={onChange}
           type="number"
           value={value}
           // disabled
